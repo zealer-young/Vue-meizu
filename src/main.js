@@ -3,20 +3,20 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
-import env from './env'
+// import env from './env'
 
 
 
 //根据前端的跨域方式做调整 /a/b : /api/a/b => /a/b
 //接口代理：我们当前接口的域名和前端接口域名是一样的
 //(下面这句话的意思)当我们是接口代理的时候
-axios.defaults.baseURL = '/api';
+// axios.defaults.baseURL = '/api';
 
 //超时设置为8秒（最好要定义，否则用户体验不好，常规设置为5-8秒）
 axios.defaults.timeout = 8000;
 
 //根据环境变量获取不同的请求地址
-axios.defaults.baseURL = env.baseURL;
+// axios.defaults.baseURL = env.baseURL;
 
 //接口错误拦截
 //status为0代表成功，status为10代表未登录，其余为错误
@@ -33,7 +33,7 @@ axios.interceptors.response.use(function(response) {
   }
 });
 
-Vue.use(VueAxios,axios)
+Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 new Vue({
