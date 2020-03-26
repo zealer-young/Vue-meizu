@@ -10,39 +10,17 @@
 export default {
   
   name: 'App',
-  components: {
-    
-  },
   data() {
     return {
-      res : {}
     }
-  },
-  mounted() {
-    //storage.setItem('a',1)
-    //storage.setItem('user',{a:1})
-
-    //本地加载请求静态json文件的形式
-    // this.axios.get('/mock/user/login.json').then((res) => {
-    //     this.res = res;
-    // });
-
-     //通过easy-mock平台实现数据mock
-    this.axios.get('/user/login').then((res) => {
-        this.res = res;
-    });
   }
+  
 }
 
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './assets/scss/reset.scss';
+@import './assets/scss/config.scss';
+@import './assets/scss/button.scss';
 </style>

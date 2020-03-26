@@ -13,10 +13,10 @@ if (mock) {
 //根据前端的跨域方式做调整 /a/b : /api/a/b => /a/b
 //接口代理：我们当前接口的域名和前端接口域名是一样的
 //(下面这句话的意思)当我们是接口代理的时候
-// axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = '/api';
 
 //mock地址
-axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
+// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
 
 //超时设置为8秒（最好要定义，否则用户体验不好，常规设置为5-8秒）
 axios.defaults.timeout = 8000;
