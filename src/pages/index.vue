@@ -9,10 +9,10 @@
               <div class="children">
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
-                      <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                        <img v-bind:src="sub?sub.img:require('../../public/imgs/item-box-2.png')" alt="">
-                        {{sub?sub.name:'小米9'}}
-                      </a>
+                    <a v-bind:href="sub?'/#/product/'+sub.id:''">
+                      <img v-bind:src="sub?sub.img:require('../../public/imgs/item-box-2.png')" alt />
+                      {{sub?sub.name:'小米9'}}
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -54,8 +54,16 @@
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
       </div>
-      <div class="ads-box"></div>
-      <div class="banner"></div>
+      <div class="ads-box">
+        <a v-bind:href="'/#/product'+item.id" v-for="(item,index) in adsList" v-bind:key="index">
+          <img v-bind:src="item.img" alt />
+        </a>
+      </div>
+      <div class="banner">
+        <a href="/#/product/30">
+          <img src="../../public/imgs/banner-1.png" alt />
+        </a>
+      </div>
       <div class="product-box"></div>
     </div>
     <service-bar></service-bar>
@@ -116,34 +124,52 @@ export default {
           img: require("../../public/imgs/slider/slide-5.jpg")
         }
       ],
-      menuList:[
+      menuList: [
         [
           {
             id: 30,
             img: require("../../public/imgs/item-box-1.png"),
-            name: "小米CC9",
+            name: "小米CC9"
           },
           {
             id: 31,
             img: require("../../public/imgs/item-box-2.png"),
-            name: "小米8青春版",
+            name: "小米8青春版"
           },
           {
             id: 32,
             img: require("../../public/imgs/item-box-3.jpg"),
-            name: "RedMI K20 Pro",
+            name: "RedMI K20 Pro"
           },
           {
             id: 33,
             img: require("../../public/imgs/item-box-4.jpg"),
-            name: "移动4G专区",
+            name: "移动4G专区"
           }
         ],
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0]
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+      ],
+      adsList: [
+        {
+          id: 33,
+          img: require("../../public/imgs/ads/ads-1.png")
+        },
+        {
+          id: 48,
+          img: require("../../public/imgs/ads/ads-2.jpg")
+        },
+        {
+          id: 45,
+          img: require("../../public/imgs/ads/ads-3.png")
+        },
+        {
+          id: 47,
+          img: require("../../public/imgs/ads/ads-4.jpg")
+        }
       ]
     };
   }
@@ -166,7 +192,7 @@ export default {
         .menu-item {
           height: 50px;
           line-height: 50px;
-          &>a{
+          & > a {
             position: relative;
             display: block;
             font-size: 16px;
@@ -176,41 +202,41 @@ export default {
               position: absolute;
               right: 30px;
               top: 17.5px;
-              content: ' ';
+              content: " ";
               @include bgImg(10px, 15px, "../../public/imgs/icon-arrow.png");
             }
           }
           &:hover {
-            background-color:$colorA;
-            .children{
+            background-color: $colorA;
+            .children {
               display: block;
             }
           }
-          .children{
+          .children {
             display: none;
             width: 962px;
             height: 451px;
             background-color: $colorG;
-            position:absolute;
-            top:0;
+            position: absolute;
+            top: 0;
             left: 264px;
             border: 1px solid $colorH;
-            ul{
-              display:flex;
+            ul {
+              display: flex;
               justify-content: space-between;
               height: 75px;
-              li{
+              li {
                 height: 75px;
                 line-height: 75px;
                 flex: 1;
                 padding-left: 23px;
               }
-              a{
+              a {
                 color: $colorB;
                 font-size: 14px;
               }
-              img{
-                width:42px;
+              img {
+                width: 42px;
                 height: 35px;
                 vertical-align: middle;
                 margin-right: 15px;
@@ -230,6 +256,18 @@ export default {
         height: 100%;
       }
     }
+  }
+  .ads-box {
+    @include flex();
+    margin-top: 14px;
+    margin-bottom: 31px;
+    a {
+      width: 296px;
+      height: 167px;
+    }
+  }
+  .banner {
+    margin-bottom: 50px;
   }
 }
 </style>
