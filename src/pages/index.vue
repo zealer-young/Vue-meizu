@@ -94,10 +94,21 @@
       </div>
     </div>
     <service-bar></service-bar>
+    <!-- modale组件 参数详情参考modal文件props设置 -->
+    <modal title="提示" 
+    sureText="查看购物车" 
+    btnType="1" 
+    modalType="middle" 
+    v-bind:showModal="true">
+    <template v-slot:body>
+      <p>商品添加成功!</p>
+    </template>
+    </modal>
   </div>
 </template>
 <script>
 import ServiceBar from "../components/ServiceBar";
+import Modal from "./../components/Modal";
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
@@ -105,7 +116,8 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    ServiceBar
+    ServiceBar,
+    Modal
   },
   data() {
     return {
@@ -211,11 +223,13 @@ export default {
         .get("/products", {
           params: {
             categoryId: 100012,
-            pageSize: 8
+            pageSize: 14
           }
         })
         .then(res => {
           // 二维数组分割
+          //后台返回14条数据，前六条用于topbar导航（小米手机），后八条用于wrapper商品页面
+          res.list = res.list.slice(6, 14);
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
         });
     }
