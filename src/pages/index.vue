@@ -94,15 +94,11 @@
       </div>
     </div>
     <service-bar></service-bar>
-    <!-- modale组件 参数详情参考modal文件props设置 -->
-    <modal title="提示" 
-    sureText="查看购物车" 
-    btnType="1" 
-    modalType="middle" 
-    v-bind:showModal="true">
-    <template v-slot:body>
-      <p>商品添加成功!</p>
-    </template>
+    <!-- modal组件 参数详情参考modal文件props设置 -->
+    <modal title="提示" sureText="查看购物车" btnType="1" modalType="middle" v-bind:showModal="true">
+      <template v-slot:body>
+        <p>商品添加成功!</p>
+      </template>
     </modal>
   </div>
 </template>
