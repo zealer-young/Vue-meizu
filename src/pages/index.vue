@@ -77,14 +77,15 @@
           <div class="list-box">
             <div class="list" v-for="(arr,i) in phoneList" v-bind:key="i">
               <div class="item" v-for="(item,j) in arr" v-bind:key="j">
-                <span>新品</span>
+                <!-- 利用奇数偶数判断是否添加属性，样式为new-pro（新品） 或 kill-pro(秒杀)  -->
+                <span v-bind:class="{'new-pro':j%2==0}">新品</span>
                 <div class="item-img">
-                  <img src="../../public/imgs/detail/phone-1.jpg" alt />
+                  <img v-bind:src="item.mainImage" alt />
                 </div>
                 <div class="item-info">
-                  <h3>小米9</h3>
-                  <p>小龙855，索尼4800万超广角微距</p>
-                  <p class="price">2999元</p>
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.subtitle}}</p>
+                  <p class="price">{{item.price}}元</p>
                 </div>
               </div>
             </div>
@@ -197,11 +198,27 @@ export default {
           img: require("../../public/imgs/ads/ads-4.jpg")
         }
       ],
-      phoneList: [
-        [1, 1, 1, 1],
-        [1, 1, 1, 1]
-      ]
+      phoneList: []
     };
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      //为给定 ID 的 user 创建请求,params用来传递参数
+      this.axios
+        .get("/products", {
+          params: {
+            categoryId: 100012,
+            pageSize: 8
+          }
+        })
+        .then(res => {
+          // 二维数组分割
+          this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
+        });
+    }
   }
 };
 </script>
@@ -332,9 +349,22 @@ export default {
             background-color: $colorG;
             text-align: center;
             span {
+              display: inline-block;
+              width: 67px;
+              height: 24px;
+              line-height: 24px;
+              font-size: 14px;
+              color: $colorG;
+              &.new-pro {
+                background-color: #7ecf68;
+              }
+              &.kill-pro {
+                background-color: #e82626;
+              }
             }
             .item-img {
               img {
+                width: 100%;
                 height: 195px;
               }
             }
