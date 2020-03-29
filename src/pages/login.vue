@@ -47,6 +47,8 @@
   </div>
 </template>
 <script>
+//mapActions 辅助函数
+  import { mapActions } from 'vuex';
 export default {
   name: "login",
   //data:{}是全局声明，可能会造成页面间数据串用；
@@ -73,10 +75,18 @@ export default {
         .then(res => {
           //cookie具体适用语法参看 npm cookie 具体方法
           this.$cookie.set("userId", res.id, { expires: "1M" });
-          //to-do 保存用户名
+          
+          //触发action
+          // this.$store.dispatch('saveUserName',res.username);
+          
+          //mapActions 辅助函数
+          this.saveUserName(res.username);
+          
           this.$router.push("/index");
         });
     },
+    //mapActions 辅助函数
+    ...mapActions(['saveUserName']),
     //register（）是当前页面用户注册方法
     register() {
       this.axios

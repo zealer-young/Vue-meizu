@@ -18,14 +18,14 @@ export default {
   methods: {
     //拉取用户信息
     getUser() {
-      this.axios.get('/user').then(() => {
-        //to-do 保存到Vuex里面
+      this.axios.get('/user').then((res) => {
+        this.$store.dispatch('saveUserName',res.username);
       });
     },
     //获取商品的购物车的数量
     getCartCount() {
-      this.axios.get('/carts/products/sum').then(() => {
-        //to-do 保存到Vuex里面
+      this.axios.get('/carts/products/sum').then((res) => {
+        this.$store.dispatch('saveCartCount',res);
       });
     }
   }
