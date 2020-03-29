@@ -13,7 +13,7 @@
           <a href="javascript:;" v-if="!username" @click="login()">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart()">
-            <span class="icon-cart"></span>购物车()
+            <span class="icon-cart"></span>购物车
           </a>
         </div>
       </div>
@@ -179,7 +179,7 @@ export default {
         background-color: #ff6600;
         text-align: center;
         color: #ffffff;
-
+        margin-right: 0;
         .icon-cart {
           @include bgImg(16px, 12px, "../../public/imgs/icon-cart-checked.png");
           margin-right: 4px;

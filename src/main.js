@@ -3,6 +3,7 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
+import VueCookie from 'vue-cookie'
 import App from './App.vue'
 
 // import env from './env'
@@ -37,11 +38,14 @@ axios.interceptors.response.use(function(response) {
   }else if(res.status == 10) {
     window.location.href = '/#/login';
   }else{
-    alert(res.msg)
+    alert(res.msg);
+    //请求失败手动抛出错误，不再进入成功内，Promise.reject()语法
+    return Promise.reject(res);
   }
 });
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
+Vue.use(VueCookie);
 Vue.use(VueLazyLoad, {
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
