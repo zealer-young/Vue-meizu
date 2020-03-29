@@ -10,9 +10,9 @@
         </div>
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{username}}</a>
-          <a href="javascript:;" v-if="!username" @click="login()">登录</a>
+          <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" class="my-cart" @click="goToCart()">
+          <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>购物车
           </a>
         </div>

@@ -33,10 +33,15 @@ axios.defaults.timeout = 8000;
 //res.data为接口返回的值，请求值
 axios.interceptors.response.use(function(response) {
   let res = response.data;
+  //获取路径
+  let path= location.hash;
   if(res.status == 0) {
     return res.data;
   }else if(res.status == 10) {
-    window.location.href = '/#/login';
+    if(path !='#/index'){
+      window.location.href = '/#/login';
+    }
+    
   }else{
     alert(res.msg);
     //请求失败手动抛出错误，不再进入成功内，Promise.reject()语法

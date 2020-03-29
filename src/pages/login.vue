@@ -66,7 +66,7 @@ export default {
       let { username, password } = this;
       this.axios
         .post("/user/login", {
-          username: username,
+         username: username,
           password: password
         })
         //需要注意res，避免声明未使用导致ESLint检查会报错（不属于语法或使用错误，是声明未使用导致的）
