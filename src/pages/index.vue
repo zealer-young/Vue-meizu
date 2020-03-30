@@ -241,16 +241,17 @@ export default {
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
         });
     },
-    addCart(){
-      this.showModal = true;
-      // this.axios.post('/carts',{//使用post请求
-      //   productId:id,
-      //   selected:true
-      // }).then(()=>{
+    addCart(id){
+      this.axios.post('/carts',{//使用post请求
+        productId:id,
+        selected:true
+      }).then((res)=>{
+        this.showModal = true;
+        //实现购物车数量实时计算（利用vuex）
+        this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
+      }).catch(()=>{
 
-      // }).catch(()=>{
-
-      // })
+      })
     },
     goToCart(){
       this.$router.push('/cart');
