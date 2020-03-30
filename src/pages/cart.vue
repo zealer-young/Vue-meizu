@@ -1,6 +1,10 @@
 <template>
     <div>
-      <order-header></order-header>
+      <order-header title="我的购物车">
+          <template v-slot:tip>
+             <span>温馨提示：商品是否购买成功，以最终下单为准，请尽快结算</span> 
+          </template>
+      </order-header>
         cat
         <nav-footer></nav-footer>
     </div>
