@@ -18,13 +18,13 @@ export default {
   methods: {
     //拉取用户信息
     getUser() {
-      this.axios.get('/user').then((res) => {
+      this.axios.get('/user').then((res={}) => {
         this.$store.dispatch('saveUserName',res.username);
       });
     },
     //获取商品的购物车的数量
     getCartCount() {
-      this.axios.get('/carts/products/sum').then((res) => {
+      this.axios.get('/carts/products/sum').then((res=0) => {
         this.$store.dispatch('saveCartCount',res);
       });
     }
