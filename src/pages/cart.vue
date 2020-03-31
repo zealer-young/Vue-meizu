@@ -90,14 +90,15 @@
             selected = item.productSelected;
         if(type == '-'){
           if(quantity == 1 ){
-            alert('商品至少保留一件');
+            //element-ui插件 this.$message.success/info/warning/error()语法格式之二
+            this.$message.warning('商品至少保留一件');
             return;
           }
           //必须写成--quantity，（不可写成quantity--，这样是后计算，下次运算才会发生变化）
           --quantity;
         }else if(type == '+'){
           if(quantity > item.productStock ){
-            alert('购买数量无法超过库存数量');
+            this.$message.warning('购买数量无法超过库存数量');
             return;
           }
           ++quantity;
@@ -114,6 +115,7 @@
       //删除购物车商品
       delProduct(item){
         this.axios.delete(`/carts/${item.productId}`).then((res)=>{
+          this.$message.success('删除成功')
           this.renderData(res);
         })
       },
@@ -135,7 +137,7 @@
       order(){
         let isCheck = this.list.every(item=>!item.productSelected);
         if(isCheck){
-          alert('请选择一件商品');
+          this.$message.warning('请选择一件商品');
         }else{
           this.$router.push('/order/confirm');
         }

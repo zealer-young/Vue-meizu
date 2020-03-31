@@ -4,6 +4,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
+//element-ui 按需引入 1.message插件 
+import { Message } from 'element-ui'
+//element-ui样式（必需，否则样式无法生效）
+import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
 
@@ -45,7 +49,7 @@ axios.interceptors.response.use(function(response) {
     }
     return Promise.reject(res);
   }else{
-    alert(res.msg);
+    Message.warning(res.msg);
     //请求失败手动抛出错误，不再进入成功内，Promise.reject()语法
     return Promise.reject(res);
   }
@@ -53,9 +57,11 @@ axios.interceptors.response.use(function(response) {
 
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
+Vue.use(Message);
 Vue.use(VueLazyLoad, {
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
+Vue.prototype.$message = Message;
 Vue.config.productionTip = false
 
 new Vue({

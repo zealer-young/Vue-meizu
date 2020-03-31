@@ -1,0 +1,14 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+//"presets": [["es2015", { "modules": false }]], 会报错
+//替换为"presets": ["@babel/preset-env"], 重启服务即可

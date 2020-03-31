@@ -49,6 +49,8 @@
 <script>
 //mapActions 辅助函数
   import { mapActions } from 'vuex';
+  //引入element-ui Message插件
+  import { Message } from 'element-ui'
 export default {
   name: "login",
   //data:{}是全局声明，可能会造成页面间数据串用；
@@ -97,7 +99,8 @@ export default {
         })//post传参，声明用户名，密码，邮箱等
           //在控制台Network-XHR-Preview下查看数据返结果
         .then(() => {
-         alert('注册成功');
+          //element-ui message.success/info/warning/error()语法格式之一
+         Message.success('注册成功');
         });
     }
   }
