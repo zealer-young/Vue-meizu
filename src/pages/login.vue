@@ -49,8 +49,6 @@
 <script>
 //mapActions 辅助函数
   import { mapActions } from 'vuex';
-  //引入element-ui Message插件
-  import { Message } from 'element-ui'
 export default {
   name: "login",
   //data:{}是全局声明，可能会造成页面间数据串用；
@@ -74,9 +72,9 @@ export default {
           password: password
         })
         //需要注意res，避免声明未使用导致ESLint检查会报错（不属于语法或使用错误，是声明未使用导致的）
-        .then(res => {
+        .then((res )=> {
           //cookie具体适用语法参看 npm cookie 具体方法
-          this.$cookie.set("userId", res.id, { expires: "1M" });
+          this.$cookie.set("userId", res.id, { expires: "Session" });//expires: "Session" 过期时间：会话级别
           
           //触发action
           // this.$store.dispatch('saveUserName',res.username);
@@ -84,7 +82,12 @@ export default {
           //mapActions 辅助函数
           this.saveUserName(res.username);
           
-          this.$router.push("/index");
+          this.$router.push({
+            name:'index',
+            params:{
+              from:'login'
+            }
+          });
         });
     },
     //mapActions 辅助函数
@@ -100,7 +103,7 @@ export default {
           //在控制台Network-XHR-Preview下查看数据返结果
         .then(() => {
           //element-ui message.success/info/warning/error()语法格式之一
-         Message.success('注册成功');
+         this.$message.success('注册成功');
         });
     }
   }

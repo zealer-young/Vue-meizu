@@ -12,8 +12,11 @@ export default {
     return {};
   },
   mounted() {
-    this.getUser();
-    this.getCartCount();
+    //如果userID是true，证明当前是登录状态，然后执行调用用户信息
+    if(this.$cookie.get('userId')){
+      this.getUser();
+      this.getCartCount();
+    }
   },
   methods: {
     //拉取用户信息
@@ -23,11 +26,11 @@ export default {
       });
     },
     //获取商品的购物车的数量
-    getCartCount() {
-      this.axios.get('/carts/products/sum').then((res=0) => {
-        this.$store.dispatch('saveCartCount',res);
-      });
-    }
+    getCartCount(){
+        this.axios.get('/carts/products/sum').then((res=0)=>{
+          this.$store.dispatch('saveCartCount',res);
+        })
+      },
   }
 };
 </script>

@@ -49,7 +49,7 @@ axios.interceptors.response.use(function(response) {
     }
     return Promise.reject(res);
   }else{
-    Message.warning(res.msg);
+    this.$message.warning(res.msg);
     //请求失败手动抛出错误，不再进入成功内，Promise.reject()语法
     return Promise.reject(res);
   }
@@ -57,7 +57,11 @@ axios.interceptors.response.use(function(response) {
 
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
-Vue.use(Message);
+//Vue.use(Message)；由于Message插件是按需局部引入，写入该语句：会导致页面刷新时，页面顶部弹出element-ui Message空弹窗
+//解决方案：1.不写Vue.use(Message)该语句
+//        2.替换为Vue.component(Message.name, Message)
+//        3.element-ui 在全局引入时，不会出现上述问题
+
 Vue.use(VueLazyLoad, {
   loading:'/imgs/loading-svg/loading-bars.svg'
 })

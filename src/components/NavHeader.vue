@@ -9,12 +9,11 @@
           <a href="javascript:;">协议规则</a>
         </div>
         <div class="topbar-user">
-          <a href="javascript:;" v-if="username">{{username}}</a>
+         <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
-          <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" class="my-cart" @click="goToCart">
-            <span class="icon-cart"></span>购物车({{cartCount}})
-          </a>
+          <a href="javascript:;" v-if="username" @click="logout">退出</a>
+          <a href="/#/order/list" v-if="username">我的订单</a>
+          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
         </div>
       </div>
     </div>
@@ -150,8 +149,15 @@ export default {
   },
   mounted() {
     this.getProductList();
+    //如果是从登录页面过来的就获取购物车数量
+    let params = this.$route.params;
+    if(params && params.from == 'login'){
+      this.getCartCount();
+    }
+    
   },
   methods: {
+    //跳转登录页面
     login() {
       this.$router.push("/login");
     },
@@ -167,6 +173,27 @@ export default {
           this.phoneList = res.list;
         });
     },
+    //获取商品的购物车的数量
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then((res=0) => {
+        this.$store.dispatch('saveCartCount',res);
+      });
+    },
+    //退出登录
+    logout(){
+      this.axios.post("/user/logout").then(() => { 
+          this.$message.success("退出登录成功");
+          //cookie.set()是cookie设置的方法
+          //cookie.get()是cookie获取的方法
+          //expires:'-1'是设置过期时间，设置为-1，表示立即过时
+          this.$cookie.set('userId','',{expires:'-1'});
+          //该步骤是清空用户名
+          this.$store.dispatch('saveUserName','');
+          //该步骤清空购物车数量
+          this.$store.dispatch('saveCartCount','0');
+        });
+    },
+    //跳转购物车页面
     goToCart() {
       this.$router.push("/cart");
     }
