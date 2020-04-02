@@ -1,7 +1,7 @@
 <template>
     <div>
         <order-header v-bind:title="title">
-            <template v-slot:tip>
+            <template v-slot: tip>
                 <span>{{tip}}</span>
             </template>
         </order-header>
@@ -18,8 +18,8 @@ export default {
     name: 'order',
     data(){
       return {
-        title:'',
-        tip:''
+        title:" ",
+        tip:""
       }  
     },
     components: {
@@ -29,7 +29,7 @@ export default {
     },
     mounted(){
         let path = this.$route.path;
-        if(path == '/order/confirm'){
+        if( path == '/order/confirm'){
             this.title = '订单确认';
             this.tip = '请认真填写收货地址'
         }else if(path == '/order/list'){

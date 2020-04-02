@@ -160,7 +160,6 @@
   </div>
 </template>
 <script>
-
 import Modal from './../components/Modal'
 export default{
   name:'order-confirm',
