@@ -48,7 +48,7 @@
             </div>
           </div>
           <el-pagination
-          v-if="false"
+          v-if="true"
           class="pagination"
           background
           layout="prev,pager,next"
@@ -56,13 +56,14 @@
           :total="total"
           @current-change="handleChange"
           ></el-pagination>
-          <div class="load-more" v-if="showNextPage">
+          <div class="load-more" v-if="false">
             <el-button type="primary" :loading="loading" @click="loadMore">加载更多</el-button>
           </div>
           <div class="scroll-more"
             v-infinite-scroll="scrollMore"
-            infinite-scroll-disabled="busy"
+            infinite-scroll-disabled="true"
             infinite-scroll-distance="410"
+            v-if="false"
           >
           <!-- 
             v-infinite-scroll="scrollMore" 当滚动时会触发该方法
@@ -75,7 +76,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </template>
 </template>
 <script>
 import OrderHeader from './../components/OrderHeader'
