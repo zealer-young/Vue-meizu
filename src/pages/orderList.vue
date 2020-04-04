@@ -56,8 +56,20 @@
           :total="total"
           @current-change="handleChange"
           ></el-pagination>
-          <div class="load-more">
+          <div class="load-more" v-if="showNextPage">
             <el-button type="primary" :loading="loading" @click="loadMore">加载更多</el-button>
+          </div>
+          <div class="scroll-more"
+            v-infinite-scroll="scrollMore"
+            infinite-scroll-disabled="busy"
+            infinite-scroll-distance="410"
+          >
+          <!-- 
+            v-infinite-scroll="scrollMore" 当滚动时会触发该方法
+            infinite-scroll-disabled="busy" true时禁用，false时释放
+            infinite-scroll-distance="10"  距离底部多高时使用，"10"代表10px
+            -->
+            <img src="/imgs/loading-svg/loading-spinning-bubbles.svg" alt="" v-show="loading">
           </div>
           <no-data v-if="!loading && list.length == 0"></no-data>          
         </div>
@@ -69,7 +81,8 @@
 import OrderHeader from './../components/OrderHeader'
 import Loading from './../components/Loading'
 import NoData from './../components/NoData'
-import { Pagination,Button } from 'element-ui'
+import { Pagination,Button } from 'element-ui'//element-ui Pagination分页器 Button 按钮
+import infiniteScroll from 'vue-infinite-scroll'// 滚动分页器
 export default {
     name: 'order-list',
     components:{
@@ -79,13 +92,18 @@ export default {
       [Pagination.name]:Pagination,
       [Button.name]:Button
     },
+    directives:{
+      infiniteScroll
+      },//滚动分页器的配置项
     data(){
       return{
         list:[],
         loading:false,
         pageSize:10,
         pageNum:1,
-        total:0,
+        total:0,//分页器方法使用的变量
+        showNextPage:true,//加载更多方法：是否显示按钮
+        busy:false,//滚动加载方法：是否触发
       }
     },
     mounted(){
@@ -94,6 +112,7 @@ export default {
     methods:{
       getOrderList(){
         this.loading = true;
+        this.busy = true;
         this.axios.get('/orders',{
           params:{
             pageSize:10,
@@ -103,6 +122,8 @@ export default {
         this.loading = false;
         this.list = this.list.concat(res.list);
         this.total = res.total;
+        this.showNextPage = res.hasNextPage;
+        this.busy = false;
       }).catch(()=>{
         this.loading = false;
       })
@@ -129,16 +150,43 @@ export default {
         //第二种和第三种的区别是：第二种使用的是路由的名称跳转；第三种使用的是路径跳转
        // query传参和params传参的区别是：query传参可以将参数添加到地址栏里面去
       },
-      //分页器
+      //分页第一种方法：分页器
       handleChange(pageNum){
         this.pageNum = pageNum;
         this.getOrderList();
       },
-      //加载更多
+      //分页第二种方法：加载更多按钮
       loadMore(){
         this.pageNum++;
         this.getOrderList();
-      }
+      },
+      //分页第三种方法：滚动加载，通过npm插件实现
+      scrollMore(){
+        this.busy = true;
+        setTimeout(()=>{
+          this.pageNum++;
+          this.getList();
+        },500)
+      },
+      //专门给scrollMore使用
+      getList(){
+        this.loading = true;
+        this.axios.get('/orders',{
+          params:{
+            pageSize:10,
+            pageNum:this.pageNum
+          }
+        }).then((res)=>{
+        
+        this.list = this.list.concat(res.list);
+        this.loading = false;
+        if(res.hasNextPage){//判断是否有下一页
+          this.busy = false;
+        }else{
+          this.busy = true;
+        }
+      })
+      },
     }
 }
 </script>
