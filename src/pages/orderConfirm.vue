@@ -160,6 +160,7 @@
   </div>
 </template>
 <script>
+import OrderHeader from './../components/OrderHeader'
 import Modal from './../components/Modal'
 export default{
   name:'order-confirm',
@@ -177,6 +178,7 @@ export default{
     }
   },
   components:{
+    OrderHeader,
     Modal
   },
   mounted(){
