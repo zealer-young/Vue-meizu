@@ -8,7 +8,7 @@
     <div class="wrapper">
       <div class="container">
         <div class="order-box">
-
+          <loading v-if="loading"></loading>
           <div class="order" v-for="(order,index) in list" :key="index">
             <div class="order-title">
               <div class="item-info fl">
@@ -46,7 +46,8 @@
                 <a href="javascript:;" @click="goPay(order.orderNo)">{{order.statusDesc}}</a>
               </div>
             </div>
-          </div>          
+          </div>
+          <no-data v-if="!loading && list.length == 0"></no-data>          
         </div>
       </div>
     </div>
@@ -54,14 +55,19 @@
 </template>
 <script>
 import OrderHeader from './../components/OrderHeader'
+import Loading from './../components/Loading'
+import NoData from './../components/NoData'
 export default {
     name: 'order-list',
     components:{
       OrderHeader,
+      Loading,
+      NoData
     },
     data(){
       return{
         list:[],
+        loading:true,
       }
     },
     mounted(){
@@ -70,7 +76,10 @@ export default {
     methods:{
       getOrderList(){
         this.axios.get('/orders').then((res)=>{
+        this.loading = false;
         this.list = res.list;
+      }).catch(()=>{
+        this.loading = false;
       })
       },
       //去支付
@@ -81,7 +90,7 @@ export default {
         /*this.$router.push({
           name:'order-pay',//name这里指路由的名称
           query:{
-            orderNo
+            orderNo//这里是传递的参数
           }
         })
         */
