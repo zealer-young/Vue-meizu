@@ -116,8 +116,8 @@
 <script>
 import ServiceBar from "../components/ServiceBar";
 import Modal from "./../components/Modal";
-import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import "swiper/dist/css/swiper.css";
 export default {
   name: "index",
   components: {
@@ -134,8 +134,6 @@ export default {
         effect: "cube",
         cubeEffect: {
           //cube效果参数，可选值：
-          slideShadows: true, //开启slide阴影。默认 true。
-          shadow: true, //开启投影。默认 true。
           shadowOffset: 100, //投影距离。默认 20，单位px。
           shadowScale: 0.8 //投影缩放比例。默认0.94。
         },
@@ -148,75 +146,69 @@ export default {
           prevEl: ".swiper-button-prev"
         }
       },
-      slideList: [
-        {
-          id: "42",
-          img: require("../../public/imgs/slider/slide-1.jpg")
-        },
-        {
-          id: "45",
-          img: require("../../public/imgs/slider/slide-2.jpg")
-        },
-        {
-          id: "46",
-          img: require("../../public/imgs/slider/slide-3.jpg")
-        },
-        {
-          id: "",
-          img: require("../../public/imgs/slider/slide-4.jpg")
-        },
-        {
-          id: "",
-          img: require("../../public/imgs/slider/slide-5.jpg")
-        }
-      ],
-      menuList: [
-        [
+      slideList:[
           {
-            id: 30,
-            img: require("../../public/imgs/item-box-1.png"),
-            name: "小米CC9"
+            id:'42',
+            img:'/imgs/slider/slide-1.jpg'
           },
           {
-            id: 31,
-            img: require("../../public/imgs/item-box-2.png"),
-            name: "小米8青春版"
+            id:'45',
+            img:'/imgs/slider/slide-2.jpg'
           },
           {
-            id: 32,
-            img: require("../../public/imgs/item-box-3.jpg"),
-            name: "RedMI K20 Pro"
+            id:'46',
+            img:'/imgs/slider/slide-3.jpg'
           },
           {
-            id: 33,
-            img: require("../../public/imgs/item-box-4.jpg"),
-            name: "移动4G专区"
+            id:'',
+            img:'/imgs/slider/slide-4.jpg'
+          },
+          {
+            id:'',
+            img:'/imgs/slider/slide-1.jpg'
           }
         ],
+       menuList:[
+          [
+            {
+              id:30,
+              img:'/imgs/item-box-1.png',
+              name:'小米CC9',
+            },{
+              id:31,
+              img:'/imgs/item-box-2.png',
+              name:'小米8青春版',
+            },{
+              id:32,
+              img:'/imgs/item-box-3.jpg',
+              name:'Redmi K20 Pro',
+            },{
+              id:33,
+              img:'/imgs/item-box-4.jpg',
+              name:'移动4G专区',
+            }
+          ],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]
       ],
-      adsList: [
-        {
-          id: 33,
-          img: require("../../public/imgs/ads/ads-1.png")
-        },
-        {
-          id: 48,
-          img: require("../../public/imgs/ads/ads-2.jpg")
-        },
-        {
-          id: 45,
-          img: require("../../public/imgs/ads/ads-3.png")
-        },
-        {
-          id: 47,
-          img: require("../../public/imgs/ads/ads-4.jpg")
-        }
-      ],
+      adsList:[
+          {
+            id:33,
+            img:'/imgs/ads/ads-1.png'
+          },{
+            id:48,
+            img:'/imgs/ads/ads-2.jpg'
+          },{
+            id:45,
+            img:'/imgs/ads/ads-3.png'
+          },{
+            id:47,
+            img:'/imgs/ads/ads-4.jpg'
+          }
+        ],
       phoneList: [],
       showModal:false
     };
@@ -249,9 +241,7 @@ export default {
         this.showModal = true;
         //实现购物车数量实时计算（利用vuex）
         this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
-      }).catch(()=>{
-
-      })
+      });
     },
     goToCart(){
       this.$router.push('/cart');

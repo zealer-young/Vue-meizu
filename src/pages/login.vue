@@ -1,33 +1,26 @@
 <template>
-  <div class="login">
+ <div class="login">
     <div class="container">
-      <a href="/#/index">
-        <img src="/imgs/login-logo.png" alt />
-      </a>
+      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""></a>
     </div>
     <div class="wrapper">
       <div class="container">
         <div class="login-form">
           <h3>
-            <span class="checked">帐号登录</span>
-            <span class="sep-line">|</span>
-            <span>扫码登录</span>
+            <span class="checked">帐号登录</span><span class="sep-line">|</span><span>扫码登录</span>
           </h3>
           <div class="input">
-            <input type="text" placeholder="请输入帐号" v-model="username" />
+            <input type="text" placeholder="请输入帐号" v-model="username">
           </div>
           <div class="input">
-            <input type="password" placeholder="请输入密码" v-model="password" />
+            <input type="password" placeholder="请输入密码" v-model="password">
           </div>
           <div class="btn-box">
             <a href="javascript:;" class="btn" @click="login">登录</a>
           </div>
           <div class="tips">
             <div class="sms" @click="register">手机短信登录/注册</div>
-            <div class="reg">
-              立即注册
-              <span>|</span>忘记密码？
-            </div>
+            <div class="reg">立即注册<span>|</span>忘记密码？</div>
           </div>
         </div>
       </div>
@@ -65,7 +58,7 @@ export default {
       //该处使用了ES6解构赋值,
       //也可写成 username = this.username;
       //        password = this.password;
-      let { username, password } = this;
+      let { username,password } = this;
       this.axios
         .post("/user/login", {
          username: username,
@@ -74,7 +67,7 @@ export default {
         //需要注意res，避免声明未使用导致ESLint检查会报错（不属于语法或使用错误，是声明未使用导致的）
         .then((res )=> {
           //cookie具体适用语法参看 npm cookie 具体方法
-          this.$cookie.set("userId", res.id, { expires: "Session" });//expires: "Session" 过期时间：会话级别
+          this.$cookie.set('userId',res.id,{expires:'Session'});//expires: "Session" 过期时间：会话级别
           
           //触发action
           // this.$store.dispatch('saveUserName',res.username);
@@ -93,19 +86,18 @@ export default {
     //mapActions 辅助函数
     ...mapActions(['saveUserName']),
     //register（）是当前页面用户注册方法
-    register() {
-      this.axios
-        .post("/user/login", {
-          username: 'admin1',
-          password: 'admin1',
-          email:'admin1@163.com'
-        })//post传参，声明用户名，密码，邮箱等
-          //在控制台Network-XHR-Preview下查看数据返结果
-        .then(() => {
-          //element-ui message.success/info/warning/error()语法格式之一
-         this.$message.success('注册成功');
-        });
+    register(){
+      this.axios.post('/user/register',{
+        username:'admin1',
+        password:'admin1',
+        email:'admin1@163.com'
+      }).then(()=>{
+        this.$message.success('注册成功');
+      })
     }
+    //element-ui message.success/info/warning/error()语法格式之一
+    //post传参，声明用户名，密码，邮箱等
+    //在控制台Network-XHR-Preview下查看数据返结果
   }
 };
 </script>

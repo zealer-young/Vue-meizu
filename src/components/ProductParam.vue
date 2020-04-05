@@ -41,7 +41,7 @@ export default {
   destroyed(){
     //利用Vue的生命周期，销毁添加的事件
     //设置冒泡为false，防止冒泡
-    window.removeListener('scroll',this.initHeight,false)
+    window.removeEventListener('scroll',this.initHeight,false)
   }
 }
 </script>

@@ -120,7 +120,6 @@
 
 //mapState 辅助函数
 import {mapState} from 'vuex'
-
 export default {
   name: "nav-header",
   data() {
@@ -159,7 +158,7 @@ export default {
   methods: {
     //跳转登录页面
     login() {
-      this.$router.push("/login");
+      this.$router.push('/login');
     },
     getProductList() {
       this.axios
@@ -181,7 +180,7 @@ export default {
     },
     //退出登录
     logout(){
-      this.axios.post("/user/logout").then(() => { 
+      this.axios.post('/user/logout').then(() => { 
           this.$message.success("退出登录成功");
           //cookie.set()是cookie设置的方法
           //cookie.get()是cookie获取的方法
@@ -195,7 +194,7 @@ export default {
     },
     //跳转购物车页面
     goToCart() {
-      this.$router.push("/cart");
+      this.$router.push('/cart');
     }
   }
 };
