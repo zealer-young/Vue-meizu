@@ -16,8 +16,9 @@ module.exports = {
     // outputDir:'dest',
     // indexPath:'index2.html',
     // lintOnSave:false,
-    productionSourceMap:false,
-    // chainWebpack:(config)=>{
-    //   config.plugins.delete('prefetch');
-    // }
+    productionSourceMap:true,
+    //删除预加载设置项
+    chainWebpack:(config)=>{
+      config.plugins.delete('prefetch');
+    }
   }
