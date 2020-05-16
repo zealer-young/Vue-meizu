@@ -149,23 +149,23 @@ export default {
       slideList:[
           {
             id:'42',
-            img:'../../public/imgs/slider/slide-1.jpg'
+            img: require('../../public/imgs/slider/slide-1.jpg')
           },
           {
             id:'45',
-            img:'../../public/imgs/slider/slide-2.jpg'
+            img:require('../../public/imgs/slider/slide-2.jpg')
           },
           {
             id:'46',
-            img:'../../public/imgs/slider/slide-3.jpg'
+            img:require('../../public/imgs/slider/slide-3.jpg')
           },
           {
             id:'',
-            img:'../../public/imgs/slider/slide-4.jpg'
+            img:require('../../public/imgs/slider/slide-4.jpg')
           },
           {
             id:'',
-            img:'../../public/imgs/slider/slide-1.jpg'
+            img:require('../../public/imgs/slider/slide-1.jpg')
           }
         ],
        menuList:[
