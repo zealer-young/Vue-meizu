@@ -11,10 +11,10 @@ module.exports = {
     proxy:{
       '/api':{
         target:'https://mall-pre.springboot.cn',
-        ws: true,
         changeOrigin:true,
+        secure: false,
         pathRewrite:{
-          '^/api':''
+          '^/api': ''
         }
       }
     }
