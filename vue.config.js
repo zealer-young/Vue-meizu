@@ -10,7 +10,7 @@ module.exports = {
     open: true,
     proxy:{
       '/api':{
-        target:'http://mall-pre.springboot.cn',
+        target:'https://mall-pre.springboot.cn',
         changeOrigin:true,
         pathRewrite:{
           '/api':''
