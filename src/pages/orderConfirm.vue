@@ -363,7 +363,7 @@ export default{
                 width:30px;
                 height:30px;
                 border-radius:50%;
-                background:url('/imgs/icon-add.png') #E0E0E0 no-repeat center;
+                background:url('../../public/imgs/icon-add.png') #E0E0E0 no-repeat center;
                 background-size:14px;
                 margin: 0 auto;
                 margin-top: 45px;

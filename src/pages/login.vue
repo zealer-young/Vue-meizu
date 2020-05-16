@@ -1,7 +1,7 @@
 <template>
  <div class="login">
     <div class="container">
-      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""></a>
+      <a href="/#/index"><img src="../../public/imgs/login-logo.png" alt=""></a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -111,7 +111,7 @@ export default {
     }
   }
   .wrapper {
-    background: url("/imgs/login-bg.jpg") no-repeat center;
+    background: url("../../public/imgs/login-bg.jpg") no-repeat center;
     .container {
       height: 576px;
       .login-form {

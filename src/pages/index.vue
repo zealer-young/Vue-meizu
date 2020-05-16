@@ -63,7 +63,7 @@
       <div class="banner">
         <a href="/#/product/30">
         <!-- v-lazy指令懒加载 双引号中储存的是字符串，需要用单引号再次引起来 -->
-          <img v-lazy="'/imgs/banner-1.png'" alt />
+          <img v-lazy="require('../../public/imgs/banner-1.png')" alt />
         </a>
       </div>
     </div>
@@ -73,7 +73,7 @@
         <div class="wrapper">
           <div class="banner-left">
             <a href="/#/product/35">
-              <img v-lazy="'/imgs/mix-alpha.jpg'" alt />
+              <img v-lazy="require('../../public/imgs/mix-alpha.jpg')" alt />
             </a>
           </div>
           <div class="list-box">
@@ -172,19 +172,19 @@ export default {
           [
             {
               id:30,
-              img:'../../public/imgs/item-box-1.png',
+              img:require('../../public/imgs/item-box-1.png'),
               name:'小米CC9',
             },{
               id:31,
-              img:'../../public/imgs/item-box-2.png',
+              img:require('../../public/imgs/item-box-2.png'),
               name:'小米8青春版',
             },{
               id:32,
-              img:'../../public/imgs/item-box-3.jpg',
+              img:require('../../public/imgs/item-box-3.jpg'),
               name:'Redmi K20 Pro',
             },{
               id:33,
-              img:'../../public/imgs/item-box-4.jpg',
+              img:require('../../public/imgs/item-box-4.jpg'),
               name:'移动4G专区',
             }
           ],
@@ -197,16 +197,16 @@ export default {
       adsList:[
           {
             id:33,
-            img:'/imgs/ads/ads-1.png'
+            img:require('../../public/imgs/ads/ads-1.png')
           },{
             id:48,
-            img:'/imgs/ads/ads-2.jpg'
+            img:require('../../public/imgs/ads/ads-2.jpg')
           },{
             id:45,
-            img:'/imgs/ads/ads-3.png'
+            img:require('../../public/imgs/ads/ads-3.png')
           },{
             id:47,
-            img:'/imgs/ads/ads-4.jpg'
+            img:require('../../public/imgs/ads/ads-4.jpg')
           }
         ],
       phoneList: [],
