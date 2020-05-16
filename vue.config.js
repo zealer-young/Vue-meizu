@@ -9,12 +9,12 @@ module.exports = {
     // 告诉dev-server在服务器启动后打开浏览器，将其设置true为打开默认浏览器
     open: true,
     proxy:{
-      '/api':{
+      "/api":{
         target:'https://mall-pre.springboot.cn',
         changeOrigin:true,
         secure: false,
         pathRewrite:{
-          '/api': ''
+          "^/api": ""
         }
       }
     }
