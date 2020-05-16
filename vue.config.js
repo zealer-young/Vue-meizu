@@ -1,8 +1,13 @@
 const HtmlWebpackInlinePlugin = require('html-webpack-inline-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
+const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 
 module.exports = {
   lintOnSave: false,
+  //删除预加载设置项
+  chainWebpack: (config) => {
+    config.plugins.delete('prefetch');
+  },
   devServer:{
     host:'localhost',
     port:8080,
@@ -14,12 +19,12 @@ module.exports = {
         changeOrigin:true,
         secure: false,
         pathRewrite:{
-          "/api": ""
+          "^/api": ""
         }
       }
     }
   },
-  publicPath: process.env.NODE_ENV === "prod" ? './' : '/',
+  publicPath: IS_PROD ? './' : '/',
   // outputDir:'dest',
   // indexPath:'index2.html',
   // lintOnSave:false,
@@ -27,7 +32,7 @@ module.exports = {
   configureWebpack: config => {
     config.optimization && (config.optimization.splitChunks.minSize = 10000);
     config.plugins.push(new HtmlWebpackInlinePlugin());
-    if (process.env.NODE_ENV === 'production') {
+    if (IS_PROD) {
       config.plugins.push(
         // Webpack完成捆绑过程后要执行的命令：删除dist目录下ignore目录，prod-md5-zip目录
         new FileManagerPlugin({
@@ -42,9 +47,5 @@ module.exports = {
       maxEntrypointSize: 5000000,
       maxAssetSize: 50000000
     };
-  },
-  //删除预加载设置项
-  chainWebpack:(config)=>{
-    config.plugins.delete('prefetch');
   }
 }
