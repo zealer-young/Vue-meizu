@@ -220,7 +220,7 @@ export default {
     init() {
       //为给定 ID 的 user 创建请求,params用来传递参数
       this.axios
-        .get("https://mall-pre.springboot.cn/products", {//使用get请求
+        .get("http://mall-pre.springboot.cn/products", {//使用get请求
           params: {
             categoryId: 100012,
             pageSize: 14

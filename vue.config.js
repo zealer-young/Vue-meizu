@@ -10,16 +10,16 @@ module.exports = {
     open: true,
     proxy:{
       "/api":{
-        target:'https://mall-pre.springboot.cn',
+        target:'http://mall-pre.springboot.cn',
         changeOrigin:true,
         secure: false,
         pathRewrite:{
-          "^/api": ""
+          "/api": ""
         }
       }
     }
   },
-  publicPath: process.env.NODE_ENV === "production" ? './' : '/',
+  publicPath: process.env.NODE_ENV === "prod" ? './' : '/',
   // outputDir:'dest',
   // indexPath:'index2.html',
   // lintOnSave:false,
