@@ -149,42 +149,42 @@ export default {
       slideList:[
           {
             id:'42',
-            img:'/imgs/slider/slide-1.jpg'
+            img:'../../public/imgs/slider/slide-1.jpg'
           },
           {
             id:'45',
-            img:'/imgs/slider/slide-2.jpg'
+            img:'../../public/imgs/slider/slide-2.jpg'
           },
           {
             id:'46',
-            img:'/imgs/slider/slide-3.jpg'
+            img:'../../public/imgs/slider/slide-3.jpg'
           },
           {
             id:'',
-            img:'/imgs/slider/slide-4.jpg'
+            img:'../../public/imgs/slider/slide-4.jpg'
           },
           {
             id:'',
-            img:'/imgs/slider/slide-1.jpg'
+            img:'../../public/imgs/slider/slide-1.jpg'
           }
         ],
        menuList:[
           [
             {
               id:30,
-              img:'/imgs/item-box-1.png',
+              img:'../../public/imgs/item-box-1.png',
               name:'小米CC9',
             },{
               id:31,
-              img:'/imgs/item-box-2.png',
+              img:'../../public/imgs/item-box-2.png',
               name:'小米8青春版',
             },{
               id:32,
-              img:'/imgs/item-box-3.jpg',
+              img:'../../public/imgs/item-box-3.jpg',
               name:'Redmi K20 Pro',
             },{
               id:33,
-              img:'/imgs/item-box-4.jpg',
+              img:'../../public/imgs/item-box-4.jpg',
               name:'移动4G专区',
             }
           ],

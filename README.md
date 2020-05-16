@@ -1,4 +1,4 @@
-# ma
+# Mi Store
 
 ## Project setup
 ```
