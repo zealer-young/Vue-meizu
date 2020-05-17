@@ -8,7 +8,7 @@ module.exports = {
   // chainWebpack: config => {
   //   config.plugins.delete("prefetch");
   // },
-   chainWebpack: config => {
+  chainWebpack: config => {
     // 修复HMR
     config.resolve.symlinks(true);
   },
@@ -19,11 +19,13 @@ module.exports = {
     open: true,
     proxy: {
       "/api": {
-        target: "http://mall-pre.springboot.cn",
+        target: 
+        "http://mall-pre.springboot.cn",
         changeOrigin: true,
         secure: false,
+        ws: true,
         pathRewrite: {
-          "^/api": " "
+          "^/api": "/"
         }
       }
     }
