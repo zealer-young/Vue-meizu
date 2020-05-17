@@ -24,7 +24,7 @@ module.exports = {
       }
     }
   },
-  publicPath: IS_PROD ? './' : '/',
+  publicPath: IS_PROD ? '/' : '/',
   productionSourceMap: false,
   configureWebpack: config => {
     config.optimization && (config.optimization.splitChunks.minSize = 10000);
