@@ -40,29 +40,29 @@ axios.defaults.timeout = 3000;
 //status为0代表成功，status为10代表未登录，其余为错误
 //response.data为获取到接口返回的值
 //res.data为接口返回的值，请求值
-axios.interceptors.response.use(function(response){
-  let res = response.data;
-  //获取路径
-  // let path= location.hash;
-  if(res.status == 0) {
-    return res.data;
-  }else if(res.status == 10) {
-    // if(path !='#/index'){
+// axios.interceptors.response.use(function(response){
+//   let res = response.data;
+//   //获取路径
+//   // let path= location.hash;
+//   if(res.status == 0) {
+//     return res.data;
+//   }else if(res.status == 10) {
+//     // if(path !='#/index'){
       
       
-    // }
-    window.location.href = '/#/login';
-    return Promise.reject(res);
-  }else{
-    this.$message.warning(res.msg);
-    //请求失败手动抛出错误，不再进入成功内，Promise.reject()语法
-    return Promise.reject(res);
-  }
-},(error)=>{
-  let res= error.response;
-  Message.error(res.data.message);
-  return Promise.reject(error);
-});
+//     // }
+//     window.location.href = '/#/login';
+//     return Promise.reject(res);
+//   }else{
+//     this.$message.warning(res.msg);
+//     //请求失败手动抛出错误，不再进入成功内，Promise.reject()语法
+//     return Promise.reject(res);
+//   }
+// },(error)=>{
+//   let res= error.response;
+//   Message.error(res.data.message);
+//   return Promise.reject(error);
+// });
 
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
