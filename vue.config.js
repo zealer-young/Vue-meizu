@@ -29,7 +29,7 @@ module.exports = {
     }
   },
   // runtimeCompiler: true,
-  publicPath: IS_PROD ? "http://mall-pre.springboot.cn" : "/",
+  publicPath: IS_PROD ? "https://mall-pre.springboot.cn" : "/",
   productionSourceMap: false,
   configureWebpack: config => {
     config.optimization && (config.optimization.splitChunks.minSize = 10000);
