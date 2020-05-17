@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
+// import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 //element-ui 按需引入 1.message插件 
@@ -64,7 +64,8 @@ axios.interceptors.response.use(function(response){
   return Promise.reject(error);
 });
 
-Vue.use(VueAxios, axios);
+// Vue.use(VueAxios, axios);
+Vue.prototype.axios = axios;
 Vue.use(VueCookie);
 //Vue.use(Message)；由于Message插件是按需局部引入，写入该语句：会导致页面刷新时，页面顶部弹出element-ui Message空弹窗
 //解决方案：1.不写Vue.use(Message)该语句
