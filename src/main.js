@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
-// import VueAxios from 'vue-axios'
+import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 //element-ui 按需引入 1.message插件 
@@ -25,7 +25,7 @@ import App from './App.vue'
 //   console.log("NODE_ENV:", process.env.NODE_ENV);
 //   axios.defaults.baseURL = "";
 // }
-// axios.defaults.baseURL = 'https://zealer-young.github.io/api';
+axios.defaults.baseURL = '/api';
 
 //mock地址
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
@@ -64,8 +64,8 @@ axios.interceptors.response.use(function(response){
   return Promise.reject(error);
 });
 
-// Vue.use(VueAxios, axios);
-Vue.prototype.axios = axios;
+Vue.use(VueAxios, axios);
+// Vue.prototype.axios = axios;
 Vue.use(VueCookie);
 //Vue.use(Message)；由于Message插件是按需局部引入，写入该语句：会导致页面刷新时，页面顶部弹出element-ui Message空弹窗
 //解决方案：1.不写Vue.use(Message)该语句
