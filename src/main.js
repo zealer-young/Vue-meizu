@@ -11,7 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
 
-import env from './env'
+// import env from './env'
 
 //mock开关
 // a
@@ -27,7 +27,7 @@ import env from './env'
 axios.defaults.timeout = 5000;
 
 //根据环境变量获取不同的请求地址
-axios.defaults.baseURL = env.baseURL;
+axios.defaults.baseURL = 'http://mall-pre.springboot.cn';
 
 //接口错误拦截
 //status为0代表成功，status为10代表未登录，其余为错误
