@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "'prod'" || process.env.NODE_ENV === "'production'"
   axios.defaults.baseURL = "http://mall-pre.springboot.cn/";
 } else {
   console.log("NODE_ENV:", process.env.NODE_ENV);
-  axios.defaults.baseURL = "/api";
+  axios.defaults.baseURL = "";
 }
 // axios.defaults.baseURL = 'https://zealer-young.github.io/api';
 
