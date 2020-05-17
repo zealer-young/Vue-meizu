@@ -18,13 +18,14 @@ import App from './App.vue'
 //根据前端的跨域方式做调整 /a/b : /api/a/b => /a/b
 //接口代理：我们当前接口的域名和前端接口域名是一样的
 //(下面这句话的意思)当我们是接口代理的时候
-// if (process.env.NODE_ENV === "'prod'" || process.env.NODE_ENV === "'production'") {
-//   console.log("NODE_ENV:", process.env.NODE_ENV);
-//   axios.defaults.baseURL = "http://mall-pre.springboot.cn";
-// } else {
-//   axios.defaults.baseURL = "/api";
-// }
-axios.defaults.baseURL = 'https://zealer-young.github.io/api';
+if (process.env.NODE_ENV === "'prod'" || process.env.NODE_ENV === "'production'") {
+  console.log("NODE_ENV:", process.env.NODE_ENV);
+  axios.defaults.baseURL = "http://mall-pre.springboot.cn/api";
+} else {
+  console.log("NODE_ENV:", process.env.NODE_ENV);
+  axios.defaults.baseURL = "/api";
+}
+// axios.defaults.baseURL = 'https://zealer-young.github.io/api';
 
 //mock地址
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
