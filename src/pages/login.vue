@@ -7,7 +7,7 @@
       <div class="container">
         <div class="login-form">
           <h3>
-            <span class="checked">xx帐号登录</span><span class="sep-line">|</span><span>扫码登录</span>
+            <span class="checked">test帐号登录</span><span class="sep-line">|</span><span>扫码登录</span>
           </h3>
           <div class="input">
             <input type="text" placeholder="请输入帐号" v-model="username">

@@ -19,7 +19,8 @@ import App from './App.vue'
 //接口代理：我们当前接口的域名和前端接口域名是一样的
 //(下面这句话的意思)当我们是接口代理的时候
 if (process.env.NODE_ENV === "'prod'" || process.env.NODE_ENV === "'production'") {
-  axios.defaults.baseURL = "http://mall-pre.springboot.cn/api";
+  console.log("NODE_ENV:", process.env.NODE_ENV);
+  axios.defaults.baseURL = "http://mall-pre.springboot.cn";
 } else {
   axios.defaults.baseURL = "/api";
 }
