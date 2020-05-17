@@ -23,13 +23,13 @@ module.exports = {
     //     secure: false,
     //     ws: true,
     //     pathRewrite: {
-    //       "^/api": "/"
+    //       "^/api": ""
     //     }
     //   }
     // }
   },
   // runtimeCompiler: true,
-  publicPath: IS_PROD ? "/Imitate-MI-Store/" : "/",
+  publicPath: IS_PROD ? "./" : "/",
   productionSourceMap: false,
   configureWebpack: config => {
     config.optimization && (config.optimization.splitChunks.minSize = 10000);

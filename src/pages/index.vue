@@ -220,12 +220,13 @@ export default {
     init() {
       //为给定 ID 的 user 创建请求,params用来传递参数
       this.axios
-        .get("http://mall-pre.springboot.cn/products", {//使用get请求
-          params: {
-            categoryId: 100012,
-            pageSize: 14
-          }
-        })
+      .get('http://mall-pre.springboot.cn/products?categoryId=100012&pageSize=14')
+        // .get("/products", {//使用get请求
+        //   params: {
+        //     categoryId: 100012,
+        //     pageSize: 14
+        //   }
+        // })
         .then(res => {
           // 二维数组分割
           //后台返回14条数据，前六条用于topbar导航（小米手机），后八条用于wrapper商品页面
@@ -234,7 +235,7 @@ export default {
         });
     },
     addCart(id){
-      this.axios.post('/carts',{//使用post请求
+      this.axios.post('http://mall-pre.springboot.cn/carts',{//使用post请求
         productId:id,
         selected:true
       }).then((res)=>{
