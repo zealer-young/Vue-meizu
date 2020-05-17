@@ -18,6 +18,11 @@ import App from './App.vue'
 //根据前端的跨域方式做调整 /a/b : /api/a/b => /a/b
 //接口代理：我们当前接口的域名和前端接口域名是一样的
 //(下面这句话的意思)当我们是接口代理的时候
+if (process.env.NODE_ENV === "'prod'" || process.env.NODE_ENV === "'production'") {
+  axios.defaults.baseURL = "http://prev-mall-pre.springboot.cn/api";
+} else {
+  axios.defaults.baseURL = "/api";
+}
 // axios.defaults.baseURL = '/api';
 
 //mock地址
@@ -27,7 +32,7 @@ import App from './App.vue'
 axios.defaults.timeout = 5000;
 
 //根据环境变量获取不同的请求地址
-axios.defaults.baseURL = 'http://mall-pre.springboot.cn';
+// axios.defaults.baseURL = env.baseURL;
 
 //接口错误拦截
 //status为0代表成功，status为10代表未登录，其余为错误
