@@ -24,13 +24,13 @@ import App from './App.vue'
 // } else {
 //   axios.defaults.baseURL = "/api";
 // }
-axios.defaults.baseURL = 'http://mall-pre.springboot.cn/api';
+axios.defaults.baseURL = 'https://zealer-young.github.io/api';
 
 //mock地址
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
 
 //超时设置为8秒（最好要定义，否则用户体验不好，常规设置为5-8秒）
-axios.defaults.timeout = 8000;
+axios.defaults.timeout = 3000;
 
 //根据环境变量获取不同的请求地址
 // axios.defaults.baseURL = env.baseURL;
