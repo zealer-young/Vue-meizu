@@ -25,7 +25,7 @@ import App from './App.vue'
 //   console.log("NODE_ENV:", process.env.NODE_ENV);
 //   axios.defaults.baseURL = "";
 // }
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = 'http://mall-pre.springboot.cn';
 
 //mock地址
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
