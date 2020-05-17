@@ -29,7 +29,7 @@ module.exports = {
     // }
   },
   // runtimeCompiler: true,
-  publicPath: IS_PROD ? "/Imitate-MI-Store/dist/" : "/",
+  publicPath: process.env.NODE_ENV === 'production' ? "/Imitate-MI-Store/" : "/",
   productionSourceMap: false,
   configureWebpack: config => {
     config.optimization && (config.optimization.splitChunks.minSize = 10000);
