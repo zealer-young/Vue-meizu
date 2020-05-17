@@ -11,8 +11,8 @@ module.exports = {
     config.resolve.symlinks(true);
   },
   devServer: {
-    // host:'localhost',
-    // port:8080,
+    host:'localhost',
+    port:8080,
     // 告诉dev-server在服务器启动后打开浏览器，将其设置true为打开默认浏览器
     open: true,
     // proxy: {
@@ -28,7 +28,7 @@ module.exports = {
     //   }
     // }
   },
-  runtimeCompiler: true,
+  // runtimeCompiler: true,
   publicPath: IS_PROD ? "./" : "/",
   productionSourceMap: false,
   configureWebpack: config => {

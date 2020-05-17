@@ -20,7 +20,7 @@ import App from './App.vue'
 //(下面这句话的意思)当我们是接口代理的时候
 if (process.env.NODE_ENV === "'prod'" || process.env.NODE_ENV === "'production'") {
   console.log("NODE_ENV:", process.env.NODE_ENV);
-  axios.defaults.baseURL = "http://mall-pre.springboot.cn";
+  axios.defaults.baseURL = "http://mall-pre.springboot.cn/";
 } else {
   console.log("NODE_ENV:", process.env.NODE_ENV);
   axios.defaults.baseURL = "/api";
