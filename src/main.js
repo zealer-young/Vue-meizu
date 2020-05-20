@@ -10,24 +10,38 @@ import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
+// import mock from '.mock.mock.js'
 
 // import env from './env'
 
 //mock开关
-const mock =  false;
+const mock =  true;
 if (mock) {
-  require('./mock/api')
+  require("./mock/api");
 }
+// // 请求拦截器
+// axios.interceptors.request.use(function(config) {
+//   return config
+// }, function(error) {
+//   return Promise.reject(error)
+// })
+// // 响应拦截器
+// axios.interceptors.response.use(function(response) {
+//   return response
+// }, function(error) {
+//   return Promise.reject(error)
+// })
+
 //根据前端的跨域方式做调整 /a/b : /api/a/b => /a/b
 //接口代理：我们当前接口的域名和前端接口域名是一样的
 //(下面这句话的意思)当我们是接口代理的时候
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = "/api";
 
 //mock地址
 // axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e7a4a522d625c1c4330f5a8/api';
 
 //超时设置为8秒（最好要定义，否则用户体验不好，常规设置为5-8秒）
-axios.defaults.timeout = 8000;
+axios.defaults.timeout = 1000;
 
 //根据环境变量获取不同的请求地址
 // axios.defaults.baseURL = env.baseURL;
