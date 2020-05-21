@@ -1,134 +1,201 @@
 <template>
   <div class="header">
-    <div class="nav-topbar">
-      <div class="container">
-        <div class="topbar-menu">
-          <a href="javascript:;">小米商城</a>
-          <a href="javascript:;">MUI</a>
-          <a href="javascript:;">云服务</a>
-          <a href="javascript:;">协议规则</a>
-        </div>
-        <div class="topbar-user">
-         <a href="javascript:;" v-if="username">{{username}}</a>
-          <a href="javascript:;" v-if="!username" @click="login">登录</a>
-          <a href="javascript:;" v-if="username" @click="logout">退出</a>
-          <a href="/#/order/list" v-if="username">我的订单</a>
-          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
+    <div class="box">
+      <div class="nav-header">
+        <div class="con">
+          <div class="logo">
+            <a href="/#/index">
+              <img src="../../public/imgs/goodDetails/logo-meizu.png" />
+            </a>
+          </div>
+          <div class="header-menu">
+            <div class="item-menu">
+              <span>手机</span>
+              <div class="children">
+                <ul>
+                  <li class="product" v-for="(item,index) in phoneList" :key="index">
+                    <a v-bind:href="'/#/product/'+item.id" target="_blank">
+                      <div class="pro-img">
+                        <!-- v-lazy指令懒加载 双引号中储存的是变量名 -->
+                        <img v-lazy="item.mainImage" :alt="item.subtitle" />
+                      </div>
+                      <div class="pro-name">{{item.name}}</div>
+                      <div class="pro-price">{{item.price | currency}}</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="item-menu">
+              <span>声学</span>
+            </div>
+            <div class="item-menu">
+              <span>配件</span>
+            </div>
+            <div class="item-menu">
+              <span>红米</span>
+            </div>
+            <div class="item-menu">
+              <span>电视</span>
+              <div class="children">
+                <ul>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt />
+                      </div>
+                      <div class="pro-name">小米壁画电视 65英寸</div>
+                      <div class="pro-price">6999元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt />
+                      </div>
+                      <div class="pro-name">小米全面屏电视E55A</div>
+                      <div class="pro-price">1999元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt />
+                      </div>
+                      <div class="pro-name">小米电视4A 32英寸</div>
+                      <div class="pro-price">699元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <!-- v-lazy指令懒加载 双引号中储存的是字符串，需要用单引号再次引起来 -->
+                        <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt />
+                      </div>
+                      <div class="pro-name">小米电视4A 55英寸</div>
+                      <div class="pro-price">1799元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt />
+                      </div>
+                      <div class="pro-name">小米电视4A 65英寸</div>
+                      <div class="pro-price">2699元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt />
+                      </div>
+                      <div class="pro-name">查看全部</div>
+                      <div class="pro-price">查看全部</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt />
+                      </div>
+                      <div class="pro-name">小米电视4A 65英寸</div>
+                      <div class="pro-price">2699元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href target="_blank">
+                      <div class="pro-img">
+                        <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt />
+                      </div>
+                      <div class="pro-name">查看全部</div>
+                      <div class="pro-price">查看全部</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="header-search">
+            <div class="wrapper">
+              <input type="text" name="keyword" placeholder="魅族16T" />
+              <a href="#"></a>
+            </div>
+          </div>
+          <div class="user">
+            <a href="javascript:;" v-if="username">{{username}}</a>
+            <a href="javascript:;" v-if="!username" @click="login">
+              <span class="icon-cart">asdasdas</span>
+            </a>
+            <a href="javascript:;" v-if="username" @click="logout">退出</a>
+            <a href="/#/order/list" v-if="username">我的订单</a>
+            <a href="javascript:;" class="my-cart" @click="goToCart">
+              <span class="icon-cart"></span>
+              ({{cartCount}})
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="nav-header">
-      <div class="container">
-        <div class="header-logo">
-          <a href="/#/index"></a>
-        </div>
-        <div class="header-menu">
-          <div class="item-menu">
-            <span>小米手机</span>
-            <div class="children">
-              <ul>
-                <li class="product" v-for="(item,index) in phoneList" :key="index">
-                  <a v-bind:href="'/#/product/'+item.id" target="_blank">
-                    <div class="pro-img">
-                      <!-- v-lazy指令懒加载 双引号中储存的是变量名 -->
-                      <img v-lazy="item.mainImage" :alt="item.subtitle" />
-                    </div>
-                    <div class="pro-name">{{item.name}}</div>
-                    <div class="pro-price">{{item.price | currency}}</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="item-menu">
-            <span>RedMi红米</span>
-          </div>
-          <div class="item-menu">
-            <span>电视</span>
-            <div class="children">
-              <ul>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt />
-                    </div>
-                    <div class="pro-name">小米壁画电视 65英寸</div>
-                    <div class="pro-price">6999元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt />
-                    </div>
-                    <div class="pro-name">小米全面屏电视E55A</div>
-                    <div class="pro-price">1999元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt />
-                    </div>
-                    <div class="pro-name">小米电视4A 32英寸</div>
-                    <div class="pro-price">699元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <!-- v-lazy指令懒加载 双引号中储存的是字符串，需要用单引号再次引起来 -->
-                      <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt />
-                    </div>
-                    <div class="pro-name">小米电视4A 55英寸</div>
-                    <div class="pro-price">1799元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt />
-                    </div>
-                    <div class="pro-name">小米电视4A 65英寸</div>
-                    <div class="pro-price">2699元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt />
-                    </div>
-                    <div class="pro-name">查看全部</div>
-                    <div class="pro-price">查看全部</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="header-search">
-          <div class="wrapper">
-            <input type="text" name="keyword" />
-            <a href="javascript:;"></a>
-          </div>
-        </div>
+      <div class="swiper">
+        <swiper v-bind:options="swiperOption">
+          <!-- <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">
+                    <a v-bind:href="'/#/product/' + item.id"
+                      ><img v-bind:src="item.img"
+                    />
+                    <img src="../../public/imgs/banner/002.jpg"
+                    /></a>
+          </swiper-slide>-->
+          <swiper-slide>
+            <img src="../../public/imgs/goodDetails/swiper-2.jpg" ref="img" :style="{marginLeft:left}" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../../public/imgs/goodDetails/swiper-3.jpg" />
+          </swiper-slide>
+          <!-- Optional controls -->
+          <div class="swiper-pagination" slot="pagination"></div>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
       </div>
     </div>
   </div>
 </template>
 <script>
-
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import "swiper/dist/css/swiper.css";
 //mapState 辅助函数
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   name: "nav-header",
   data() {
     return {
-      phoneList: []
+      phoneList: [],
+      swiperOption: {
+        centeredSlides: true,
+        autoplay: false,
+        loop: true,
+        effect: "fade",
+        cubeEffect: {
+          slideShadows: true,
+          shadow: true,
+          shadowOffset: 100,
+          shadowScale: 0.6
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      },
+      left:'',
+      screenWidth: document.body.clientWidth,  //给它赋值个（个人理解为网页的宽度）
     };
   },
   //compute帮助解决延迟问题，当变量读取的时候没有，之后变量发生变化，会重新计算一次，调用该方法
-  computed:{
+  computed: {
     /*username(){
       return this.$store.state.username;
     },
@@ -136,9 +203,13 @@ export default {
       return this.$store.state.cartCount;
     }
     */
-   
+
     //mapState 辅助函数
-    ...mapState(['username','cartCount'])
+    ...mapState(["username", "cartCount"])
+  },
+  components: {
+    swiper,
+    swiperSlide
   },
   filters: {
     currency(val) {
@@ -147,25 +218,39 @@ export default {
     }
   },
   mounted() {
+    this.swiperCenter();
     this.getProductList();
     //如果是从登录页面过来的就获取购物车数量
     let params = this.$route.params;
-    if(params && params.from == 'login'){
+    if (params && params.from == "login") {
       this.getCartCount();
     }
-    
+    let that = this;
+    window.onresize = () => {
+      return (() => {
+        window.screenWidth = document.body.clientWidth;
+        that.screenWidth = window.screenWidth;
+      })();
+    };
   },
   methods: {
+    // swiper轮播居中
+    swiperCenter() {
+      let w = document.body.clientWidth;
+      let imgWidth = this.$refs.img.width;
+      this.left = (((imgWidth-w)/2)+'px');
+      // console.log(this.left);
+    },
     //跳转登录页面
     login() {
-      this.$router.push('/login');
+      this.$router.push("/login");
     },
     getProductList() {
       this.axios
         .get("/products", {
           params: {
             categoryId: "100012",
-            pageSize: 6
+            pageSize: 8
           }
         })
         .then(res => {
@@ -174,28 +259,39 @@ export default {
     },
     //获取商品的购物车的数量
     getCartCount() {
-      this.axios.get('/carts/products/sum').then((res=0) => {
-        this.$store.dispatch('saveCartCount',res);
+      this.axios.get("/carts/products/sum").then((res = 0) => {
+        this.$store.dispatch("saveCartCount", res);
       });
     },
     //退出登录
-    logout(){
-      this.axios.post('/user/logout').then(() => { 
-          this.$message.success("退出登录成功");
-          //cookie.set()是cookie设置的方法
-          //cookie.get()是cookie获取的方法
-          //expires:'-1'是设置过期时间，设置为-1，表示立即过时
-          this.$cookie.set('userId','',{expires:'-1'});
-          //该步骤是清空用户名
-          this.$store.dispatch('saveUserName','');
-          //该步骤清空购物车数量
-          this.$store.dispatch('saveCartCount','0');
-        });
+    logout() {
+      this.axios.post("/user/logout").then(() => {
+        this.$message.success("退出登录成功");
+        //cookie.set()是cookie设置的方法
+        //cookie.get()是cookie获取的方法
+        //expires:'-1'是设置过期时间，设置为-1，表示立即过时
+        this.$cookie.set("userId", "", { expires: "-1" });
+        //该步骤是清空用户名
+        this.$store.dispatch("saveUserName", "");
+        //该步骤清空购物车数量
+        this.$store.dispatch("saveCartCount", "0");
+      });
     },
     //跳转购物车页面
     goToCart() {
-      this.$router.push('/cart');
-    }
+      this.$router.push("/cart");
+    },
+  },
+  watch:{
+        screenWidth(val) {
+        // 为了避免频繁触发resize函数导致页面卡顿，使用定时器
+        this.screenWidth = val; // 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth
+        let imgWidth = this.$refs.img.width;
+        this.left = -(imgWidth - val) / 2 + "px";
+        console.log(this.left);
+    },
+
+
   }
 };
 </script>
@@ -204,133 +300,202 @@ export default {
 @import "./../assets/scss/mixin.scss";
 @import "./../assets/scss/config.scss";
 .header {
-  .nav-topbar {
-    height: 39px;
-    line-height: 39px;
-    background-color: #333333;
-    color: #b0b0b0;
-    .container {
-      @include flex();
-      a {
+  .user {
+    a {
+      display: inline-block;
+      color: #b0b0b0;
+      margin-right: 10px;
+    }
+    .my-cart {
+      width: 50px;
+      background-color: #ff6600;
+      text-align: center;
+      color: #ffffff;
+      margin-right: 0;
+      .icon-cart {
         display: inline-block;
-        color: #b0b0b0;
-        margin-right: 17px;
-      }
-      .my-cart {
-        width: 110px;
-        background-color: #ff6600;
-        text-align: center;
-        color: #ffffff;
-        margin-right: 0;
-        .icon-cart {
-          @include bgImg(16px, 12px, "../../public/imgs/icon-cart-checked.png");
-          margin-right: 4px;
-        }
+        width: 25px;
+        height: 25px;
+        background: url("../../public/imgs/icon-cart-checked.png") no-repeat center;
+        background-size: contain;
+        margin-right: 2px;
       }
     }
   }
-  .nav-header {
-    .container {
-      position: relative;
-      height: 112px;
-      @include flex();
-      .header-menu {
-        display: inline-block;
-        width: 643px;
-        padding-left: 209px;
-        .item-menu {
+  .box {
+    /* position: relative; */
+    .nav-header {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 0px;
+      z-index: 2;
+      width: 99.9%;
+      .con {
+        position: relative;
+        width: 99.8%;
+        margin-right: auto;
+        margin-left: auto;
+        height: 82px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo {
+          width: 128px;
+          height: 24px;
+        }
+        .header-menu {
           display: inline-block;
-          color: #333333;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 112px;
-          margin-right: 20px;
-          span {
-            cursor: pointer;
-          }
-          &:hover {
-            color: $colorA;
+          width: 852px;
+          height: 82px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          /* padding-left: 209px; */
+          .item-menu {
+            display: inline-block;
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            line-height: 82px;
+            span {
+              display: block;
+              width: 62px;
+              height: 82px;
+              text-align: center;
+              cursor: pointer;
+            }
+            &:hover {
+              color: $colorA;
+              .children {
+                height: 220px;
+                opacity: 1;
+              }
+            }
             .children {
-              height: 220px;
-              opacity: 1;
+              position: absolute;
+              top: 82px;
+              left: 0;
+              width: 100%;
+              height: 0;
+              opacity: 0;
+              overflow: hidden;
+              border-top: 1px solid #e5e5e5;
+              box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
+              z-index: 10;
+              transition: all 0.5s;
+              background-color: #ffffff;
+              ul {
+                .product {
+                  position: relative;
+                  float: left;
+                  width: 12.5%;
+                  height: 220px;
+                  font-size: 12px;
+                  line-height: 12px;
+                  text-align: center;
+                  a {
+                    display: inline-block;
+                  }
+                  img {
+                    width: auto;
+                    height: 111px;
+                    margin-top: 26px;
+                  }
+                  .pro-img {
+                    height: 137px;
+                  }
+                  .pro-name {
+                    font-weight: bold;
+                    margin-top: 19px;
+                    margin-bottom: 8px;
+                    color: $colorB;
+                  }
+                  .pro-price {
+                    color: $colorA;
+                  }
+                  &:before {
+                    content: " ";
+                    position: absolute;
+                    top: 28px;
+                    right: 0;
+                    border-left: 1px solid $colorF;
+                    height: 100px;
+                    width: 1px;
+                  }
+                  &:last-child:before {
+                    display: none;
+                  }
+                  transition: opacity .2s linear;
+                  opacity: 0.75
+                }
+                .product:hover {
+                     transition: opacity .2s linear;
+                     opacity: 1
+                  }
+              }
             }
           }
-          .children {
-            position: absolute;
-            top: 112px;
-            left: 0;
-            width: 1226px;
-            height: 0;
-            opacity: 0;
-            overflow: hidden;
-            border-top: 1px solid #e5e5e5;
-            box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
-            z-index: 10;
-            transition: all 0.5s;
+          .item-menu:hover {
+            color: #188ffc;
+          }
+        }
+        .header-search {
+          width: 172px;
+          .wrapper {
+            height: 30px;
+            border: 1px solid #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 30px;
             background-color: #ffffff;
-            .product {
-              position: relative;
-              float: left;
-              width: 16.6%;
-              height: 220px;
+            input {
+              border: none;
+              box-sizing: border-box;
+              border-radius: 30px;
+
+              width: 100%;
+              height: 30px;
+              padding-left: 14px;
+            }
+            input::-webkit-input-placeholder {
+              /* WebKit browsers */
               font-size: 12px;
-              line-height: 12px;
-              text-align: center;
-              a {
-                display: inline-block;
-              }
-              img {
-                width: auto;
-                height: 111px;
-                margin-top: 26px;
-              }
-              .pro-img {
-                height: 137px;
-              }
-              .pro-name {
-                font-weight: bold;
-                margin-top: 19px;
-                margin-bottom: 8px;
-                color: $colorB;
-              }
-              .pro-price {
-                color: $colorA;
-              }
-              &:before {
-                content: " ";
-                position: absolute;
-                top: 28px;
-                right: 0;
-                border-left: 1px solid $colorF;
-                height: 100px;
-                width: 1px;
-              }
-              &:last-child:before {
-                display: none;
-              }
+              color: #9e9e9e;
+            }
+            input:-moz-placeholder {
+              /* Mozilla Firefox 4 to 18 */
+              font-size: 12px;
+              color: #9e9e9e;
+            }
+            input::-moz-placeholder {
+              /* Mozilla Firefox 19+ */
+              font-size: 12px;
+              color: #9e9e9e;
+            }
+            input:-ms-input-placeholder {
+              /* Internet Explorer 10+ */
+              font-size: 12px;
+              color: #9e9e9e;
+            }
+            a {
+              @include bgImg(18px, 18px, "../../public/imgs/icon-search.png");
+              margin-right: 7px;
             }
           }
         }
       }
-      .header-search {
-        width: 319px;
-        .wrapper {
-          height: 50px;
-          border: 1px solid #e0e0e0;
-          display: flex;
-          align-items: center;
-          input {
-            border: none;
-            box-sizing: border-box;
-            border-right: 1px solid #e0e0e0;
-            width: 264px;
-            height: 50px;
-            padding-right: 14px;
+    }
+    .swiper {
+      position: relative;
+      swiper-container {
+        swiper-slide {
+          img {
+            width: 2560px;
+            height: 100%;
           }
-          a {
-            @include bgImg(18px, 18px, "../../public/imgs/icon-search.png");
-            margin-left: 17px;
-          }
+        }
+        .swiper-button-next {
+          right: 12px;
         }
       }
     }

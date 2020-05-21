@@ -46,24 +46,24 @@
 export default {
   data () {
     return {
-      // bigList:[
-        //   {
-        //     id: 'bigList-0',
-        //     sign:"新品",
-        //     name: "魅族 17 Pro",
-        //     desc: "高通骁龙 865 + UFS 3.1 + LPDDR5 | 6400W 全场景 AR 专业影像系统",
-        //     price: 4299,
-        //     url:require("../../public/imgs/goodDetails/big17 pro.png"),
-        //   },
-        //   { 
-        //     id: 'bigList-1',
-        //     sign:"新品",
-        //     name: "魅族 17",
-        //     desc: "高通骁龙 865 + UFS 3.1 高速闪存  |  6400W 全场景影像系统",
-        //     price: 3699,
-        //     url:require("../../public/imgs/goodDetails/big17.png"),
-        //   }
-        // ],
+      bigList:[
+          {
+            id: 'bigList-0',
+            sign:"新品",
+            name: "魅族 17 Pro",
+            desc: "高通骁龙 865 + UFS 3.1 + LPDDR5 | 6400W 全场景 AR 专业影像系统",
+            price: 4299,
+            url:require("../../public/imgs/goodDetails/big17 pro.png"),
+          },
+          { 
+            id: 'bigList-1',
+            sign:"新品",
+            name: "魅族 17",
+            desc: "高通骁龙 865 + UFS 3.1 高速闪存  |  6400W 全场景影像系统",
+            price: 3699,
+            url:require("../../public/imgs/goodDetails/big17.png"),
+          }
+        ],
       smallList:[
           {
             id: 'smallList-0',

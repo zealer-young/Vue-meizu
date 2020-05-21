@@ -1,13 +1,13 @@
 module.exports = {
   devServer: {
-    // host: "localhost",
-    // port: 8080,
-    assetsSubDirectory: "public",
-    assetsPublicPath: "/",
+    host: "localhost",
+    port: 8080,
+    // assetsSubDirectory: "public",
+    // assetsPublicPath: "/",
     proxy: {
       "/api": {
-        // target:'http://mall-pre.springboot.cn',
-        target: "http://localhost:8080/",
+        target:'http://mall-pre.springboot.cn',
+        // target: "http://localhost:8080/",
         changeOrigin: true,
         pathRewrite: {
           'api': ''

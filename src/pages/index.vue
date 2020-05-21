@@ -129,7 +129,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        autoplay: true,
+        autoplay: false,
         loop: true,
         effect: "cube",
         cubeEffect: {
@@ -256,8 +256,8 @@ export default {
   .swiper-box {
     .nav-menu {
       position: absolute;
-      width: 264px;
-      height: 451px;
+      width: 1226px;
+      height: 200px;
       z-index: 9;
       padding: 26px 0;
       background-color: #55585a7a;
