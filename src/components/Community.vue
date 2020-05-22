@@ -257,7 +257,7 @@ export default {};
 <style lang="scss">
 .section-box {
   background: #f4f4f4;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   padding-bottom: 50px;
   width: 100%;
   height: 849px;
@@ -273,7 +273,7 @@ export default {};
   .section-box-row {
     box-sizing: border-box;
     .index-center-wrapper {
-      width: 1240px;
+      width: 1248px;
       margin: auto;
       /* box-sizing: border-box; */
       /* .clearfix */
@@ -303,9 +303,9 @@ export default {};
           display: list-item;
           text-align: -webkit-match-parent;
 
-          &.last {
-            margin-right: 0;
-          }
+          // &.last {
+          //   margin-right: 0;
+          // }
 
           a.box-img {
             position: relative;

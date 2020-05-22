@@ -13,14 +13,18 @@
               <span>手机</span>
               <div class="children">
                 <ul>
-                  <li class="product" v-for="(item,index) in phoneList" :key="index">
-                    <a v-bind:href="'/#/product/'+item.id" target="_blank">
+                  <li
+                    class="product"
+                    v-for="(item, index) in phoneList"
+                    :key="index"
+                  >
+                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
                       <div class="pro-img">
                         <!-- v-lazy指令懒加载 双引号中储存的是变量名 -->
                         <img v-lazy="item.mainImage" :alt="item.subtitle" />
                       </div>
-                      <div class="pro-name">{{item.name}}</div>
-                      <div class="pro-price">{{item.price | currency}}</div>
+                      <div class="pro-name">{{ item.name }}</div>
+                      <div class="pro-price">{{ item.price | currency }}</div>
                     </a>
                   </li>
                 </ul>
@@ -123,40 +127,56 @@
             </div>
           </div>
           <div class="user">
-            <a href="javascript:;" v-if="username">{{username}}</a>
-            <a href="javascript:;" v-if="!username" @click="login">
-              <div class="iconfont">&#xe673;</div>
+            <a href="javascript:;" v-if="username">{{ username }}</a>
+            <a
+              href="javascript:;"
+              v-if="!username"
+              @click="login"
+              ref="userLogin"
+            >
+              <div class="icon-login iconfont">
+                <span ref="icon">&#xe673;</span>
+                <div class="dropdown" v-if="loginShow">
+                  <div class="triangle-up "></div>
+                  <ul class="dropdown-list">
+                    <li>立即登录</li>
+                    <li>立即注册</li>
+                    <li>我的订单</li>
+                    <li>M码通道</li>
+                  </ul>
+                </div>
+              </div>
             </a>
             <a href="javascript:;" v-if="username" @click="logout">退出</a>
             <a href="/#/order/list" v-if="username">我的订单</a>
             <a href="javascript:;" class="my-cart" @click="goToCart">
               <span class="icon-cart iconfont">&#xe6d5;</span>
-<!--              ({{cartCount}})-->
+              <!--              ({{cartCount}})-->
             </a>
           </div>
         </div>
       </div>
-<!--      <div class="swiper">-->
-<!--        <swiper v-bind:options="swiperOption">-->
-<!--          &lt;!&ndash; <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">-->
-<!--                    <a v-bind:href="'/#/product/' + item.id"-->
-<!--                      ><img v-bind:src="item.img"-->
-<!--                    />-->
-<!--                    <img src="../../public/imgs/banner/002.jpg"-->
-<!--                    /></a>-->
-<!--          </swiper-slide>&ndash;&gt;-->
-<!--          <swiper-slide>-->
-<!--            <img src="../../public/imgs/goodDetails/swiper-2.jpg" ref="img" :style="{marginLeft:left}" />-->
-<!--          </swiper-slide>-->
-<!--          <swiper-slide>-->
-<!--            <img src="../../public/imgs/goodDetails/swiper-3.jpg" />-->
-<!--          </swiper-slide>-->
-<!--          &lt;!&ndash; Optional controls &ndash;&gt;-->
-<!--          <div class="swiper-pagination" slot="pagination"></div>-->
-<!--          <div class="swiper-button-prev" slot="button-prev"></div>-->
-<!--          <div class="swiper-button-next" slot="button-next"></div>-->
-<!--        </swiper>-->
-<!--      </div>-->
+      <!--      <div class="swiper">-->
+      <!--        <swiper v-bind:options="swiperOption">-->
+      <!--          &lt;!&ndash; <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">-->
+      <!--                    <a v-bind:href="'/#/product/' + item.id"-->
+      <!--                      ><img v-bind:src="item.img"-->
+      <!--                    />-->
+      <!--                    <img src="../../public/imgs/banner/002.jpg"-->
+      <!--                    /></a>-->
+      <!--          </swiper-slide>&ndash;&gt;-->
+      <!--          <swiper-slide>-->
+      <!--            <img src="../../public/imgs/goodDetails/swiper-2.jpg" ref="img" :style="{marginLeft:left}" />-->
+      <!--          </swiper-slide>-->
+      <!--          <swiper-slide>-->
+      <!--            <img src="../../public/imgs/goodDetails/swiper-3.jpg" />-->
+      <!--          </swiper-slide>-->
+      <!--          &lt;!&ndash; Optional controls &ndash;&gt;-->
+      <!--          <div class="swiper-pagination" slot="pagination"></div>-->
+      <!--          <div class="swiper-button-prev" slot="button-prev"></div>-->
+      <!--          <div class="swiper-button-next" slot="button-next"></div>-->
+      <!--        </swiper>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -170,6 +190,7 @@ export default {
   data() {
     return {
       phoneList: [],
+      loginShow: false,
       // swiperOption: {
       //   centeredSlides: true,
       //   autoplay: false,
@@ -205,7 +226,7 @@ export default {
     */
 
     //mapState 辅助函数
-    ...mapState(["username", "cartCount"])
+    ...mapState(["username", "cartCount"]),
   },
   components: {
     // swiper,
@@ -215,10 +236,11 @@ export default {
     currency(val) {
       if (!val) return "0.00";
       return "￥" + val.toFixed(2) + "元";
-    }
+    },
   },
   mounted() {
     // this.swiperCenter();
+    this.iconLogin();
     this.getProductList();
     //如果是从登录页面过来的就获取购物车数量
     let params = this.$route.params;
@@ -245,15 +267,28 @@ export default {
     login() {
       this.$router.push("/login");
     },
+    iconLogin() {
+      
+      const userLogin = this.$refs.userLogin;
+      const icon = this.$refs.icon;
+      userLogin.addEventListener("mouseenter", () => {
+
+        this.loginShow = true;
+        icon.innertext = "&#xe673;"
+      });
+      userLogin.addEventListener("mouseleave", () => {
+        this.loginShow = false;
+      });
+    },
     getProductList() {
       this.axios
         .get("/products", {
           params: {
             categoryId: "100012",
-            pageSize: 8
-          }
+            pageSize: 8,
+          },
         })
-        .then(res => {
+        .then((res) => {
           this.phoneList = res.list;
         });
     },
@@ -304,8 +339,42 @@ export default {
       color: #b0b0b0;
       margin-right: 10px;
     }
-    .iconfont{
+    .icon-login{
+      position: relative;
+    }
+    .dropdown {
+      position: absolute;
+      width: 100px;
+      height: 150px;
+      background-color: #fff;
+      top: 35px;
+      left: -18px;
+      .triangle-up{
+        display:inline-block;
+        width:0;
+        height:0;
+        border-left:5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom:7px solid #fff;
+        position: absolute;
+        top: -7px;
+        left: 44px;
+        }
+      // margin-top: 160px;
+      li {
+        display: block;
+        font-size: 14px;
+        color: #515151;
+        text-align: center;
+        line-height: 37px;
+      }
+    }
+    .iconfont {
       padding-left: 15px;
+      el-dropdown-link {
+        cursor: pointer;
+        color: #409eff;
+      }
     }
     .my-cart {
       /*width: 50px;*/
@@ -326,7 +395,6 @@ export default {
         /*background-size: contain;*/
         /*margin-right: 2px;*/
       }
-
     }
   }
   .box {
@@ -430,13 +498,13 @@ export default {
                   &:last-child:before {
                     display: none;
                   }
-                  transition: opacity .2s linear;
-                  opacity: 0.75
+                  transition: opacity 0.2s linear;
+                  opacity: 0.75;
                 }
                 .product:hover {
-                     transition: opacity .2s linear;
-                     opacity: 1
-                  }
+                  transition: opacity 0.2s linear;
+                  opacity: 1;
+                }
               }
             }
           }

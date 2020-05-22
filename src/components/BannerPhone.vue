@@ -175,7 +175,7 @@ export default {
 .info {
   width: 100%;
   height: 108px;
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   font-size: 30px;
   font-weight: 400;
   text-align: center;
@@ -199,12 +199,12 @@ export default {
 }
 
 .wrap {
-  width: 1250px;
+  width: 1248px;
   height: 1155px;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  left: 5px;
+  // left: 5px;
   padding-bottom: 50px;
 }
 .goods-left {

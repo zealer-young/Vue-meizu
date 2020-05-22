@@ -74,7 +74,7 @@ axios.interceptors.response.use(function(response){
   Message.error(res.data.message);
   return Promise.reject(error);
 });
-
+// Vue.use( Dropdown )
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
 //Vue.use(Message)；由于Message插件是按需局部引入，写入该语句：会导致页面刷新时，页面顶部弹出element-ui Message空弹窗
@@ -86,6 +86,7 @@ Vue.use(VueLazyLoad, {
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
 Vue.prototype.$message = Message;
+// Vue.prototype.$dropdown = Dropdown;
 Vue.config.productionTip = false
 
 new Vue({

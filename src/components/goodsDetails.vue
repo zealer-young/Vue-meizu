@@ -173,18 +173,19 @@ export default {
         line-height: 150px;
 
         }
-        .item a {
-          overflow: hidden;
+        .banner a {
+          position: relative;
           display: block;
-          width: 100%;
+          width: auto;
           height: 100%;
-          // display: flex;
-          // justify-content: center;
-          img {
-            // width: auto;
-            height: 100%;
-          }
+          background-position: 50%;
+          background-repeat: no-repeat;
         }
+          .banner a img {
+            width: auto;
+            height: 450px;
+          }
+        
         .item a:hover{
           transition: opacity .2s linear;
           opacity: 0.8

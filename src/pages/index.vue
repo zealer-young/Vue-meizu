@@ -104,6 +104,7 @@
       <good-details></good-details>
       <banner-phone></banner-phone>
       <community></community>
+      <flyme></flyme>
       <new-footer></new-footer>
     <modal
     title="提示"
@@ -132,6 +133,7 @@ import Swiper from "../components/swiper";
 import BannerPhone from "../components/BannerPhone";
 import newFooter from "../components/newFooter";
 import Community from './../components/Community'
+import Flyme from './../components/Flyme'
 export default {
   name: "index",
   components: {
@@ -146,6 +148,7 @@ export default {
       BannerPhone,
       newFooter,
       Community,
+      Flyme,
   },
   data() {
     return {
