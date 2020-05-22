@@ -127,31 +127,38 @@
             </div>
           </div>
           <div class="user">
-            <a href="javascript:;" v-if="username">{{ username }}</a>
-            <a
-              href="javascript:;"
-              v-if="!username"
-              @click="login"
-              ref="userLogin"
-            >
-              <div class="icon-login iconfont">
-                <span ref="icon">&#xe673;</span>
-                <div class="dropdown" v-if="loginShow">
-                  <div class="triangle-up "></div>
-                  <ul class="dropdown-list">
-                    <li>立即登录</li>
-                    <li>立即注册</li>
-                    <li>我的订单</li>
-                    <li>M码通道</li>
-                  </ul>
-                </div>
+            <div class="icon-login iconfont" ref="userLogin">
+              <span ref="icon">&#xe673;</span>
+              <div class="dropdown" v-if="loginShow">
+                <div class="triangle-up "></div>
+                <ul class="dropdown-list">
+                  <li>
+                    <a
+                      href="javascript:;"
+                      v-if="!username"
+                      @click="login"
+                      
+                      >立即登录</a
+                    >
+                    <a href="javascript:;" v-if="username">{{ username }}</a>
+                  </li>
+                  <li><a href="/#/cart" v-if="username">购物车</a><a href="javascript:;" v-if="!username" @click="login">立即注册</a></li>
+                  <li><a href="/#/order/list" v-if="username">我的订单</a><a href="javascript:;" v-if="!username" @click="login">我的订单</a></li>
+                  <li>
+                    <a href="javascript:;" v-if="username" @click="logout"
+                      >退出</a
+                    ><a href="javascript:;" v-if="!username" @click="login">M码通道</a>
+                  </li>
+                </ul>
               </div>
-            </a>
-            <a href="javascript:;" v-if="username" @click="logout">退出</a>
-            <a href="/#/order/list" v-if="username">我的订单</a>
+            </div>
+
             <a href="javascript:;" class="my-cart" @click="goToCart">
-              <span class="icon-cart iconfont">&#xe6d5;</span>
-              <!--              ({{cartCount}})-->
+              <div class="cart-box">
+                <span class="icon-cart iconfont">&#xe6d5;</span>
+
+                <div class="cartCount">{{ cartCount }}</div>
+              </div>
             </a>
           </div>
         </div>
@@ -268,13 +275,11 @@ export default {
       this.$router.push("/login");
     },
     iconLogin() {
-      
       const userLogin = this.$refs.userLogin;
       const icon = this.$refs.icon;
       userLogin.addEventListener("mouseenter", () => {
-
         this.loginShow = true;
-        icon.innertext = "&#xe673;"
+        icon.innertext = "&#xe673;";
       });
       userLogin.addEventListener("mouseleave", () => {
         this.loginShow = false;
@@ -334,13 +339,11 @@ export default {
 @import "./../assets/scss/config.scss";
 .header {
   .user {
-    a {
-      display: inline-block;
-      color: #b0b0b0;
-      margin-right: 10px;
-    }
-    .icon-login{
-      position: relative;
+    position: relative;
+    .icon-login {
+      position: absolute;
+      top: -10px;
+      left: 0;
     }
     .dropdown {
       position: absolute;
@@ -349,24 +352,30 @@ export default {
       background-color: #fff;
       top: 35px;
       left: -18px;
-      .triangle-up{
-        display:inline-block;
-        width:0;
-        height:0;
-        border-left:5px solid transparent;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      .triangle-up {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-bottom:7px solid #fff;
+        border-bottom: 7px solid #fff;
         position: absolute;
         top: -7px;
         left: 44px;
-        }
+      }
       // margin-top: 160px;
       li {
         display: block;
-        font-size: 14px;
-        color: #515151;
+        line-height: 30px;
         text-align: center;
-        line-height: 37px;
+        a{
+          font-size: 14px;
+          color: #515151;
+        }
+      }
+      li:hover a{
+        color: #008cff;
       }
     }
     .iconfont {
@@ -376,7 +385,8 @@ export default {
         color: #409eff;
       }
     }
-    .my-cart {
+    .cart-box {
+      // position: relative;
       /*width: 50px;*/
       /*background-color: #ff6600;*/
       /*text-align: center;*/
@@ -386,14 +396,26 @@ export default {
         display: block;
         font-size: 22px;
         position: absolute;
-        top: 29px;
-        padding: 0;
+        top: -6px;
+        left: 40px;
         /*display: inline-block;*/
         /*width: 25px;*/
         /*height: 25px;*/
         /*background: url("../../public/imgs/icon-cart-checked.png") no-repeat center;*/
         /*background-size: contain;*/
         /*margin-right: 2px;*/
+      }
+      .cartCount {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        top: -12px;
+        right: -86px;
+        background-color: red;
+        color: #fff;
+        text-align: center;
+        line-height: 15px;
+        border-radius: 50%;
       }
     }
   }
@@ -452,7 +474,7 @@ export default {
               height: 0;
               opacity: 0;
               overflow: hidden;
-              border-top: 1px solid #e5e5e5;
+              // border-top: 1px solid #e5e5e5;
               box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
               z-index: 10;
               transition: all 0.5s;
