@@ -4,18 +4,19 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
-//element-ui 按需引入 1.message插件 
+//element-ui 按需引入 1.message插件
 import { Message } from 'element-ui'
 //element-ui样式（必需，否则样式无法生效）
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
+import './assets/iconfont.css'
 // import mock from '.mock.mock.js'
 
 // import env from './env'
 
 //mock开关
-const mock =  true;
+const mock =  false;
 if (mock) {
   require("./mock/api");
 }
@@ -58,8 +59,8 @@ axios.interceptors.response.use(function(response){
     return res.data;
   }else if(res.status == 10) {
     // if(path !='#/index'){
-      
-      
+
+
     // }
     window.location.href = '/#/login';
     return Promise.reject(res);

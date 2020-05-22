@@ -125,44 +125,44 @@
           <div class="user">
             <a href="javascript:;" v-if="username">{{username}}</a>
             <a href="javascript:;" v-if="!username" @click="login">
-              <span class="icon-cart">asdasdas</span>
+              <div class="iconfont">&#xe673;</div>
             </a>
             <a href="javascript:;" v-if="username" @click="logout">退出</a>
             <a href="/#/order/list" v-if="username">我的订单</a>
             <a href="javascript:;" class="my-cart" @click="goToCart">
-              <span class="icon-cart"></span>
-              ({{cartCount}})
+              <span class="icon-cart iconfont">&#xe6d5;</span>
+<!--              ({{cartCount}})-->
             </a>
           </div>
         </div>
       </div>
-      <div class="swiper">
-        <swiper v-bind:options="swiperOption">
-          <!-- <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">
-                    <a v-bind:href="'/#/product/' + item.id"
-                      ><img v-bind:src="item.img"
-                    />
-                    <img src="../../public/imgs/banner/002.jpg"
-                    /></a>
-          </swiper-slide>-->
-          <swiper-slide>
-            <img src="../../public/imgs/goodDetails/swiper-2.jpg" ref="img" :style="{marginLeft:left}" />
-          </swiper-slide>
-          <swiper-slide>
-            <img src="../../public/imgs/goodDetails/swiper-3.jpg" />
-          </swiper-slide>
-          <!-- Optional controls -->
-          <div class="swiper-pagination" slot="pagination"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
-      </div>
+<!--      <div class="swiper">-->
+<!--        <swiper v-bind:options="swiperOption">-->
+<!--          &lt;!&ndash; <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">-->
+<!--                    <a v-bind:href="'/#/product/' + item.id"-->
+<!--                      ><img v-bind:src="item.img"-->
+<!--                    />-->
+<!--                    <img src="../../public/imgs/banner/002.jpg"-->
+<!--                    /></a>-->
+<!--          </swiper-slide>&ndash;&gt;-->
+<!--          <swiper-slide>-->
+<!--            <img src="../../public/imgs/goodDetails/swiper-2.jpg" ref="img" :style="{marginLeft:left}" />-->
+<!--          </swiper-slide>-->
+<!--          <swiper-slide>-->
+<!--            <img src="../../public/imgs/goodDetails/swiper-3.jpg" />-->
+<!--          </swiper-slide>-->
+<!--          &lt;!&ndash; Optional controls &ndash;&gt;-->
+<!--          <div class="swiper-pagination" slot="pagination"></div>-->
+<!--          <div class="swiper-button-prev" slot="button-prev"></div>-->
+<!--          <div class="swiper-button-next" slot="button-next"></div>-->
+<!--        </swiper>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from "vue-awesome-swiper";
-import "swiper/dist/css/swiper.css";
+// import { swiper, swiperSlide } from "vue-awesome-swiper";
+// import "swiper/dist/css/swiper.css";
 //mapState 辅助函数
 import { mapState } from "vuex";
 export default {
@@ -170,28 +170,28 @@ export default {
   data() {
     return {
       phoneList: [],
-      swiperOption: {
-        centeredSlides: true,
-        autoplay: false,
-        loop: true,
-        effect: "fade",
-        cubeEffect: {
-          slideShadows: true,
-          shadow: true,
-          shadowOffset: 100,
-          shadowScale: 0.6
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
-      },
-      left:'',
-      screenWidth: document.body.clientWidth,  //给它赋值个（个人理解为网页的宽度）
+      // swiperOption: {
+      //   centeredSlides: true,
+      //   autoplay: false,
+      //   loop: true,
+      //   effect: "fade",
+      //   cubeEffect: {
+      //     slideShadows: true,
+      //     shadow: true,
+      //     shadowOffset: 100,
+      //     shadowScale: 0.6
+      //   },
+      //   pagination: {
+      //     el: ".swiper-pagination",
+      //     clickable: true
+      //   },
+      //   navigation: {
+      //     nextEl: ".swiper-button-next",
+      //     prevEl: ".swiper-button-prev"
+      //   }
+      // },
+      // left:'',
+      // screenWidth: document.body.clientWidth,  //给它赋值个（个人理解为网页的宽度）
     };
   },
   //compute帮助解决延迟问题，当变量读取的时候没有，之后变量发生变化，会重新计算一次，调用该方法
@@ -208,8 +208,8 @@ export default {
     ...mapState(["username", "cartCount"])
   },
   components: {
-    swiper,
-    swiperSlide
+    // swiper,
+    // swiperSlide
   },
   filters: {
     currency(val) {
@@ -218,29 +218,29 @@ export default {
     }
   },
   mounted() {
-    this.swiperCenter();
+    // this.swiperCenter();
     this.getProductList();
     //如果是从登录页面过来的就获取购物车数量
     let params = this.$route.params;
     if (params && params.from == "login") {
       this.getCartCount();
     }
-    let that = this;
-    window.onresize = () => {
-      return (() => {
-        window.screenWidth = document.body.clientWidth;
-        that.screenWidth = window.screenWidth;
-      })();
-    };
+    // const that = this;
+    // window.onresize = () => {
+    //   return (() => {
+    //     window.screenWidth = document.body.clientWidth;
+    //     that.screenWidth = window.screenWidth;
+    //   })();
+    // };
   },
   methods: {
     // swiper轮播居中
-    swiperCenter() {
-      let w = document.body.clientWidth;
-      let imgWidth = this.$refs.img.width;
-      this.left = (((imgWidth-w)/2)+'px');
-      // console.log(this.left);
-    },
+    // swiperCenter() {
+    //   let w = this.screenWidth;
+    //   let imgWidth = this.$refs.img.width;
+    //   this.left = -(imgWidth - w) / 2 + "px";
+    //   // console.log(this.left);
+    // },
     //跳转登录页面
     login() {
       this.$router.push("/login");
@@ -282,17 +282,15 @@ export default {
       this.$router.push("/cart");
     },
   },
-  watch:{
-        screenWidth(val) {
-        // 为了避免频繁触发resize函数导致页面卡顿，使用定时器
-        this.screenWidth = val; // 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth
-        let imgWidth = this.$refs.img.width;
-        this.left = -(imgWidth - val) / 2 + "px";
-        console.log(this.left);
-    },
-
-
-  }
+  // watch: {
+  //       screenWidth(val) {
+  //       // 为了避免频繁触发resize函数导致页面卡顿，使用定时器
+  //       this.screenWidth = val; // 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth
+  //       let imgWidth = this.$refs.img.width;
+  //       this.left = -(imgWidth - val) / 2 + "px";
+  //       console.log(this.left);
+  //   },
+  // }
 };
 </script>
 <style lang="scss">
@@ -306,32 +304,39 @@ export default {
       color: #b0b0b0;
       margin-right: 10px;
     }
+    .iconfont{
+      padding-left: 15px;
+    }
     .my-cart {
-      width: 50px;
-      background-color: #ff6600;
-      text-align: center;
-      color: #ffffff;
-      margin-right: 0;
+      /*width: 50px;*/
+      /*background-color: #ff6600;*/
+      /*text-align: center;*/
+      /*color: #ffffff;*/
+      /*margin-right: 0;*/
       .icon-cart {
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        background: url("../../public/imgs/icon-cart-checked.png") no-repeat center;
-        background-size: contain;
-        margin-right: 2px;
+        display: block;
+        font-size: 22px;
+        position: absolute;
+        top: 29px;
+        padding: 0;
+        /*display: inline-block;*/
+        /*width: 25px;*/
+        /*height: 25px;*/
+        /*background: url("../../public/imgs/icon-cart-checked.png") no-repeat center;*/
+        /*background-size: contain;*/
+        /*margin-right: 2px;*/
       }
+
     }
   }
   .box {
-    /* position: relative; */
     .nav-header {
       display: flex;
       justify-content: center;
-      position: absolute;
       top: 0px;
-      z-index: 2;
       width: 99.9%;
       .con {
+        z-index: 999;
         position: relative;
         width: 99.8%;
         margin-right: auto;
@@ -485,20 +490,18 @@ export default {
         }
       }
     }
-    .swiper {
-      position: relative;
-      swiper-container {
-        swiper-slide {
-          img {
-            width: 2560px;
-            height: 100%;
-          }
-        }
-        .swiper-button-next {
-          right: 12px;
-        }
-      }
-    }
+    /*.swiper {*/
+    /*  position: relative;*/
+    /*  .swiper-container {*/
+    /*    img {*/
+    /*      width: 2560px;*/
+    /*      height: 100%;*/
+    /*    }*/
+    /*    .swiper-button-next {*/
+    /*      right: 12px;*/
+    /*    }*/
+    /*  }*/
+    /*}*/
   }
 }
 </style>

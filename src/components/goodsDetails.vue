@@ -1,6 +1,13 @@
 <template>
   <div class="goodsDetails">
     <div class="item">
+      <div class="banner">
+          <div class="info">手机</div>
+          <a href="/#/product/30">
+            <img src="../../public/imgs/bannerphone/002.jpg" />
+          </a>
+      </div>
+      <div class="wrap container">
       <div class="big" v-for="(items) in bigList" :key="items.id">
         <span class="product-sign-red">{{items.sign}}</span>
         <span class="box-info">
@@ -36,6 +43,7 @@
           </span>
         </span>
       </div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,7 +63,7 @@ export default {
             price: 4299,
             url:require("../../public/imgs/goodDetails/big17 pro.png"),
           },
-          { 
+          {
             id: 'bigList-1',
             sign:"新品",
             name: "魅族 17",
@@ -100,7 +108,7 @@ export default {
         ],
     }
   },
-   
+
     // methods: {
       // getGoodsDetailsData() {
       //   axios.get('/js/index.json').then((res)=>{
@@ -133,7 +141,7 @@ export default {
   //         this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
   //       });
   //   },
-  // }, 
+  // },
   // mounted(){
   // this.getGoodsDetailsData();
   // }
@@ -144,20 +152,61 @@ export default {
 <style lang="scss">
 @import "../assets/scss/mixin.scss";
 .goodsDetails {
-  width:1218px;
-  height: 900px;
+  // width: 100%;
+  // height: 1495px;
   .item{
-      width: 1250px;
-      height: 995px;
+      
       border-radius: 4px;
       display: flex;
       justify-content: space-around;
+      align-items: center;
       flex-wrap: wrap;
+      background-color: #f4f4f4;
+      
+        .info {
+        width: 100%;
+        height: 108px;
+        background-color: #f4f4f4;
+        font-size: 30px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 150px;
+
+        }
+        .item a {
+          overflow: hidden;
+          display: block;
+          width: 100%;
+          height: 100%;
+          // display: flex;
+          // justify-content: center;
+          img {
+            // width: auto;
+            height: 100%;
+          }
+        }
+        .item a:hover{
+          transition: opacity .2s linear;
+          opacity: 0.8
+        }
+      
+      .wrap {
+        width: 1250px;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        left: 5px;
+
+      }
       .big {
         width:615px;
         height: 610px;
+        background-color: #fff;
         border-radius: 4px;
         position: relative;
+        margin-right: 9px;
+        margin-top: 10px;
         .product-sign-red{
           position: absolute;
           top: 30px;
@@ -199,18 +248,23 @@ export default {
           img {
             width: 460px;
             height: 460px;
-            
+
           }
         }
         &:hover {
-          box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+          transition: all .3s ease;
+          box-shadow:5px 15px 20px rgba(0,0,0,0.1);
         }
       }
       .small {
         width:303px;
         height: 375px;
+        background-color: #fff;
         border-radius: 4px;
         position: relative;
+        margin-right: 9px;
+        // margin-top: 10px;
+
         .product-sign-red{
           position: absolute;
           top: 30px;
@@ -252,7 +306,7 @@ export default {
           img {
             width: 230px;
             height: 230px;
-            
+
           }
         }
         &:hover {
