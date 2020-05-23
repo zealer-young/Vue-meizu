@@ -98,14 +98,14 @@
 <!--    </div>-->
 <!--    <service-bar></service-bar>-->
     <!-- modal组件 参数详情参考modal文件props设置 -->
-      <nav-header></nav-header>
+      <!-- <nav-header></nav-header> -->
       <swiper></swiper>
       <ads-box></ads-box>
       <good-details></good-details>
       <banner-phone></banner-phone>
       <community></community>
       <flyme></flyme>
-      <new-footer></new-footer>
+      <!-- <new-footer></new-footer> -->
     <modal
     title="提示"
     sureText="查看购物车"
@@ -126,12 +126,12 @@
 import Modal from "./../components/Modal";
 // import { swiper, swiperSlide } from "vue-awesome-swiper";
 // import "swiper/dist/css/swiper.css";
-import NavHeader from "../components/NavHeader";
+// import NavHeader from "../components/NavHeader";
 import AdsBox from "../components/AdsBox";
 import goodDetails from './../components/goodsDetails'
 import Swiper from "../components/swiper";
 import BannerPhone from "../components/BannerPhone";
-import newFooter from "../components/newFooter";
+// import newFooter from "../components/newFooter";
 import Community from './../components/Community'
 import Flyme from './../components/Flyme'
 export default {
@@ -140,13 +140,13 @@ export default {
     // swiper,
     // swiperSlide,
     // ServiceBar,
-      NavHeader,
+      // NavHeader,
       Modal,
       AdsBox,
       goodDetails,
       Swiper,
       BannerPhone,
-      newFooter,
+      // newFooter,
       Community,
       Flyme,
   },

@@ -10,36 +10,6 @@
                 <span>满80免运费</span>
               </a>
             </li>
-            <li>
-              <a href="">
-                <img src="../../public/imgs/footer/row-01.png" alt="" />
-                <span>满80免运费</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../../public/imgs/footer/row-01.png" alt="" />
-                <span>满80免运费</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../../public/imgs/footer/row-01.png" alt="" />
-                <span>满80免运费</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../../public/imgs/footer/row-01.png" alt="" />
-                <span>满80免运费</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../../public/imgs/footer/row-01.png" alt="" />
-                <span>满80免运费</span>
-              </a>
-            </li>
           </ul>
           <div class="hotline">
             <span>周一至周日 8:00-20:00</span>
@@ -50,30 +20,6 @@
         <div class="footer-co">
           <div class="info-left">
             <ul>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
-              <li>
-                <a href="">了解魅族</a>
-              </li>
               <li>
                 <a href="">了解魅族</a>
               </li>
@@ -103,7 +49,35 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data () {
+    return {
+      footer:[
+        {
+          service:[
+            {
+              id:'',
+              url:'',
+              info:''
+            }
+          ],
+          infoLeft:[
+            {
+              id:'',
+              info:''
+            }
+          ],
+          focus:[
+            {
+              id:'',
+              url:''
+            }
+          ]
+        }
+      ]
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

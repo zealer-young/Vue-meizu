@@ -449,7 +449,7 @@ export default {
           /* padding-left: 209px; */
           .item-menu {
             display: inline-block;
-            color: rgb(255, 255, 255);
+            color: #333;
             font-size: 14px;
             line-height: 82px;
             span {
@@ -538,7 +538,7 @@ export default {
           width: 172px;
           .wrapper {
             height: 30px;
-            border: 1px solid #fff;
+            border: 1px solid #d9d9d9;
             display: flex;
             align-items: center;
             border-radius: 30px;
@@ -547,7 +547,6 @@ export default {
               border: none;
               box-sizing: border-box;
               border-radius: 30px;
-
               width: 100%;
               height: 30px;
               padding-left: 14px;

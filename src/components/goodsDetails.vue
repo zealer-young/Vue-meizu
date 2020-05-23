@@ -157,6 +157,8 @@ export default {
   overflow: hidden;
   // width: 100%;
   // height: 1495px;
+  overflow: hidden;
+
   .item{
       
       border-radius: 4px;

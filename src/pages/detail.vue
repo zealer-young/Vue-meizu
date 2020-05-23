@@ -4,14 +4,23 @@
     <div class="wrapper">
       <div class="container clearfix">
         <div class="swiper">
-          <swiper :options="swiperOption">
-              <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt=""></swiper-slide>
-              <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt=""></swiper-slide>
+          <swiper :options="swiperOption" class="gallery-top" ref="swiperTop">
+              <swiper-slide class="slide-1"><img src="/imgs/detail/phone-1.jpg" alt=""></swiper-slide>
+              <swiper-slide class="slide-2"><img src="/imgs/detail/phone-2.jpg" alt=""></swiper-slide>
               <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt=""></swiper-slide>
               <swiper-slide><img src="/imgs/detail/phone-4.jpg" alt=""></swiper-slide>
+              <!-- <div class="swiper-container-thumbs" slot="thumbs"></div> -->
               <!-- Optional controls -->
-              <div class="swiper-pagination"  slot="pagination"></div>
+              <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
           </swiper>
+          <swiper :options="swiperOptionThumbs" class="gallery-thumbs" ref="swiperThumbs">
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-1.jpg" alt=""></swiper-slide>
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-2.jpg" alt=""></swiper-slide>
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-3.jpg" alt=""></swiper-slide>
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-4.jpg" alt=""></swiper-slide>
+
+          </swiper>
+          
         </div>
         <div class="content">
           <h2 class="item-title">{{product.name}}</h2>
@@ -61,6 +70,7 @@
   </div>
 </template>
 <script>
+import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import ProductParam from './../components/ProductParam'
 import ServiceBar from './../components/ServiceBar';
@@ -73,12 +83,21 @@ export default{
       version:1,//商品版本切换
       product:{},//商品信息
       swiperOption:{
-        autoplay:true,
+        autoplay:false,
+        effect: "fade",
         pagination: {
           el: '.swiper-pagination',
           clickable :true,
         }
-      }
+      },
+      swiperOptionThumbs: {
+          // spaceBetween: 1,
+          centeredSlides: true,
+          touchRatio: 0.2,
+          slideToClickedSlide: true,
+          slidesPerView: 5,
+          // watchSlidesVisibility: true,/*避免出现bug*/
+        }
     }
   },
   components:{
@@ -89,6 +108,12 @@ export default{
   },
   mounted(){
     this.getProductInfo()
+    this.$nextTick(() => {
+        const swiperTop = this.$refs.swiperTop.swiper
+        const swiperThumbs = this.$refs.swiperThumbs.swiper
+        // swiperTop.controller.control = swiperThumbs
+        swiperThumbs.controller.control = swiperTop
+      })
   },
   methods:{
     getProductInfo(){
@@ -119,8 +144,12 @@ export default{
       .swiper{
         float:left;
         width:642px;
-        height:617px;
+        height:817px;   //617px
         margin-top:5px;
+        .showShadow {
+          // margin: 0 10px;
+          border-bottom: 1px solid #eee;
+        }
         img{
           width:100%;
           height:100%;
