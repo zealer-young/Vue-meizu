@@ -4,7 +4,7 @@
       <div class="banner">
           <div class="info">手机</div>
           <a href="/#/product/30">
-            <img src="../../public/imgs/bannerphone/002.jpg" />
+            <img src="../../public/imgs/bannerphone/001.jpg" />
           </a>
       </div>
       <div class="wrap container">
@@ -27,7 +27,7 @@
         </a>
       </div>
       <div class="small" v-for="(items) in smallList" :key="items.id">
-        <span class="product-sign-red">{{items.sign}}</span>
+        <span class="product-sign-red" >{{items.sign}}</span>
         <a>
           <img v-lazy="items.url" alt="" >
         </a>
@@ -108,7 +108,9 @@ export default {
         ],
     }
   },
-
+  methods:{
+    
+  }
     // methods: {
       // getGoodsDetailsData() {
       //   axios.get('/js/index.json').then((res)=>{
@@ -152,6 +154,7 @@ export default {
 <style lang="scss">
 @import "../assets/scss/mixin.scss";
 .goodsDetails {
+  overflow: hidden;
   // width: 100%;
   // height: 1495px;
   .item{
@@ -180,8 +183,10 @@ export default {
           height: 100%;
           background-position: 50%;
           background-repeat: no-repeat;
+          
         }
           .banner a img {
+            
             width: auto;
             height: 450px;
           }

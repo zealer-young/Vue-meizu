@@ -112,11 +112,11 @@ export default {
     },
     regist() {
       setTimeout(() => {
-        this.$message.success("test账号：admin");
+        this.$message.success({
+          duration:5000,
+          message: 'test账号：admin1 ; test密码：admin1',
+        });
       }, 700);
-      setTimeout(() => {
-        this.$message.success("test密码：admin");
-      }, 1500);
     }
     //element-ui message.success/info/warning/error()语法格式之一
     //post传参，声明用户名，密码，邮箱等
