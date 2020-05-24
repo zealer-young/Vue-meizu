@@ -52,12 +52,7 @@
 export default {
   data () {
     return {
-<<<<<<< Updated upstream
-      footer:[
-        {
-=======
       footer:{
->>>>>>> Stashed changes
           service:[
             {
               id:'',
@@ -78,10 +73,6 @@ export default {
             }
           ]
         }
-<<<<<<< Updated upstream
-      ]
-=======
->>>>>>> Stashed changes
     }
   }
 };
