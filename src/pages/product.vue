@@ -9,7 +9,7 @@
       <div class="item-bg">
         <h2>{{product.name}}</h2>
         <h3>{{product.subtitle}}</h3>
-        <p>
+        <!-- <p>
           <a href="" id="">全球首款双频 GP</a>
           <span>|</span>
           <a href="" id="">骁龙845</a>
@@ -17,7 +17,7 @@
           <a href="" id="">AI 变焦双摄</a>
           <span>|</span>
           <a href="" id="">红外人脸识别</a>
-        </p>
+        </p> -->
         <div class="price">
           <span>￥<em>{{product.price}}</em></span>
         </div>
@@ -26,15 +26,15 @@
       <div class="item-bg-3"></div>
       <div class="item-swiper">
         <swiper :options="swiperOption">
-            <swiper-slide><img src="/imgs/product/gallery-2.png" alt=""></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-3.png" alt=""></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-4.png" alt=""></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-5.jpg" alt=""></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-6.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/imgs/Community/comment-img-wp-1.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/imgs/Community/comment-img-wp-2.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/imgs/Community/comment-img-wp-3.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/imgs/Community/comment-img-wp-4.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="/imgs/Community/comment-img-wp-5.jpg" alt=""></swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
-        <p class="desc">小米8 AI变焦双摄拍摄</p>
+        <p class="desc">魅族 AI变焦双摄拍摄</p>
       </div>
       <div class="item-video">
         <h2>60帧超慢动作摄影<br/>慢慢回味每一瞬间的精彩</h2>
@@ -45,7 +45,7 @@
           <div class="video" v-bind:class="showSlide">
             <span class="icon-close" @click="closeVideo"></span>
             <!-- video标签 muted属性设置静音输出 autoplay自动播放-->
-            <video src="/imgs/product/video.mp4" muted autoplay controls="controls"></video>
+            <video src="/imgs/product/meizu-video.mp4" muted autoplay controls="controls"></video>
           </div>
         </div>
       </div>
@@ -108,15 +108,15 @@
   .product{
     .content{
       .item-bg{
-        background:url('/imgs/product/product-bg-1.png') no-repeat center;
+        background:url('/imgs/banner/002.jpg') no-repeat center;
         height:718px;
         text-align:center;
         h2{
-          font-size:80px;
-          padding-top:55px;
+          font-size: 44px;
+          padding-top: 0px;
         }
         h3{
-          font-size:24px;
+          font-size:20px;
           letter-spacing: 10px;
         }
         p{
@@ -135,17 +135,17 @@
           color:#333333;
           em{
             font-style:normal;
-            font-size:38px;
+            font-size:30px;
           }
         }
       }
       .item-bg-2{
-        background:url(/imgs/product/product-bg-2.png) no-repeat center;
+        background:url(/imgs/banner/002.jpg) no-repeat center;
         height:480px;
         background-size:1226px 397px;
       }
       .item-bg-3{
-        background:url(/imgs/product/product-bg-3.png) no-repeat center;
+        background:url(/imgs/banner/001.jpg) no-repeat center;
         height:638px;
         background-size:cover;
       }
@@ -158,6 +158,7 @@
         }
         img{
           width:100%;
+          height: 265px;
         }
       }
       .item-video{
@@ -176,7 +177,7 @@
           margin-bottom:58px;
         }
         .video-bg{
-          background:url('/imgs/product/gallery-1.png') no-repeat center;
+          background:url('/imgs/product/video-bg.png') no-repeat center;
           background-size:cover;
           width:1226px;
           height:540px;

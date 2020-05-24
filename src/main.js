@@ -83,8 +83,8 @@ Vue.use(VueCookie);
 //        3.element-ui 在全局引入时，不会出现上述问题
 
 Vue.use(VueLazyLoad, {
-  loading:'/imgs/loading-svg/loading-bars.svg'
-})
+  loading: "/imgs/loading-svg/loading-bubbles.svg"
+});
 Vue.prototype.$message = Message;
 // Vue.prototype.$dropdown = Dropdown;
 Vue.config.productionTip = false
