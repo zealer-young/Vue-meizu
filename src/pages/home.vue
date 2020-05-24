@@ -13,7 +13,6 @@ export default {
     components: {
         NavHeader,
         NewFooter,
-
     }
 }
 </script>

@@ -17,9 +17,6 @@
             <swiper-slide>
               <img src="/imgs/detail/meizu-17-4.jpg" alt />
             </swiper-slide>
-            <!-- <div class="swiper-container-thumbs" slot="thumbs"></div> -->
-            <!-- Optional controls -->
-            <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
           </swiper>
           <swiper :options="swiperOptionThumbs" class="gallery-thumbs" ref="swiperThumbs">
             <swiper-slide class="showShadow">
@@ -117,7 +114,6 @@ export default {
         }
       },
       swiperOptionThumbs: {
-        // spaceBetween: 1,
         centeredSlides: true,
         touchRatio: 0.2,
         slideToClickedSlide: true,
@@ -134,9 +130,10 @@ export default {
   mounted() {
     this.getProductInfo();
     this.$nextTick(() => {
+      // swiper-slide相互绑定
       const swiperTop = this.$refs.swiperTop.swiper;
       const swiperThumbs = this.$refs.swiperThumbs.swiper;
-      // swiperTop.controller.control = swiperThumbs
+      // swiperTop.controller.control = swiperThumbs;
       swiperThumbs.controller.control = swiperTop;
     });
   },
@@ -171,10 +168,9 @@ export default {
     .swiper {
       float: left;
       width: 642px;
-      height: 817px; //617px
+      height: 817px;
       margin-top: 5px;
       .showShadow {
-        // margin: 0 10px;
         border-bottom: 1px solid #eee;
       }
       img {
@@ -240,8 +236,6 @@ export default {
         margin-top: 5px;
         height: 30px;
         font-size: 14px;
-        /* display: block;
-            height: 20px; */
         .secondOne {
           border-radius: 2px;
           color: #e02b41;

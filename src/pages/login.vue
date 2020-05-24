@@ -25,7 +25,6 @@
             <a href="javascript:;" class="btn" @click="login">登录</a>
           </div>
           <div class="tips">
-            <!-- <div class="sms" @click="register">手机短信登录/注册</div> -->
             <div class="reg">
               <a ref="javascript:;" class="reg-a" @click="regist">立即注册</a>
 
@@ -35,18 +34,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="footer">
-      <div class="footer-link">
-        <a href="https://www.mi.com/" target="_blank">小米官网</a>
-        <span>|</span>
-        <a href="hhttps://www.mi.com/" target="_blank">小米官网</a>
-        <span>|</span>
-        <a href="hhttps://www.mi.com/" target="_blank">小米官网</a>
-        <span>|</span>
-        <a href="https://www.mi.com/" target="_blank">小米官网</a>
-      </div>
-      <p class="copyright">Copyright ©2019 mi.futurefe.com All Rights Reserved.</p>
-    </div>-->
   </div>
 </template>
 <script>

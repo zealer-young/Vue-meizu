@@ -49,8 +49,8 @@
           <h3>选择以下支付方式付款</h3>
           <div class="pay-way">
             <p>支付平台</p>
-            <div class="pay pay-ali" :class="{'checked':payType==1}" @click="paySubmit(1)"></div>
-            <div class="pay pay-wechat" :class="{'checked':payType==2 }" @click="paySubmit(2)"></div>
+            <!-- <div class="pay pay-ali" :class="{'checked':payType==1}" @click="paySubmit(1)"></div> -->
+            <!-- <div class="pay pay-wechat" :class="{'checked':payType==2 }" @click="paySubmit(2)"></div> -->
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
   </div>
 </template>
 <script>
-import QRCode from 'qrcode'
+// import QRCode from 'qrcode'
 import OrderHeader from './../components/OrderHeader'
 import ScanPayCode from './../components/ScanPayCode'
 import Modal from './../components/Modal'
@@ -111,28 +111,28 @@ export default{
       })
     },
     //支付提交
-    paySubmit(payType){
-      if (payType == 1) {//支付宝跳转
-        window.open('/#/order/alipay?orderId='+this.orderId,'_blank')
-      }else{//支付宝跳转
-        this.axios.post('/pay',{
-          orderId:this.orderId,
-          orderName:"Vue高仿小米商城",
-          amount:0.01,//单位元
-          payType:2,//1.支付宝 2.微信
-        }).then((res)=>{
-          QRCode.toDataURL(res.content)//将res.content的内容转化为图片地址
-          .then(url =>{
-            this.showPay = true;//显示微信支付弹框
-            this.payImg = url;//二维码生成
-            this.loopOrderState();//轮询当前订单支付状态
-          })
-          .catch(() => {
-            this.$message.error('微信二维码生成失败，请稍后重试')
-          })
-        })
-      }
-    },
+    // paySubmit(payType){
+    //   if (payType == 1) {//支付宝跳转
+    //     window.open('/#/order/alipay?orderId='+this.orderId,'_blank')
+    //   }else{//支付宝跳转
+    //     this.axios.post('/pay',{
+    //       orderId:this.orderId,
+    //       orderName:"Vue高仿小米商城",
+    //       amount:0.01,//单位元
+    //       payType:2,//1.支付宝 2.微信
+    //     }).then((res)=>{
+    //       QRCode.toDataURL(res.content)//将res.content的内容转化为图片地址
+    //       .then(url =>{
+    //         this.showPay = true;//显示微信支付弹框
+    //         this.payImg = url;//二维码生成
+    //         this.loopOrderState();//轮询当前订单支付状态
+    //       })
+    //       .catch(() => {
+    //         this.$message.error('微信二维码生成失败，请稍后重试')
+    //       })
+    //     })
+    //   }
+    // },
     //关闭微信支付弹框
     closePayModal(){
       this.showPay = false;
@@ -267,7 +267,7 @@ export default{
               margin-left:20px;
             }
             &.checked{
-              border:1px solid #FF6700;
+              border:1px solid #188ffc;
             }
           }
           .pay-ali{

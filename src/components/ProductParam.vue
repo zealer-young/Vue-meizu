@@ -55,7 +55,6 @@ export default {
     line-height: 70px;
     border-top:1px solid #e5e5e5;
     border-bottom: 1px solid #dedede;
-    // background-color: $colorG;
     background: #f6f8fb;
     opacity: .9;
     z-index:10; 
@@ -63,14 +62,12 @@ export default {
       position:fixed;
       top:0;
       width: 100%;
-      // box-shadow: 0 5px 5px #cccccc;
     }
     .container{
       @include flex();
       .pro-title{
         font-size:26px;
         color:#000;
-        // font-weight: bold;
       }
       .pro-param{
         font-size: 16px;

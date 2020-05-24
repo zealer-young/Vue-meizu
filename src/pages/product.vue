@@ -7,11 +7,6 @@
     </product-param>
     <div class="content">
       <div class="item-bg">
-        <!-- <h2>{{product.name}}</h2>
-        <h3>{{product.subtitle}}</h3>
-        <div class="price">
-          <span>￥<em>{{product.price}}</em></span>
-        </div>-->
       </div>
 
       <div class="meizu-pic container">
@@ -19,8 +14,6 @@
           <img src="../../public/imgs/product/meizu-pic-2.jpg" />
         </a>
       </div>
-      <!-- <div class="item-bg-2"></div>
-      <div class="item-bg-3"></div>-->
       <div class="item-swiper">
         <swiper :options="swiperOption">
           <swiper-slide>
@@ -165,16 +158,6 @@ export default {
         opacity: 0.8;
       }
     }
-    /* .item-bg-2{
-        background:url(/imgs/banner/002.jpg) no-repeat center;
-        height:480px;
-        background-size:1226px 397px;
-      }
-      .item-bg-3{
-        background:url(/imgs/banner/001.jpg) no-repeat center;
-        height:638px;
-        background-size:cover;
-      } */
     .item-swiper {
       margin: 36px auto 52px;
       .desc {

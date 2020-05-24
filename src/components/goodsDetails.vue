@@ -19,7 +19,6 @@
             </span>
           </span>
           <a>
-            <!-- <img v-lazy="items.url" alt="" /> -->
             <img :src="items.url" alt />
           </a>
         </div>
@@ -43,8 +42,6 @@
 </template>
 
 <script>
-// import axios from "axios";
-// import { getGoodsDetails } from '../mock/api'
 export default {
   data() {
     return {

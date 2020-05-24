@@ -2,13 +2,6 @@
   <div class="swiper">
     <div class="swiper-box">
       <swiper v-bind:options="swiperOption">
-        <!-- <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">
-            <a v-bind:href="'/#/product/' + item.id"
-              ><img v-bind:src="item.img"
-            />
-            <img src="../../public/imgs/banner/002.jpg"
-            /></a>
-          </swiper-slide> -->
         <swiper-slide
           ><img
             src="../../public/imgs/banner/001.jpg"
@@ -67,7 +60,7 @@ export default {
         },
       },
       left: "",
-      screenWidth: document.body.clientWidth,
+      screenWidth: document.body.clientWidth,  //获取浏览器宽度
     };
   },
   mounted() {
@@ -81,20 +74,20 @@ export default {
     };
   },
   methods: {
+    //轮播图居中 计算偏移距离
     swiperCenter() {
       let w = this.screenWidth;
       let imgWidth = this.$refs.img.width;
       this.left = -(imgWidth - w) / 2 + "px";
-      // console.log(this.left);
     },
   },
-  watch: {
+  watch: {   
+    //监听--轮播图居中 动态计算偏移距离
     screenWidth(val) {
         // 为了避免频繁触发resize函数导致页面卡顿，使用定时器
         this.screenWidth = val; // 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth
         let imgWidth = this.$refs.img.width;
         this.left = -(imgWidth - val) / 2 + "px";
-        // console.log(this.left);
     },
   },
 };

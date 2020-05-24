@@ -134,8 +134,6 @@ export default {
     .index-center-wrapper {
       width: 1248px;
       margin: auto;
-      /* box-sizing: border-box; */
-      /* .clearfix */
       ul {
         list-style: none;
         &::after,

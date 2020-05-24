@@ -13,7 +13,7 @@
             <li class="col-1">单价（元）</li>
             <li class="col-2">数量</li>
             <li class="col-1">小计（元）</li>
-            <li class="col-1">编辑</li>
+            <li class="col-1">完成</li>
           </ul>
           <ul class="cart-item-list">
             <!-- v-for="(item,index) in 列表名" v-bind:key="index" 使用v-for的语法格式-->
@@ -204,9 +204,6 @@ export default {
         .col-3 {
           flex: 3;
         }
-        li:last-child {
-          color: #00c3f5;
-        }
       }
       .cart-item-list {
         .cart-item {
@@ -280,7 +277,6 @@ export default {
       }
     }
     .order-wrap {
-      // width: 1240px;
       height: 70px;
       font-size: 14px;
       color: #666;

@@ -12,7 +12,7 @@
             <div class="item-menu">
               <span>手机</span>
               <div class="children">
-                <ul>
+                <ul class="container">
                   <li
                     class="product"
                     v-for="(item, index) in phoneList"
@@ -163,33 +163,10 @@
           </div>
         </div>
       </div>
-      <!--      <div class="swiper">-->
-      <!--        <swiper v-bind:options="swiperOption">-->
-      <!--          &lt;!&ndash; <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">-->
-      <!--                    <a v-bind:href="'/#/product/' + item.id"-->
-      <!--                      ><img v-bind:src="item.img"-->
-      <!--                    />-->
-      <!--                    <img src="../../public/imgs/banner/002.jpg"-->
-      <!--                    /></a>-->
-      <!--          </swiper-slide>&ndash;&gt;-->
-      <!--          <swiper-slide>-->
-      <!--            <img src="../../public/imgs/goodDetails/swiper-2.jpg" ref="img" :style="{marginLeft:left}" />-->
-      <!--          </swiper-slide>-->
-      <!--          <swiper-slide>-->
-      <!--            <img src="../../public/imgs/goodDetails/swiper-3.jpg" />-->
-      <!--          </swiper-slide>-->
-      <!--          &lt;!&ndash; Optional controls &ndash;&gt;-->
-      <!--          <div class="swiper-pagination" slot="pagination"></div>-->
-      <!--          <div class="swiper-button-prev" slot="button-prev"></div>-->
-      <!--          <div class="swiper-button-next" slot="button-next"></div>-->
-      <!--        </swiper>-->
-      <!--      </div>-->
     </div>
   </div>
 </template>
 <script>
-// import { swiper, swiperSlide } from "vue-awesome-swiper";
-// import "swiper/dist/css/swiper.css";
 //mapState 辅助函数
 import { mapState } from "vuex";
 export default {
@@ -198,28 +175,6 @@ export default {
     return {
       phoneList: [],
       loginShow: false,
-      // swiperOption: {
-      //   centeredSlides: true,
-      //   autoplay: false,
-      //   loop: true,
-      //   effect: "fade",
-      //   cubeEffect: {
-      //     slideShadows: true,
-      //     shadow: true,
-      //     shadowOffset: 100,
-      //     shadowScale: 0.6
-      //   },
-      //   pagination: {
-      //     el: ".swiper-pagination",
-      //     clickable: true
-      //   },
-      //   navigation: {
-      //     nextEl: ".swiper-button-next",
-      //     prevEl: ".swiper-button-prev"
-      //   }
-      // },
-      // left:'',
-      // screenWidth: document.body.clientWidth,  //给它赋值个（个人理解为网页的宽度）
     };
   },
   //compute帮助解决延迟问题，当变量读取的时候没有，之后变量发生变化，会重新计算一次，调用该方法
@@ -234,10 +189,6 @@ export default {
 
     //mapState 辅助函数
     ...mapState(["username", "cartCount"]),
-  },
-  components: {
-    // swiper,
-    // swiperSlide
   },
   filters: {
     currency(val) {
@@ -254,32 +205,17 @@ export default {
     if (params && params.from == "login") {
       this.getCartCount();
     }
-    // const that = this;
-    // window.onresize = () => {
-    //   return (() => {
-    //     window.screenWidth = document.body.clientWidth;
-    //     that.screenWidth = window.screenWidth;
-    //   })();
-    // };
   },
   methods: {
-    // swiper轮播居中
-    // swiperCenter() {
-    //   let w = this.screenWidth;
-    //   let imgWidth = this.$refs.img.width;
-    //   this.left = -(imgWidth - w) / 2 + "px";
-    //   // console.log(this.left);
-    // },
     //跳转登录页面
     login() {
       this.$router.push("/login");
     },
+    //用户登录dropdown demo（鼠标移入下拉菜单）
     iconLogin() {
       const userLogin = this.$refs.userLogin;
-      // const icon = this.$refs.icon;
       userLogin.addEventListener("mouseenter", () => {
         this.loginShow = true;
-        // icon.innertext = "&#xe673;";
       });
       userLogin.addEventListener("mouseleave", () => {
         this.loginShow = false;
@@ -322,15 +258,6 @@ export default {
       this.$router.push("/cart");
     },
   },
-  // watch: {
-  //       screenWidth(val) {
-  //       // 为了避免频繁触发resize函数导致页面卡顿，使用定时器
-  //       this.screenWidth = val; // 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth
-  //       let imgWidth = this.$refs.img.width;
-  //       this.left = -(imgWidth - val) / 2 + "px";
-  //       console.log(this.left);
-  //   },
-  // }
 };
 </script>
 <style lang="scss">
@@ -365,7 +292,6 @@ export default {
         top: -7px;
         left: 44px;
       }
-      // margin-top: 160px;
       li {
         display: block;
         line-height: 30px;
@@ -387,24 +313,12 @@ export default {
       }
     }
     .cart-box {
-      // position: relative;
-      /*width: 50px;*/
-      /*background-color: #ff6600;*/
-      /*text-align: center;*/
-      /*color: #ffffff;*/
-      /*margin-right: 0;*/
       .icon-cart {
         display: block;
         font-size: 22px;
         position: absolute;
         top: -6px;
         left: 40px;
-        /*display: inline-block;*/
-        /*width: 25px;*/
-        /*height: 25px;*/
-        /*background: url("../../public/imgs/icon-cart-checked.png") no-repeat center;*/
-        /*background-size: contain;*/
-        /*margin-right: 2px;*/
       }
       .cartCount {
         position: absolute;
@@ -447,7 +361,6 @@ export default {
           display: flex;
           justify-content: center;
           align-content: center;
-          /* padding-left: 209px; */
           .item-menu {
             display: inline-block;
             color: #333;
@@ -475,12 +388,12 @@ export default {
               height: 0;
               opacity: 0;
               overflow: hidden;
-              // border-top: 1px solid #e5e5e5;
               box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
               z-index: 10;
               transition: all 0.5s;
               background-color: #ffffff;
               ul {
+                width: 1240px;
                 .product {
                   position: relative;
                   float: left;
@@ -507,14 +420,14 @@ export default {
                     color: $colorB;
                   }
                   .pro-price {
-                    color: $colorA;
+                    color: #333;
                   }
                   &:before {
                     content: " ";
                     position: absolute;
                     top: 28px;
                     right: 0;
-                    border-left: 1px solid $colorF;
+                    // border-left: 1px solid $colorF;
                     height: 100px;
                     width: 1px;
                   }
@@ -580,18 +493,6 @@ export default {
         }
       }
     }
-    /*.swiper {*/
-    /*  position: relative;*/
-    /*  .swiper-container {*/
-    /*    img {*/
-    /*      width: 2560px;*/
-    /*      height: 100%;*/
-    /*    }*/
-    /*    .swiper-button-next {*/
-    /*      right: 12px;*/
-    /*    }*/
-    /*  }*/
-    /*}*/
   }
 }
 </style>

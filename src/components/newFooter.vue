@@ -146,8 +146,6 @@ export default {
   box-sizing: border-box;
   height: 248px;
   padding: 48px 0 20px;
-  // display: flex;
-  // justify-content: center;
   border-top: 1px solid #f1f1f1;
 }
 .footer-wrap {
@@ -157,9 +155,6 @@ export default {
   justify-content: center;
   align-content: space-between;
   flex-wrap: wrap;
-
-  // padding: 48px 0 20px;
-
   .footer-row {
     position: relative;
     width: 1240px;
@@ -217,6 +212,10 @@ export default {
         display: inline-block;
         font-size: 14px;
         background: #008cff;
+      }
+      a:hover{
+        transition: opacity .2s linear;
+        opacity: .8;
       }
     }
   }
