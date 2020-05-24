@@ -254,7 +254,7 @@ export default {
             font-size: 20px;
             color: $colorA;
             a {
-              color: $colorA;
+              color: #008CFF;
             }
           }
         }
@@ -263,11 +263,11 @@ export default {
         text-align: right;
       }
       .el-pagination.is-background .el-pager li:not(.disabled).active {
-        background-color: #ff6600;
+        background-color: #008CFF;
       }
       .el-button--primary {
-        background-color: #ff6600;
-        border-color: #ff6600;
+        background-color: #008CFF;
+        border-color: #008CFF;
       }
       .load-more,
       .scroll-more {

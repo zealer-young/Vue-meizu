@@ -190,7 +190,7 @@ export default{
             p{
               color:#666666;
               span{
-                color:#FF6700;
+                color:#e02b41;
               }
             }
           }
@@ -199,8 +199,9 @@ export default{
               margin-bottom:30px;
             }
             span{
-              font-size:28px;
-              color:#FF6700;
+              color: #e02b41;
+              font-size: 20px;
+              font-weight: bolder;
             }
             .icon-down{
               display:inline-block;

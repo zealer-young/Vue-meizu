@@ -347,12 +347,12 @@ export default{
                   fill: #666666;
                   vertical-align: middle;
                   &:hover{
-                    fill: #FF6700;
+                    fill: #00C3F5;
                   }
                 }
               }
               &.checked{
-                border:1px solid #ff6700;
+                border:1px solid #00C3F5;
               }
             }
             .addr-add{
@@ -401,7 +401,7 @@ export default{
             }
             .good-total{
               padding-right:44px;
-              color:#FF6600;
+              color:#E02B41;
             }
           }
         }
@@ -416,7 +416,7 @@ export default{
           }
           span,a{
             font-size:16px;
-            color:#FF6700;
+            color:#E02B41;
             margin-right:23px;
           }
         }
@@ -427,7 +427,7 @@ export default{
           font-size: 16px;
           color: #666666;
           .item-val{
-            color:#FF6700;
+            color:#E02B41;
           }
           .item{
             line-height: 15px;
@@ -439,13 +439,22 @@ export default{
           }
           .item-total{
             .item-val{
-              font-size:28px;
+              color: #e02b41;
+              font-size: 20px;
+              font-weight: bolder;
             }
           }
         }
         .btn-group{
           margin-top: 37px;
           text-align: right;
+          .btn{
+            width: 110px;
+            height: 34px;
+            font-size: 14px;
+            line-height: 34px;
+            background-color: #F66567;
+          }
         }
       }
     }

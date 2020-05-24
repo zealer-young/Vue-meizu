@@ -276,10 +276,10 @@ export default {
     },
     iconLogin() {
       const userLogin = this.$refs.userLogin;
-      const icon = this.$refs.icon;
+      // const icon = this.$refs.icon;
       userLogin.addEventListener("mouseenter", () => {
         this.loginShow = true;
-        icon.innertext = "&#xe673;";
+        // icon.innertext = "&#xe673;";
       });
       userLogin.addEventListener("mouseleave", () => {
         this.loginShow = false;
@@ -344,6 +344,7 @@ export default {
       position: absolute;
       top: -10px;
       left: 0;
+      Cursor : pointer
     }
     .dropdown {
       position: absolute;

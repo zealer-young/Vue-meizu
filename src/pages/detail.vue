@@ -5,6 +5,7 @@
       <div class="container clearfix">
         <div class="swiper">
           <swiper :options="swiperOption" class="gallery-top" ref="swiperTop">
+<<<<<<< Updated upstream
             <swiper-slide class="slide-1">
               <img src="/imgs/detail/phone-1.jpg" alt />
             </swiper-slide>
@@ -34,7 +35,24 @@
             <swiper-slide class="showShadow">
               <img src="/imgs/detail/phone-4.jpg" alt />
             </swiper-slide>
+=======
+              <swiper-slide class="slide-1"><img src="/imgs/detail/phone-1.jpg" alt=""></swiper-slide>
+              <swiper-slide class="slide-2"><img src="/imgs/detail/phone-2.jpg" alt=""></swiper-slide>
+              <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt=""></swiper-slide>
+              <swiper-slide><img src="/imgs/detail/phone-4.jpg" alt=""></swiper-slide>
+              <!-- <div class="swiper-container-thumbs" slot="thumbs"></div> -->
+              <!-- Optional controls -->
+              <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
+>>>>>>> Stashed changes
           </swiper>
+          <swiper :options="swiperOptionThumbs" class="gallery-thumbs" ref="swiperThumbs">
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-1.jpg" alt=""></swiper-slide>
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-2.jpg" alt=""></swiper-slide>
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-3.jpg" alt=""></swiper-slide>
+              <swiper-slide class="showShadow"><img src="/imgs/detail/phone-4.jpg" alt=""></swiper-slide>
+
+          </swiper>
+          
         </div>
         <div class="content">
           <h2 class="item-title">{{product.name}}</h2>
@@ -95,6 +113,7 @@
   </div>
 </template>
 <script>
+<<<<<<< Updated upstream
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import ProductParam from "./../components/ProductParam";
@@ -102,13 +121,29 @@ import ProductParam from "./../components/ProductParam";
 export default {
   name: "detail",
   data() {
+=======
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import ProductParam from './../components/ProductParam'
+import ServiceBar from './../components/ServiceBar';
+export default{
+  name:'detail',
+  data(){
+>>>>>>> Stashed changes
     return {
       id: this.$route.params.id, //获取商品ID
       // err:'',
+<<<<<<< Updated upstream
       version: 1, //商品版本切换
       product: {}, //商品信息
       swiperOption: {
         autoplay: false,
+=======
+      version:1,//商品版本切换
+      product:{},//商品信息
+      swiperOption:{
+        autoplay:false,
+>>>>>>> Stashed changes
         effect: "fade",
         pagination: {
           el: ".swiper-pagination",
@@ -116,6 +151,7 @@ export default {
         }
       },
       swiperOptionThumbs: {
+<<<<<<< Updated upstream
         // spaceBetween: 1,
         centeredSlides: true,
         touchRatio: 0.2,
@@ -124,12 +160,23 @@ export default {
         // watchSlidesVisibility: true,/*避免出现bug*/
       }
     };
+=======
+          // spaceBetween: 1,
+          centeredSlides: true,
+          touchRatio: 0.2,
+          slideToClickedSlide: true,
+          slidesPerView: 5,
+          // watchSlidesVisibility: true,/*避免出现bug*/
+        }
+    }
+>>>>>>> Stashed changes
   },
   components: {
     swiper,
     swiperSlide,
     ProductParam,
   },
+<<<<<<< Updated upstream
   mounted() {
     this.getProductInfo();
     this.$nextTick(() => {
@@ -138,6 +185,16 @@ export default {
       // swiperTop.controller.control = swiperThumbs
       swiperThumbs.controller.control = swiperTop;
     });
+=======
+  mounted(){
+    this.getProductInfo()
+    this.$nextTick(() => {
+        const swiperTop = this.$refs.swiperTop.swiper
+        const swiperThumbs = this.$refs.swiperThumbs.swiper
+        // swiperTop.controller.control = swiperThumbs
+        swiperThumbs.controller.control = swiperTop
+      })
+>>>>>>> Stashed changes
   },
   methods: {
     getProductInfo() {
@@ -163,6 +220,7 @@ export default {
 };
 </script>
 <style lang="scss">
+<<<<<<< Updated upstream
 @import "./../assets/scss/config.scss";
 @import "./../assets/scss/mixin.scss";
 .detail {
@@ -176,6 +234,25 @@ export default {
       .showShadow {
         // margin: 0 10px;
         border-bottom: 1px solid #eee;
+=======
+  @import './../assets/scss/config.scss';
+  @import './../assets/scss/mixin.scss';
+  .detail{
+    .wrapper{
+      .swiper{
+        float:left;
+        width:642px;
+        height:817px;   //617px
+        margin-top:5px;
+        .showShadow {
+          // margin: 0 10px;
+          border-bottom: 1px solid #eee;
+        }
+        img{
+          width:100%;
+          height:100%;
+        }
+>>>>>>> Stashed changes
       }
       img {
         width: 100%;

@@ -1,13 +1,11 @@
 <template>
   <div>
     <router-view></router-view>
-    <service-bar></service-bar>
-    <nav-footer></nav-footer>
+    <new-footer></new-footer>
   </div>
 </template>
 <script>
-  import ServiceBar from './../components/ServiceBar'
-  import NavFooter from './../components/NavFooter'
+  import NewFooter from './../components/newFooter'
   export default{
     name:'order',
     data(){
@@ -17,8 +15,7 @@
       }
     },
     components:{
-      ServiceBar,
-      NavFooter
+      NewFooter
     }
   }
 </script>

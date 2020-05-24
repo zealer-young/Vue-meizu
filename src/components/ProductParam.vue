@@ -2,12 +2,13 @@
   <div class="nav-bar" v-bind:class="{'is_fixed':isFixed}">
     <div class="container">
       <div class="pro-title">
-        {{title}}
+        魅族 17
       </div>
       <div class="pro-param">
-        <a href="javascript:;">概述</a><span>|</span>
-        <a href="javascript:;">参数</a><span>|</span>
-        <a href="javascript:;">用户评价</a>
+        <a href="javascript:;">概述</a>
+        <a href="javascript:;">魅族 17 航母限定版</a>
+        <a href="javascript:;">参数</a>
+        <a href="javascript:;">换机指引</a>
         <slot name="buy"></slot>
       </div>
     </div>
@@ -53,28 +54,35 @@ export default {
     height: 70px;
     line-height: 70px;
     border-top:1px solid #e5e5e5;
-    background-color: $colorG;
+    border-bottom: 1px solid #dedede;
+    // background-color: $colorG;
+    background: #f6f8fb;
+    opacity: .9;
     z-index:10; 
     &.is_fixed{
       position:fixed;
       top:0;
       width: 100%;
-      box-shadow: 0 5px 5px #cccccc;
+      // box-shadow: 0 5px 5px #cccccc;
     }
     .container{
       @include flex();
       .pro-title{
-        font-size:$fontH;
-        color:$colorB;
-        font-weight: bold;
+        font-size:26px;
+        color:#000;
+        // font-weight: bold;
       }
       .pro-param{
-        font-size: $fontJ;
-        span{
-          margin: 0 10px;
-        }
+        font-size: 16px;
+        line-height: 20px;
         a{
-          color:$colorC;
+          display: inline-block;
+          padding: 0 20px;
+          border-right: 1px solid #dfe1e1;
+          color:#333;
+        }
+        a:last-child{
+          border: none;
         }
       }
     }
