@@ -2,7 +2,7 @@
   <div class="container">
     <div class="ads-box">
       <a
-        v-bind:href="'/#/prosuct/' + item.di"
+        href="https://github.com/zealer-young/Imitate-MI-Store"
         v-for="(item, index) in adsList"
         :key="index"
       >
@@ -55,9 +55,9 @@ export default {
 .ads-box {
   box-sizing: border-box;
   width: 310px;
-  height: 187px;
+  height: 250px;
   @include flex();
-  margin-top: 13px;
+  margin-top: 40px;
   a {
     display: flex;
     flex-direction: column;
@@ -79,6 +79,10 @@ export default {
       font-size: 16px;
       padding-top: 2px;
     }
+  }
+  a:hover{
+    transition: all .2 ease;
+  opacity: .8;
   }
 }
 </style>

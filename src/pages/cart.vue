@@ -212,9 +212,6 @@ export default {
         .col-3 {
           flex: 3;
         }
-        li:last-child{
-          color: #00C3F5;
-        }
       }
       .cart-item-list {
         .cart-item {

@@ -4,42 +4,34 @@
       <div class="footer-wrap">
         <div class="footer-row">
           <ul class="footer-service">
-            <li>
-              <a href="">
-                <img src="../../public/imgs/footer/row-01.png" alt="" />
-                <span>满80免运费</span>
+            <li v-for="item in footer.service" :key="item.id">
+              <a href="https://github.com/zealer-young/Imitate-MI-Store">
+                <img v-lazy="item.url" alt="" />
+                <span>{{item.info}}</span>
               </a>
             </li>
           </ul>
           <div class="hotline">
             <span>周一至周日 8:00-20:00</span>
             <p>400-788-3333</p>
-            <a href="">在线客服</a>
+            <a href="https://github.com/zealer-young/Imitate-MI-Store">在线客服</a>
           </div>
         </div>
         <div class="footer-co">
           <div class="info-left">
             <ul>
-              <li>
-                <a href="">了解魅族</a>
+              <li v-for="item in footer.infoLeft" :key="item.id">
+                <a href="https://github.com/zealer-young/Imitate-MI-Store">{{item.info}}</a>
               </li>
             </ul>
             <div class="footer-certificate">
-              "©2019 Meizu Telecom Equipment Co., Ltd. All rights reserved. "
+              Github:<a href="https://github.com/zealer-young/Imitate-MI-Store">https://github.com/zealer-young/Imitate-MI-Store</a>
             </div>
           </div>
           <div class="focus">
-            <a href="">
-              <img src="../../public/imgs/footer/001.png" alt="" />
-            </a>
-            <a href="">
-              <img src="../../public/imgs/footer/001.png" alt="" />
-            </a>
-            <a href="">
-              <img src="../../public/imgs/footer/001.png" alt="" />
-            </a>
-            <a href="">
-              <img src="../../public/imgs/footer/001.png" alt="" />
+            <a href="https://github.com/zealer-young/Imitate-MI-Store" v-for="item in footer.focus" :key="item.id">
+              <img v-lazy="item.onePic" alt="" class="focusOne"/>
+              <img v-lazy="item.twoPic" alt="" class="focusTwo"/>
             </a>
           </div>
         </div>
@@ -55,21 +47,92 @@ export default {
       footer:{
           service:[
             {
-              id:'',
-              url:'',
-              info:''
+              id:'servise-1',
+              url:require('../../public/imgs/footer/row-01.png'),
+              info:'满80免运费'
+            },{
+              id:'servise-2',
+              url:require('../../public/imgs/footer/row-02.png'),
+              info:'100+ 城市次日送达'
+            },{
+              id:'servise-3',
+              url:require('../../public/imgs/footer/row-03.png'),
+              info:'7天无理由退货'
+            },{
+              id:'servise-4',
+              url:require('../../public/imgs/footer/row-04.png'),
+              info:'15天换货保障'
+            },{
+              id:'servise-5',
+              url:require('../../public/imgs/footer/row-05.png'),
+              info:'1年免费保修'
+            },{
+              id:'servise-6',
+              url:require('../../public/imgs/footer/row-06.png'),
+              info:'上门快修'
             }
           ],
           infoLeft:[
             {
-              id:'',
-              info:''
+              id:'indoleft-1',
+              info:'了解魅族'
+            },{
+              id:'indoleft-2',
+              info:'加入我们'
             }
+            ,{
+              id:'indoleft-3',
+              info:'联系我们'
+            }
+            ,{
+              id:'indoleft-4',
+              info:'Flyme'
+            }
+            ,{
+              id:'indoleft-5',
+              info:'魅族社区'
+            }
+            ,{
+              id:'indoleft-6',
+              info:'天猫旗舰店'
+            }
+            ,{
+              id:'indoleft-7',
+              info:'问题反馈'
+            }
+            ,{
+              id:'indoleft-8',
+              info:'线上销售授权名单公示'
+            }
+            ,{
+              id:'indoleft-9',
+              info:'出版物经营许可证'
+            }
+            ,{
+              id:'indoleft-10',
+              info:'简体中文'
+            }
+
           ],
           focus:[
             {
-              id:'',
-              url:''
+              id:'focus-1',
+              onePic:require('../../public/imgs/footer/01.png'),
+              twoPic:require('../../public/imgs/footer/001.png')
+            },{
+              id:'focus-2',
+              onePic:require('../../public/imgs/footer/02.png'),
+              twoPic:require('../../public/imgs/footer/002.png')
+            }
+            ,{
+              id:'focus-3',
+              onePic:require('../../public/imgs/footer/03.png'),
+              twoPic:require('../../public/imgs/footer/003.png')
+            }
+            ,{
+              id:'focus-4',
+              onePic:require('../../public/imgs/footer/04.png'),
+              twoPic:require('../../public/imgs/footer/004.png')
             }
           ]
         }
@@ -126,7 +189,7 @@ export default {
       position: absolute;
       bottom: 16px;
       right: 0;
-      width: 155.7px;
+      width: 180px;
       height: 103;
       text-align: right;
       span {
@@ -181,15 +244,21 @@ export default {
         color: #999;
         font-size: 12px;
       }
+      a:hover{
+        color: #008cff;
+      }
       }
       li:last-child {
         border-right: none;
       }
       .footer-certificate{
+        width: 100%;
+      }
+      .footer-certificate,.footer-certificate a{
         margin-top: 8px;
         color: #999;
-        text-align: left;
-        font-size: 12px;
+        text-align: center;
+        font-size: 15px;
       }
     }
     .focus {
@@ -203,9 +272,21 @@ export default {
         width: 40px;
         height: 30px;
       }
+      a:hover {
+        .focusOne{
+          opacity: 1;
+        }
+        .focusTwo{
+          opacity: 0;
+        }
+      }
       a img {
         width: 20px;
         height: 20px;
+      }
+      .focusOne{
+        margin-right: -20px;
+        opacity: 0;
       }
     }
   }

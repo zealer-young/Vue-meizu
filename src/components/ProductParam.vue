@@ -81,6 +81,9 @@ export default {
           border-right: 1px solid #dfe1e1;
           color:#333;
         }
+        a:hover{
+          color: #008cff;
+        }
         a:last-child{
           border: none;
         }

@@ -16,16 +16,16 @@
             :style="{ marginLeft: left }"
         /></swiper-slide>
         <swiper-slide
-          ><img src="../../public/imgs/banner/002.jpg"
+          ><img
+            src="../../public/imgs/banner/002.jpg"
+            ref="img"
+            :style="{ marginLeft: left }"
         /></swiper-slide>
         <swiper-slide
-          ><img src="../../public/imgs/banner/003.jpg"
-        /></swiper-slide>
-        <swiper-slide
-          ><img src="../../public/imgs/banner/004.jpg"
-        /></swiper-slide>
-        <swiper-slide
-          ><img src="../../public/imgs/banner/005.jpg"
+          ><img
+            src="../../public/imgs/banner/003.jpg"
+            ref="img"
+            :style="{ marginLeft: left }"
         /></swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination" slot="pagination"></div>
@@ -85,7 +85,7 @@ export default {
       let w = this.screenWidth;
       let imgWidth = this.$refs.img.width;
       this.left = -(imgWidth - w) / 2 + "px";
-      console.log(this.left);
+      // console.log(this.left);
     },
   },
   watch: {
@@ -94,7 +94,7 @@ export default {
         this.screenWidth = val; // 一旦监听到的screenWidth值改变，就将其重新赋给data里的screenWidth
         let imgWidth = this.$refs.img.width;
         this.left = -(imgWidth - val) / 2 + "px";
-        console.log(this.left);
+        // console.log(this.left);
     },
   },
 };
