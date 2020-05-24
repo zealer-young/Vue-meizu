@@ -6,12 +6,7 @@
         <div class="cart-box">
           <ul class="cart-item-head">
             <li class="col-1">
-              <span
-                class="checkbox"
-                v-bind:class="{ checked: allChecked }"
-                @click="toggleAll"
-              ></span
-              >
+              <span class="checkbox" v-bind:class="{ checked: allChecked }" @click="toggleAll"></span>
             </li>
             <li class="col-1-info">全选</li>
             <li class="col-3"></li>
@@ -22,11 +17,7 @@
           </ul>
           <ul class="cart-item-list">
             <!-- v-for="(item,index) in 列表名" v-bind:key="index" 使用v-for的语法格式-->
-            <li
-              class="cart-item"
-              v-for="(item, index) in list"
-              v-bind:key="index"
-            >
+            <li class="cart-item" v-for="(item, index) in list" v-bind:key="index">
               <div class="item-check">
                 <span
                   class="checkbox"
@@ -35,7 +26,7 @@
                 ></span>
               </div>
               <div class="item-name">
-                <img v-lazy="item.productMainImage" alt="" />
+                <img v-lazy="item.productMainImage" alt />
                 <span>{{ item.productName + "," + item.productSubtitle }}</span>
               </div>
               <div class="item-price">￥{{ item.productPrice }}</div>
@@ -54,13 +45,15 @@
         <div class="order-wrap clearfix">
           <div class="cart-tip fl">
             <a href="/#/index">继续购物</a>
-            共<span>{{ list.length }}</span
-            >件商品，已选择<span>{{ checkedNum }}</span
-            >件
+            共
+            <span>{{ list.length }}</span>件商品，已选择
+            <span>{{ checkedNum }}</span>件
           </div>
           <div class="total fr">
-            <span class="totalText">已优惠0.00元， 合计(不含运费)：<span class="totalPrice">￥{{ cartTotalPrice }}</span
-            ></span>
+            <span class="totalText">
+              已优惠0.00元， 合计(不含运费)：
+              <span class="totalPrice">￥{{ cartTotalPrice }}</span>
+            </span>
             <a href="javascript:;" class="btn" @click="order()">去结算</a>
           </div>
         </div>
@@ -76,14 +69,14 @@ export default {
   name: "index",
   components: {
     OrderHeader,
-    NewFooter,
+    NewFooter
   },
   data() {
     return {
       list: [], //商品列表
       allChecked: false, //是否全选
       cartTotalPrice: 0, //商品总金额
-      checkedNum: 0, //选中商品数量
+      checkedNum: 0 //选中商品数量
     };
   },
   mounted() {
@@ -92,7 +85,7 @@ export default {
   methods: {
     //获取购物车列表
     getCartList() {
-      this.axios.get("/carts").then((res) => {
+      this.axios.get("/carts").then(res => {
         this.renderData(res);
       });
     },
@@ -121,15 +114,15 @@ export default {
       this.axios
         .put(`/carts/${item.productId}`, {
           quantity,
-          selected,
+          selected
         })
-        .then((res) => {
+        .then(res => {
           this.renderData(res);
         });
     },
     //删除购物车商品
     delProduct(item) {
-      this.axios.delete(`/carts/${item.productId}`).then((res) => {
+      this.axios.delete(`/carts/${item.productId}`).then(res => {
         this.$message.success("删除成功");
         this.renderData(res);
       });
@@ -137,7 +130,7 @@ export default {
     //控制全选与非全选功能
     toggleAll() {
       let url = this.allChecked ? "/carts/unSelectAll" : "/carts/selectAll";
-      this.axios.put(url).then((res) => {
+      this.axios.put(url).then(res => {
         this.renderData(res);
       });
     },
@@ -146,18 +139,18 @@ export default {
       this.list = res.cartProductVoList || [];
       this.allChecked = res.selectedAll;
       this.cartTotalPrice = res.cartTotalPrice;
-      this.checkedNum = this.list.filter((item) => item.productSelected).length;
+      this.checkedNum = this.list.filter(item => item.productSelected).length;
     },
     //购物车下单
     order() {
-      let isCheck = this.list.every((item) => !item.productSelected);
+      let isCheck = this.list.every(item => !item.productSelected);
       if (isCheck) {
         this.$message.warning("请选择一件商品");
       } else {
         this.$router.push("/order/confirm");
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -198,19 +191,21 @@ export default {
         line-height: 50px;
         .col-1 {
           flex: 1;
-          
         }
-        .col-1-info{
-            font-size: 14px;
-            color: #333;
-            padding-right: 50px;
-            margin-left: -78px;
-          }
+        .col-1-info {
+          font-size: 14px;
+          color: #333;
+          padding-right: 50px;
+          margin-left: -78px;
+        }
         .col-2 {
           flex: 2;
         }
         .col-3 {
           flex: 3;
+        }
+        li:last-child {
+          color: #00c3f5;
         }
       }
       .cart-item-list {
@@ -266,13 +261,12 @@ export default {
                 color: #333333;
                 border-left: 1px solid #efefef;
                 border-right: 1px solid #efefef;
-
               }
             }
           }
           .item-total {
             flex: 1;
-            color: #E52B41;
+            color: #e52b41;
           }
           .item-del {
             flex: 1;
@@ -286,14 +280,14 @@ export default {
       }
     }
     .order-wrap {
-          // width: 1240px;
-          height: 70px;
-          font-size: 14px;
-          color: #666;
-          line-height: 67px;
-          transition: background-color 1s;
-          background-color: #fff;
-          margin-top: 10px;
+      // width: 1240px;
+      height: 70px;
+      font-size: 14px;
+      color: #666;
+      line-height: 67px;
+      transition: background-color 1s;
+      background-color: #fff;
+      margin-top: 10px;
       .cart-tip {
         margin-left: 29px;
         a {
@@ -304,20 +298,23 @@ export default {
           color: #8c8c8c;
           margin: 0 5px;
         }
-        span:last-child{
-          color: #00C3F5;
+        span:last-child {
+          color: #00c3f5;
         }
       }
       .total {
-        
-        .totalText{
+        .totalText {
           font-size: 14px;
           color: #595959;
         }
-        .totalPrice{
+        .btn:hover {
+          transition: opacity 0.2s linear;
+          opacity: 0.8;
+        }
+        .totalPrice {
           font-size: 20px;
           font-weight: bolder;
-          color: #E02B41;
+          color: #e02b41;
           margin-right: 24px;
           vertical-align: middle;
         }
@@ -327,7 +324,7 @@ export default {
           line-height: 34px;
           font-size: 14px;
           margin-right: 30px;
-          background-color: #F66567;
+          background-color: #f66567;
         }
       }
     }
