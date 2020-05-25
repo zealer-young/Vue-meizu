@@ -51,6 +51,7 @@
             <p>支付平台</p>
             <!-- <div class="pay pay-ali" :class="{'checked':payType==1}" @click="paySubmit(1)"></div> -->
             <!-- <div class="pay pay-wechat" :class="{'checked':payType==2 }" @click="paySubmit(2)"></div> -->
+            <div class="pay pay-wechat" :class="{'checked':payType==2 }" @click="paySubmit()"></div>
           </div>
         </div>
       </div>
@@ -102,7 +103,7 @@ export default{
   },
   methods:{
     //获取订单详情
-    getOrderDetail(){
+   getOrderDetail(){
       this.axios.get(`/orders/${this.orderId}`).then((res)=>{
         let item = res.shippingVo;
         this.addressInfo = `${item.receiverName} ${item.receiverMobile} ${item.receiverProvince} ${item.receiverCity} ${item.receiverDistrict} ${item.receiverAddress}`;
@@ -133,6 +134,10 @@ export default{
     //     })
     //   }
     // },
+    paySubmit(){
+      this.showPay = true;//显示微信支付弹框
+      this.payImg = require("../../public/imgs/qrcode.png")//二维码生成
+    },
     //关闭微信支付弹框
     closePayModal(){
       this.showPay = false;

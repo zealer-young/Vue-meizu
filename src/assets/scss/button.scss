@@ -8,6 +8,10 @@
   border:none;
   cursor: pointer;
 }
+.btn:hover {
+  transition: opacity .2s linear;
+  opacity: 0.8
+}
 .btn-default{
   background-color:#b0b0b0;
   color:$colorG;

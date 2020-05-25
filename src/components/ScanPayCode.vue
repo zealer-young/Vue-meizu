@@ -4,11 +4,11 @@
     <div class="item-wrap">
       <div class="img-scan"></div>
       <div class="img-pay">
-        <div class="title">微信支付<em @click="close"></em></div>
+        <div class="title">微信扫码<em @click="close"></em></div>
         <div class="qrcode"><img v-bind:src="img"></div>
         <div class="tip">
-          <p>请使用<span class="theme-color">微信</span>扫一扫</p>
-          <p>二维码完成支付</p>
+          <p>您的<span class="theme-color">Star</span></p>
+          <p>是对我们最大的支持与鼓励</p>
         </div>
       </div>
     </div>

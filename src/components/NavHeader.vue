@@ -24,7 +24,7 @@
                         <img v-lazy="item.mainImage" :alt="item.subtitle" />
                       </div>
                       <div class="pro-name">{{ item.name }}</div>
-                      <div class="pro-price">{{ item.price | currency }}</div>
+                      <div class="pro-price">￥ {{ item.price }}</div>
                     </a>
                   </li>
                 </ul>
@@ -32,92 +32,59 @@
             </div>
             <div class="item-menu">
               <span>声学</span>
-            </div>
-            <div class="item-menu">
-              <span>配件</span>
-            </div>
-            <div class="item-menu">
-              <span>红米</span>
-            </div>
-            <div class="item-menu">
-              <span>电视</span>
               <div class="children">
                 <ul class="container">
-                  <li class="product">
-                    <a href target="_blank">
+                  <li
+                    class="product"
+                    v-for="(item, index) in musicList"
+                    :key="index"
+                  >
+                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
                       <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt />
+                        <!-- v-lazy指令懒加载 双引号中储存的是变量名 -->
+                        <img v-lazy="item.mainImage" :alt="item.subtitle" />
                       </div>
-                      <div class="pro-name">小米壁画电视 65英寸</div>
-                      <div class="pro-price">6999元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt />
-                      </div>
-                      <div class="pro-name">小米全面屏电视E55A</div>
-                      <div class="pro-price">1999元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt />
-                      </div>
-                      <div class="pro-name">小米电视4A 32英寸</div>
-                      <div class="pro-price">699元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <!-- v-lazy指令懒加载 双引号中储存的是字符串，需要用单引号再次引起来 -->
-                        <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt />
-                      </div>
-                      <div class="pro-name">小米电视4A 55英寸</div>
-                      <div class="pro-price">1799元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt />
-                      </div>
-                      <div class="pro-name">小米电视4A 65英寸</div>
-                      <div class="pro-price">2699元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt />
-                      </div>
-                      <div class="pro-name">查看全部</div>
-                      <div class="pro-price">查看全部</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt />
-                      </div>
-                      <div class="pro-name">小米电视4A 65英寸</div>
-                      <div class="pro-price">2699元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href target="_blank">
-                      <div class="pro-img">
-                        <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt />
-                      </div>
-                      <div class="pro-name">查看全部</div>
-                      <div class="pro-price">查看全部</div>
+                      <div class="pro-name">{{ item.name }}</div>
+                      <div class="pro-price">￥ {{ item.price }}</div>
                     </a>
                   </li>
                 </ul>
               </div>
+            </div>
+            <div class="item-menu">
+              <span>配件</span>
+              <div class="children">
+                <ul class="container">
+                  <li
+                    class="product"
+                    v-for="(item, index) in accessoriesList"
+                    :key="index"
+                  >
+                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                      <div class="pro-img">
+                        <!-- v-lazy指令懒加载 双引号中储存的是变量名 -->
+                        <img v-lazy="item.mainImage" :alt="item.subtitle" />
+                      </div>
+                      <div class="pro-name">{{ item.name }}</div>
+                      <div class="pro-price">￥ {{ item.price }}</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="item-menu">
+              <span><a 
+              href="https://github.com/zealer-young"
+                target="_blank"
+                class="clearUnderline"
+                >Flyme</a></span>
+            </div>
+            <div class="item-menu">
+              <span><a 
+              href="https://github.com/zealer-young"
+                target="_blank"
+                class="clearUnderline"
+                >社区</a></span>
             </div>
           </div>
           <div class="header-search">
@@ -174,6 +141,8 @@ export default {
   data() {
     return {
       phoneList: [],
+      musicList: [],
+      accessoriesList: [],
       loginShow: false,
     };
   },
@@ -199,7 +168,9 @@ export default {
   mounted() {
     // this.swiperCenter();
     this.iconLogin();
-    this.getProductList();
+    this.getPhoneList();
+    this.getMusicList();
+    this.getAccessoriesList();
     //如果是从登录页面过来的就获取购物车数量
     let params = this.$route.params;
     if (params && params.from == "login") {
@@ -221,9 +192,10 @@ export default {
         this.loginShow = false;
       });
     },
-    getProductList() {
+    //获取 Navheader > children 手机 产品列表数据（http://rap2.taobao.org）
+    getPhoneList() {
       this.axios
-        .get("/products", {
+        .get("http://rap2.taobao.org:38080/app/mock/255494/example/products/phone", {
           params: {
             categoryId: "100012",
             pageSize: 8,
@@ -231,6 +203,36 @@ export default {
         })
         .then((res) => {
           this.phoneList = res.list;
+        });
+    },
+    //获取 Navheader > children 声学 产品列表数据（http://rap2.taobao.org）
+    getMusicList() {
+      this.axios
+        .get("http://rap2.taobao.org:38080/app/mock/255494/example/products/music", {
+          params: {
+            categoryId: "100012",
+            pageSize: 8,
+          },
+        })
+        .then((res) => {
+          this.musicList = res.list;
+          console.log(res.list);
+          
+        });
+    },
+    //获取 Navheader > children 配件 产品列表数据（http://rap2.taobao.org）
+    getAccessoriesList() {
+      this.axios
+        .get("http://rap2.taobao.org:38080/app/mock/255494/example/products/accessories", {
+          params: {
+            categoryId: "100012",
+            pageSize: 8,
+          },
+        })
+        .then((res) => {
+          this.accessoriesList = res.list;
+          console.log(res.list);
+          
         });
     },
     //获取商品的购物车的数量
@@ -371,6 +373,10 @@ export default {
               width: 62px;
               height: 82px;
               text-align: center;
+              .clearUnderline  {
+                text-decoration: none;
+                color:#333;
+              }
               cursor: pointer;
             }
             &:hover {
@@ -418,6 +424,11 @@ export default {
                     margin-top: 19px;
                     margin-bottom: 8px;
                     color: $colorB;
+                    /* 文字溢出显示为省略号 */
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                    width: 150px;
                   }
                   .pro-price {
                     color: #333;

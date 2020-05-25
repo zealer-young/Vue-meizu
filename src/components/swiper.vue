@@ -4,7 +4,7 @@
       <swiper v-bind:options="swiperOption">
         <swiper-slide
           ><img
-            src="../../public/imgs/banner/001.jpg"
+            src="../../public/imgs/banner/004.jpg"
             ref="img"
             :style="{ marginLeft: left }"
         /></swiper-slide>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        autoplay: false,
+        autoplay: true,
         loop: true,
         effect: "fade",
         cubeEffect: {
