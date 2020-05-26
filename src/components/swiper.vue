@@ -4,7 +4,7 @@
       <swiper v-bind:options="swiperOption">
         <swiper-slide
           ><img
-            src="../../public/imgs/banner/004.jpg"
+            src="../../public/imgs/banner/005.jpg"
             ref="img"
             :style="{ marginLeft: left }"
         /></swiper-slide>

@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
   <div class="content">
     <div class="ucSimpleHeader" id="header">
       <a href="/#/index" class="meizuLogo" alt>
@@ -12,14 +13,12 @@
         <div class="login-form">
           <h3>
             <span class="checked">帐号登录</span>
-            <span class="sep-line">|</span>
-            <span>扫码登录</span>
           </h3>
           <div class="input">
-            <input type="text" placeholder="请输入帐号" v-model="username" />
+            <input type="text" placeholder=" test账号：admin1 " v-model="username" />
           </div>
           <div class="input">
-            <input type="password" placeholder="请输入密码" v-model="password" />
+            <input type="password" placeholder=" test密码：admin1 " v-model="password" />
           </div>
           <div class="btn-box">
             <a href="javascript:;" class="btn" @click="login">登录</a>
@@ -27,7 +26,6 @@
           <div class="tips">
             <div class="reg">
               <a ref="javascript:;" class="reg-a" @click="regist">立即注册</a>
-
               <a ref="javascript:;" class="reg-a" @click="regist">忘记密码？</a>
             </div>
           </div>
@@ -35,10 +33,13 @@
       </div>
     </div>
   </div>
+  <new-footer class="content"></new-footer>
+  </div>
 </template>
 <script>
 //mapActions 辅助函数
 import { mapActions } from "vuex";
+import NewFooter from "./../components/newFooter";
 export default {
   name: "login",
   //data:{}是全局声明，可能会造成页面间数据串用；
@@ -49,6 +50,9 @@ export default {
       password: "",
       userId: ""
     };
+  },
+  components: {
+    NewFooter
   },
   methods: {
     login() {
@@ -100,8 +104,8 @@ export default {
     regist() {
       setTimeout(() => {
         this.$message.success({
-          duration:5000,
-          message: 'test账号：admin1 ; test密码：admin1',
+          duration: 5000,
+          message: "该功能正在开发 test账号：admin1 ; test密码：admin1"
         });
       }, 700);
     }
@@ -207,6 +211,26 @@ export default {
             border: none;
             padding: 18px;
           }
+          input::-webkit-input-placeholder {
+              /* WebKit browsers */
+              font-size: 14px;
+              color: #9e9e9e;
+            }
+            input:-moz-placeholder {
+              /* Mozilla Firefox 4 to 18 */
+              font-size: 14px;
+              color: #9e9e9e;
+            }
+            input::-moz-placeholder {
+              /* Mozilla Firefox 19+ */
+              font-size: 14px;
+              color: #9e9e9e;
+            }
+            input:-ms-input-placeholder {
+              /* Internet Explorer 10+ */
+              font-size: 14px;
+              color: #9e9e9e;
+            }
         }
         .btn {
           width: 300px;

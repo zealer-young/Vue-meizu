@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <product-param v-bind:title="product.name">
+    <product-param v-bind:title="infoTitle.title">
       <template v-slot:buy>
         <button class="btn" @click="buy">立即购买</button>
       </template>
@@ -64,7 +64,7 @@ import ProductParam from "./../components/ProductParam";
 export default {
   name: "product",
   components: {
-    swiper,
+    swiper, 
     swiperSlide,
     ProductParam
   },
@@ -72,6 +72,7 @@ export default {
     return {
       showSlide: "", //控制动画效果
       product: {}, //商品信息
+      infoTitle:{},//魅族17 title
       swiperOption: {
         autoplay: true,
         slidesPerView: 3,
@@ -86,6 +87,7 @@ export default {
   },
   mounted() {
     this.getProductInfo();
+    this.getInfoTitle();
   },
   methods: {
     getProductInfo() {
@@ -93,6 +95,13 @@ export default {
       let id = this.$route.params.id;
       this.axios.get(`/products/${id}`).then(res => {
         this.product = res;
+      });
+    },
+    //商品标题
+    getInfoTitle(){
+      let id = this.$route.params.id;
+      this.axios.get(`http://rap2.taobao.org:38080/app/mock/255494/example/products/${id}`).then(res => {
+        this.infoTitle = res;
       });
     },
     buy() {

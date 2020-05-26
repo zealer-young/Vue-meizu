@@ -6,12 +6,6 @@
           ><img src="../../public/imgs/goodDetails/logo-meizu.png" alt=""
         /></a>
       </div>
-      <div class="bread">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item v-for="(item,index) in breadList"
-          :key="index">{{item.name}}</el-breadcrumb-item>
-        </el-breadcrumb>
-      </div>
       <div class="username">
         <a href="/#/order/list" class="orderList">我的订单</a>
         <a href="javascript:;">{{ username }}的商城</a>
@@ -21,7 +15,6 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import { Breadcrumb,BreadcrumbItem } from "element-ui";
 export default {
   name: "order-header",
   data () {
@@ -40,10 +33,6 @@ export default {
           // path: "/order/list"
         }]
     }
-  },
-  components: {
-    [Breadcrumb.name]:Breadcrumb,
-    [BreadcrumbItem.name]:BreadcrumbItem,
   },
   props: {
     title: String,
@@ -74,14 +63,6 @@ export default {
         height: 24px;
       }
     }
-  }
-  .bread{
-    width: 300px;
-    height: 80px;
-    margin-left: 50px;
-    float: left;
-    display: flex;
-    align-items: center;
   }
   .username {
     float: right;

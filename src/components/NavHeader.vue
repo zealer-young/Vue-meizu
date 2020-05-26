@@ -216,8 +216,6 @@ export default {
         })
         .then((res) => {
           this.musicList = res.list;
-          console.log(res.list);
-          
         });
     },
     //获取 Navheader > children 配件 产品列表数据（http://rap2.taobao.org）
@@ -231,8 +229,6 @@ export default {
         })
         .then((res) => {
           this.accessoriesList = res.list;
-          console.log(res.list);
-          
         });
     },
     //获取商品的购物车的数量

@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <product-param v-bind:title="product.name"></product-param>
+    <product-param v-bind:title="infoTitle.title"></product-param>
     <div class="wrapper">
       <div class="container clearfix">
         <div class="swiper">
@@ -34,7 +34,7 @@
           </swiper>
         </div>
         <div class="content">
-          <h2 class="item-title">{{product.name}}</h2>
+          <h2 class="item-title">{{infoTitle.title}}</h2>
           <p class="item-info">
             相机全新升级 / 960帧超慢动作 / 手持超级夜景 / 全球首款双频GPS / 骁龙845处理器 / 红
             外人脸解锁 / AI变焦双摄
@@ -105,6 +105,7 @@ export default {
       // err:'',
       version: 1, //商品版本切换
       product: {}, //商品信息
+      infoTitle:{},//魅族17 title
       swiperOption: {
         autoplay: false,
         effect: "fade",
@@ -129,6 +130,7 @@ export default {
   },
   mounted() {
     this.getProductInfo();
+    this.getInfoTitle();
     this.$nextTick(() => {
       // swiper-slide相互绑定
       const swiperTop = this.$refs.swiperTop.swiper;
@@ -142,6 +144,13 @@ export default {
       let id = this.$route.params.id;
       this.axios.get(`/products/${id}`).then(res => {
         this.product = res;
+      });
+    },
+    //商品标题
+    getInfoTitle(){
+      let id = this.$route.params.id;
+      this.axios.get(`http://rap2.taobao.org:38080/app/mock/255494/example/products/${id}`).then(res => {
+        this.infoTitle = res;
       });
     },
     addCart() {

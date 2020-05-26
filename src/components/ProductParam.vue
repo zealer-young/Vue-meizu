@@ -2,7 +2,7 @@
   <div class="nav-bar" v-bind:class="{'is_fixed':isFixed}">
     <div class="container">
       <div class="pro-title">
-        魅族 17
+        {{ title }}
       </div>
       <div class="pro-param">
         <a href="javascript:;">概述</a>
@@ -64,6 +64,8 @@ export default {
       width: 100%;
     }
     .container{
+      margin-right:auto;
+      margin-left:auto;
       @include flex();
       .pro-title{
         font-size:26px;
