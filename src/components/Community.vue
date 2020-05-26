@@ -10,7 +10,7 @@
             <div class="section-item-box goods-box">
               <a
                 class="box-img box-img-retina"
-                href="https://github.com/zealer-young"
+                href="https://bbs.meizu.cn/"
                 target="_blank"
                 data-mtype="gw_index_rp_1_1"
                 data-bh="click_index_rp_1_1"

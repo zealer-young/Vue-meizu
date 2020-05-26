@@ -165,7 +165,7 @@ export default {
           //跳转路由至购物车页面
           this.$router.push("/cart");
         });
-    }
+    },
   }
 };
 </script>

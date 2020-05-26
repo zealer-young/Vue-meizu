@@ -264,6 +264,7 @@ export default {
 @import "./../assets/scss/config.scss";
 .header {
   .user {
+    width: 100px;
     position: relative;
     .icon-login {
       position: absolute;
@@ -323,7 +324,7 @@ export default {
         width: 15px;
         height: 15px;
         top: -12px;
-        right: -86px;
+        right: 14px;
         background-color: red;
         color: #fff;
         text-align: center;
@@ -336,15 +337,15 @@ export default {
     .nav-header {
       display: flex;
       justify-content: center;
-      top: 0px;
-      width: 99.9%;
+      top: 0;
+      width: 101%;
       .con {
         z-index: 999;
         position: relative;
         width: 99.8%;
-        margin-right: auto;
-        margin-left: auto;
         height: 82px;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -424,8 +425,8 @@ export default {
                     overflow:hidden;
                     text-overflow:ellipsis;
                     white-space:nowrap;
-                    width: 150px;
-                  }
+                    width: 150px;                  
+                    }
                   .pro-price {
                     color: #333;
                   }

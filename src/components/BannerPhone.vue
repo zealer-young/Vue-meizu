@@ -4,7 +4,7 @@
       <div class="product" v-for="i in item.data" :key="i.id">
         <div class="item">
           <div class="info">{{ i.info }}</div>
-          <a href="/#/product/30">
+          <a href="/#/product/31" target="_blank">
             <img v-lazy="i.bannerUrl" />
           </a>
         </div>
@@ -12,7 +12,7 @@
           <ul class="goods-left">
             <li class="goods-item" v-for="j in i.blackList" :key="j.id">
               <div class="goods-box">
-                <a href="" target="_blank"
+                <a href="/#/product/31" target="_blank"
                   ><img class="goods-img" v-lazy="j.urlLeft" /><span
                     class="box-info "
                     ><span class="goods-name">{{ j.nameLeft }}</span
@@ -28,7 +28,7 @@
           <ul class="goods">
             <li class="goods-item" v-for="k in i.boxList" :key="k.id">
               <div class="goods-box">
-                <a href="" target="_blank"
+                <a href="/#/product/31" target="_blank"
                   ><img
                     class="goods-img"
                     v-lazy="k.url"

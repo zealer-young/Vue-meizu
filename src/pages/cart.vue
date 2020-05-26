@@ -17,7 +17,7 @@
           </ul>
           <ul class="cart-item-list">
             <!-- v-for="(item,index) in 列表名" v-bind:key="index" 使用v-for的语法格式-->
-            <li class="cart-item" v-for="(item, index) in list" v-bind:key="index">
+            <li class="cart-item" v-for="(item, index) in list2" v-bind:key="index">
               <div class="item-check">
                 <span
                   class="checkbox"
@@ -27,7 +27,7 @@
               </div>
               <div class="item-name">
                 <img v-lazy="item.productMainImage" alt />
-                <span>{{ item.productName + "," + item.productSubtitle }}</span>
+                <span>{{ item.productName }}</span>
               </div>
               <div class="item-price">￥{{ item.productPrice }}</div>
               <div class="item-num">
@@ -74,9 +74,10 @@ export default {
   data() {
     return {
       list: [], //商品列表
+      list2:[], //替换后商品列表
       allChecked: false, //是否全选
       cartTotalPrice: 0, //商品总金额
-      checkedNum: 0 //选中商品数量
+      checkedNum: 0 ,//选中商品数量
     };
   },
   mounted() {
@@ -140,6 +141,44 @@ export default {
       this.allChecked = res.selectedAll;
       this.cartTotalPrice = res.cartTotalPrice;
       this.checkedNum = this.list.filter(item => item.productSelected).length;
+      // console.log(this.list);
+      let list = this.list;
+      for(let item of list){
+        if(item.productId===30){
+          item.productName = '魅族 17';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/07/C4/Cgbj0F6zwMuANEeWAAw6yQFAJXM097.png@240x240.jpg';
+        }
+        if(item.productId===31){
+          item.productName = '魅族 17 Pro';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/07/C5/Cgbj0F6zwUqAdPsoAAtCAjTT7ek670.png@240x240.jpg'
+        }
+        if(item.productId===32){
+          item.productName = '魅族 17 Pro 晓芳窑艺术典藏版';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/07/CF/Cgbj0F61BXaARxdvAAqWtjjyY08964.png@240x240.jpg'
+        }
+        if(item.productId===33){
+          item.productName = '魅族16T';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/07/62/Cgbj0F2upwyAKqQSAAlGpvLiEdc809.png@240x240.jpg'
+        }
+        if(item.productId===34){
+          item.productName = '魅族 16Xs';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/07/2C/Cgbj0FzvRI6AWu1jAAxIbnS8M5Q295.png@240x240.jpg'
+        }
+        if(item.productId===35){
+          item.productName = '魅族 16th';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/05/E2/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png@240x240.jpg'
+        }
+        if(item.productId===36){
+          item.productName = '魅族 X8';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/06/A9/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png@240x240.jpg'
+        }
+        if(item.productId===37){
+          item.productName = '魅族 16 X';
+          item.productMainImage = 'https://openfile.meizu.com/group1/M00/06/BC/Cgbj0FvINLWACd0AAAh2dGv5_R0516.png@240x240.jpg'
+        }
+      }
+      this.list2 = list
+      
     },
     //购物车下单
     order() {
@@ -149,7 +188,7 @@ export default {
       } else {
         this.$router.push("/order/confirm");
       }
-    }
+    },
   }
 };
 </script>

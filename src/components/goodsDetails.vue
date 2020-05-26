@@ -3,12 +3,12 @@
     <div class="item">
       <div class="banner">
         <div class="info">手机</div>
-        <a href="/#/product/30">
+        <a href="/#/product/30" target="_blank">
           <img src="../../public/imgs/bannerphone/001.jpg" />
         </a>
       </div>
       <div class="wrap container">
-        <div class="big" v-for="(items) in bigList" :key="items.id">
+        <div class="big" v-for="(items) in bigList" :key="items.id" @click="goToProduct">
           <span class="product-sign-red">{{items.sign}}</span>
           <span class="box-info">
             <span class="goods-name">{{items.name}}</span>
@@ -22,7 +22,7 @@
             <img :src="items.url" alt />
           </a>
         </div>
-        <div class="small" v-for="(items) in smallList" :key="items.id">
+        <div class="small" v-for="(items) in smallList" :key="items.id" @click="goToProduct">
           <span class="product-sign-red">{{items.sign}}</span>
           <a>
             <img v-lazy="items.url" alt />
@@ -100,7 +100,17 @@ export default {
       ]
     };
   },
-  methods: {}
+  mounted () {
+    
+  },
+  methods: {
+    goToProduct() {
+      let routeUrl = this.$router.resolve({
+          path: "/product/30"
+      });
+      window.open(routeUrl .href, '_blank');
+    },
+  },
   // methods: {
   // getGoodsDetailsData() {
   //   axios.get('/js/index.json').then((res)=>{
@@ -249,6 +259,7 @@ export default {
         transition: opacity 0.2s linear;
         opacity: 0.8;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        Cursor : pointer;
       }
     .small {
       width: 303px;
@@ -302,6 +313,7 @@ export default {
       }
       &:hover {
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        cursor : pointer;
       }
     }
   }

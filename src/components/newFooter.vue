@@ -5,7 +5,7 @@
         <div class="footer-row">
           <ul class="footer-service">
             <li v-for="item in footer.service" :key="item.id">
-              <a href="https://github.com/zealer-young/Imitate-MI-Store">
+              <a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank">
                 <img v-lazy="item.url" alt="" />
                 <span>{{item.info}}</span>
               </a>
@@ -14,22 +14,22 @@
           <div class="hotline">
             <span>周一至周日 8:00-20:00</span>
             <p>400-788-3333</p>
-            <a href="https://github.com/zealer-young/Imitate-MI-Store">在线客服</a>
+            <a href="javascript:;">在线客服</a>
           </div>
         </div>
         <div class="footer-co">
           <div class="info-left">
             <ul>
               <li v-for="item in footer.infoLeft" :key="item.id">
-                <a href="https://github.com/zealer-young/Imitate-MI-Store">{{item.info}}</a>
+                <a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank">{{item.info}}</a>
               </li>
             </ul>
             <div class="footer-certificate">
-              Github:<a href="https://github.com/zealer-young/Imitate-MI-Store">https://github.com/zealer-young/Imitate-MI-Store</a>
+              Github:<a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank">https://github.com/zealer-young/Imitate-MI-Store</a>
             </div>
           </div>
           <div class="focus">
-            <a href="https://github.com/zealer-young/Imitate-MI-Store" v-for="item in footer.focus" :key="item.id">
+            <a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank" v-for="item in footer.focus" :key="item.id">
               <img v-lazy="item.onePic" alt="" class="focusOne"/>
               <img v-lazy="item.twoPic" alt="" class="focusTwo"/>
             </a>
