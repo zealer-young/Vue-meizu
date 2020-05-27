@@ -3,11 +3,13 @@
     <div class="swiper-box">
       <swiper v-bind:options="swiperOption">
         <swiper-slide
-          ><img
+          ><a href="/#/product/32" target="_blank">
+            <img
             src="../../public/imgs/banner/005.jpg"
             ref="img"
             :style="{ marginLeft: left }"
-        /></swiper-slide>
+        /></a>
+        </swiper-slide>
         <swiper-slide
           ><img
             src="../../public/imgs/banner/002.jpg"
@@ -15,11 +17,13 @@
             :style="{ marginLeft: left }"
         /></swiper-slide>
         <swiper-slide
-          ><img
+          ><a href="/#/product/30" target="_blank">
+          <img
             src="../../public/imgs/banner/003.jpg"
             ref="img"
             :style="{ marginLeft: left }"
-        /></swiper-slide>
+        /></a>
+        </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination" slot="pagination"></div>
         <!-- <div class="swiper-button-prev" slot="button-prev"></div>
@@ -102,6 +106,9 @@ export default {
       width: 2560px;
       height: 680px;
     }
+    img:hover {
+        cursor: pointer;
+      }
     .swiper-button-next {
       right: 12px;
     }

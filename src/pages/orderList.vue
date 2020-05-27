@@ -100,6 +100,7 @@ export default {
   data() {
     return {
       list: [],
+      list2:[],
       loading: false,
       pageSize: 10,
       pageNum: 1,
@@ -128,6 +129,43 @@ export default {
           this.total = res.total;
           this.showNextPage = res.hasNextPage;
           this.busy = false;
+          for(let order of this.list){
+            for(let item of order.orderItemVoList){
+            if(item.productId===30){
+              item.productName = '魅族 17';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/07/C4/Cgbj0F6zwMuANEeWAAw6yQFAJXM097.png@240x240.jpg';
+            }
+            if(item.productId===31){
+              item.productName = '魅族 17 Pro';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/07/C5/Cgbj0F6zwUqAdPsoAAtCAjTT7ek670.png@240x240.jpg'
+            }
+            if(item.productId===32){
+              item.productName = '魅族 17 Pro 晓芳窑艺术典藏版';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/07/CF/Cgbj0F61BXaARxdvAAqWtjjyY08964.png@240x240.jpg'
+            }
+            if(item.productId===33){
+              item.productName = '魅族16T';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/07/62/Cgbj0F2upwyAKqQSAAlGpvLiEdc809.png@240x240.jpg'
+            }
+            if(item.productId===34){
+              item.productName = '魅族 16Xs';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/07/2C/Cgbj0FzvRI6AWu1jAAxIbnS8M5Q295.png@240x240.jpg'
+            }
+            if(item.productId===35){
+              item.productName = '魅族 16th';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/05/E2/Cgbj0FtqgnmAFgJPAAhgnScaoFg724.png@240x240.jpg'
+            }
+            if(item.productId===36){
+              item.productName = '魅族 X8';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/06/A9/Cgbj0FusSK2AQZgiAAlFKHoO-co889.png@240x240.jpg'
+            }
+            if(item.productId===37){
+              item.productName = '魅族 16 X';
+              item.productImage = 'https://openfile.meizu.com/group1/M00/06/BC/Cgbj0FvINLWACd0AAAh2dGv5_R0516.png@240x240.jpg'
+            }
+          }
+          this.list2 = order.orderItemVoList;
+          }
         })
         .catch(() => {
           this.loading = false;
