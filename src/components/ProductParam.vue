@@ -5,10 +5,10 @@
         {{ title }}
       </div>
       <div class="pro-param">
-        <a href="javascript:;">概述</a>
-        <a href="javascript:;">魅族 17 航母限定版</a>
-        <a href="javascript:;">参数</a>
-        <a href="javascript:;">换机指引</a>
+        <a href="javascript:;">概述 </a>
+        <a href="javascript:;"> MEIZU </a>
+        <a href="javascript:;">参数 </a>
+        <a href="javascript:;">换机指引 </a>
         <slot name="buy"></slot>
       </div>
     </div>

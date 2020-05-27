@@ -51,7 +51,7 @@
           <div class="video" v-bind:class="showSlide">
             <span class="icon-close" @click="closeVideo"></span>
             <!-- video标签 muted属性设置静音输出 autoplay自动播放-->
-            <video src="/imgs/product/meizu-video.mp4" muted autoplay controls="controls"></video>
+            <video src="../../public/imgs/product/meizu-video.mp4" muted autoplay controls="controls"></video>
           </div>
         </div>
       </div>

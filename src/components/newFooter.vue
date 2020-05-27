@@ -5,7 +5,7 @@
         <div class="footer-row">
           <ul class="footer-service">
             <li v-for="item in footer.service" :key="item.id">
-              <a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank">
+              <a href="https://github.com/zealer-young/Vue-meizu" target="_blank">
                 <img v-lazy="item.url" alt="" />
                 <span>{{item.info}}</span>
               </a>
@@ -21,15 +21,15 @@
           <div class="info-left">
             <ul>
               <li v-for="item in footer.infoLeft" :key="item.id">
-                <a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank">{{item.info}}</a>
+                <a href="https://github.com/zealer-young/Vue-meizu" target="_blank">{{item.info}}</a>
               </li>
             </ul>
             <div class="footer-certificate">
-              Github:<a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank">https://github.com/zealer-young/Imitate-MI-Store</a>
+              Github:<a href="https://github.com/zealer-young/Vue-meizu" target="_blank">https://github.com/zealer-young/Vue-meizu</a>
             </div>
           </div>
           <div class="focus">
-            <a href="https://github.com/zealer-young/Imitate-MI-Store" target="_blank" v-for="item in footer.focus" :key="item.id">
+            <a href="https://github.com/zealer-young/Vue-meizu" target="_blank" v-for="item in footer.focus" :key="item.id">
               <img v-lazy="item.onePic" alt="" class="focusOne"/>
               <img v-lazy="item.twoPic" alt="" class="focusTwo"/>
             </a>

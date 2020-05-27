@@ -185,8 +185,6 @@ export default{
   mounted(){
     this.getAddressList();
     this.getCartList();
-    this.replaceList();
-
   },
   methods:{
     getAddressList(){
@@ -269,7 +267,6 @@ export default{
     },
     getCartList(){
         this.axios.get('/carts').then((res)=>{
-        this.replaceList(res);  
         let list = res.cartProductVoList;//获取购物车中所有商品数据
         this.cartTotalPrice = res.cartTotalPrice;//当前购物车中已经选中的商品的总金额
         //filter()是一个带有过滤功能的方法
@@ -277,30 +274,9 @@ export default{
         this.cartList.map((item)=>{
           this.count += item.quantity;
         })
-      })
-    },
-    //订单提交
-    orderSubmit(){
-      let item = this.list[this.checkIndex];
-      if(!item){
-        this.$message.error('请选择一个收货地址');
-        return;
-      }
-      this.axios.post('/orders',{
-        shippingId:item.id
-      }).then((res)=>{
-        this.$router.push({
-          path:'/order/pay',
-          query:{
-            orderNo:res.orderNo
-          }
-        })
-      })
-    },
-    replaceList(res){
-      this.cartList = res.cartProductVoList;
-      let list = this.cartList;
-      for(let item of list){
+        
+        let newList = this.cartList;
+        for(let item of newList){
         if(item.productId===30){
           item.productName = '魅族 17';
           item.productMainImage = 'https://openfile.meizu.com/group1/M00/07/C4/Cgbj0F6zwMuANEeWAAw6yQFAJXM097.png@240x240.jpg';
@@ -334,8 +310,27 @@ export default{
           item.productMainImage = 'https://openfile.meizu.com/group1/M00/06/BC/Cgbj0FvINLWACd0AAAh2dGv5_R0516.png@240x240.jpg'
         }
       }
-      this.list2 = list;
-    }
+      this.list2 = newList;
+      })
+    },
+    //订单提交
+    orderSubmit(){
+      let item = this.list[this.checkIndex];
+      if(!item){
+        this.$message.error('请选择一个收货地址');
+        return;
+      }
+      this.axios.post('/orders',{
+        shippingId:item.id
+      }).then((res)=>{
+        this.$router.push({
+          path:'/order/pay',
+          query:{
+            orderNo:res.orderNo
+          }
+        })
+      })
+    },
   }
 }
 </script>

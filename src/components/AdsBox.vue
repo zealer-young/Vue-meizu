@@ -2,7 +2,7 @@
   <div class="container">
     <div class="ads-box">
       <a
-        href="https://github.com/zealer-young/Imitate-MI-Store"
+        href="javascript:;"
         v-for="(item, index) in adsList"
         :key="index"
       >

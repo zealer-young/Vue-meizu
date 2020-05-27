@@ -74,14 +74,14 @@
             </div>
             <div class="item-menu">
               <span><a 
-              href="https://github.com/zealer-young"
+              href="https://github.com/zealer-young/Vue-meizu"
                 target="_blank"
                 class="clearUnderline"
                 >Flyme</a></span>
             </div>
             <div class="item-menu">
               <span><a 
-              href="https://github.com/zealer-young"
+              href="https://github.com/zealer-young/Vue-meizu"
                 target="_blank"
                 class="clearUnderline"
                 >社区</a></span>

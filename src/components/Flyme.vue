@@ -7,13 +7,13 @@
       <div class="wrapper">
         <ul class="item-wrap container">
           <li class="big">
-            <a href="https://github.com/zealer-young" target="_blank">
+            <a href="https://github.com/zealer-young/Vue-meizu" target="_blank">
               <img src="../../public/imgs/Flyme/001.jpg" alt />
             </a>
           </li>
           <li class="small" v-for="(items) in flymeListSmall" :key="items.id">
             <div class="item-box">
-              <a href="https://github.com/zealer-young" target="_blank">
+              <a href="https://github.com/zealer-young/Vue-meizu" target="_blank">
                 <div class="item-img">
                   <img v-lazy="items.itemImgUrl" alt />
                 </div>

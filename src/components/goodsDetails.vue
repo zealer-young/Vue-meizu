@@ -3,12 +3,12 @@
     <div class="item">
       <div class="banner">
         <div class="info">手机</div>
-        <a href="/#/product/30" target="_blank">
+        <a href="/#/product/32" target="_blank">
           <img src="../../public/imgs/bannerphone/001.jpg" />
         </a>
       </div>
       <div class="wrap container">
-        <div class="big" v-for="(items) in bigList" :key="items.id" @click="goToProduct">
+        <div class="big" v-for="(items) in bigList" :key="items.id" @click="goToProduct(items)">
           <span class="product-sign-red">{{items.sign}}</span>
           <span class="box-info">
             <span class="goods-name">{{items.name}}</span>
@@ -22,7 +22,7 @@
             <img :src="items.url" alt />
           </a>
         </div>
-        <div class="small" v-for="(items) in smallList" :key="items.id" @click="goToProduct">
+        <div class="small" v-for="(items) in smallList" :key="items.id" @click="goToProduct(items)">
           <span class="product-sign-red">{{items.sign}}</span>
           <a>
             <img v-lazy="items.url" alt />
@@ -47,54 +47,54 @@ export default {
     return {
       bigList: [
         {
-          id: "bigList-0",
+          id: "31",
           sign: "新品",
           name: "魅族 17 Pro",
           desc:
             "高通骁龙 865 + UFS 3.1 + LPDDR5 | 6400W 全场景 AR 专业影像系统",
-          price: 4299,
+          price: 1299,
           url: require("../../public/imgs/goodDetails/big17 pro.png")
         },
         {
-          id: "bigList-1",
+          id: "30",
           sign: "新品",
           name: "魅族 17",
           desc: "高通骁龙 865 + UFS 3.1 高速闪存  |  6400W 全场景影像系统",
-          price: 3699,
+          price: 1799,
           url: require("../../public/imgs/goodDetails/big17.png")
         }
       ],
       smallList: [
         {
-          id: "smallList-0",
+          id: "32",
           sign: "新品",
           url: require("../../public/imgs/goodDetails/small-1.png"),
-          name: "魅族 17 航母限定版",
-          desc: "以梦为舰 热爱起航",
-          price: 4299
+          name: "魅族 17 晓芳窑艺术典藏版",
+          desc: "这艺术 科技极了",
+          price: 2599
         },
         {
-          id: "smallList-1",
+          id: "33",
           sign: "领券",
-          name: "魅族 16s",
+          name: "魅族 16T",
           desc: "【限时领券立减400】高通骁龙855",
-          price: 2699,
+          price: 2599,
           url: require("../../public/imgs/goodDetails/small-L.png")
         },
         {
-          id: "smallList-2",
+          id: "34",
           sign: "热卖",
-          name: "魅族 16T",
+          name: "魅族 16Xs",
           desc: " 6.5英寸极边全面屏 | 骁龙855旗舰处理器",
-          price: 1999,
+          price: 3699,
           url: require("../../public/imgs/goodDetails/small-R1.png")
         },
         {
-          id: "smallList-3",
+          id: "35",
           sign: "热卖",
-          name: "魅族 16Xs",
+          name: "魅族 16th",
           desc: " 极边全面屏 | 4800W AI三摄 ",
-          price: 1499,
+          price: 19999,
           url: require("../../public/imgs/goodDetails/small-R2.png")
         }
       ]
@@ -104,9 +104,9 @@ export default {
     
   },
   methods: {
-    goToProduct() {
+    goToProduct(res) {
       let routeUrl = this.$router.resolve({
-          path: "/product/30"
+          path: `/product/${res.id}`
       });
       window.open(routeUrl .href, '_blank');
     },
