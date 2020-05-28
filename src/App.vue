@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <!-- <keep-alive include="Flyme"> -->
-    <router-view></router-view>
-    <!-- </keep-alive>   -->
+    <router-view></router-view> 
   </div>
 </template>
 

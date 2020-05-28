@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('./iconfont/iconfont.eot?t=1590635979224');
+  /* IE9 */
+  src: url('./iconfonticonfonticonfont.eot?t=1590635979224#iefix') format('embedded-opentype'),
+  /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQUAAsAAAAACJAAAAPGAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqETINxATYCJAMQCwoABCAFhG0HRhthB8gekqSfBO/DLQCuADEDx8P/r/1vn5k7dt/7oslwr746CU8qHW+i0UOlEsl0PIpn8jvQy8unBqaHVHD9tM7P5QhjEyd469g5l2uZ/JfBbhUh+TS3ueNk9rasQajKty070YNjpksbyCxvlS5RRRFlhQMcRevAIj8iyf5FXsx/GLugJd5MIJsTA9lTdnAhqiTmtkCcV/tKVGVsUkNlaIW64sQkHkOlLe6QLoBHwe/HP0lhQaEqmXv3ntz0xMpP/99H1EAYHPEQIJ/OA3YaJdYAiThd6TuqGCXXQGV1cZltQKtVMNVM4+8jQSDFUXSt9S+PUCqImlneB1tQquSnv8Mm+Nkoq9I/wjIFfJATWowCr4GvYOJm0DVq5ejfmyFdin50C7Jv3/KKDb4H9c3tUNvJXW/z4YMom7GtrOAOzQafgnRzOjGLmN6aIbXFKV6NYdo46153nS2BNeSh/HLfeOiPLezgW3N69ROxA3xPgj/5cSTDCp/BZq2t70270huN4659Q3DgxYOVzT0rDvtt2tp2jMPcp/cZL2Tkqczm7F0ADE7hCuPzR6bt43s6XvH0xJCgRz48cNZuDLfGe+wuhjr57AEe2XOkrrPO3iI3rgYOz8442LUju6TDzYNOZk5PYP1oD7TcLpQ/Y9v9i7Yd4pDsn2yPLtni84bZY3CTjhIVBNq57yWmixHZQTSVWOx8tqIrrni6VCEvD3zV46LoNm3fjuLhrpVVK/cDprmmWP5Xlj40QkJOTWcnxYubSzVHLSdBCtfRVlkNa7vEiuvfj9YQnEuiNdCFLLDFvqVAK9aQX8mIVivJltiTuA1JvOd/h7eLX7kDlwkMtgoCPQMxmElIeRNQnkP9fv46b4N3HoT2Of9b64fv+vJ/dB6ousv+oFyV/+q6BAyIJLnStKekqByZXp7sUck7q8gyfnCWca9TGKY6lxNaUwkUGrNQai1BJuwaqPRsgVprO2SrlZ/eM6FBUaQOq3QCCKMWoTDsDZRGXSIT9gUq0/6gNhooZPvC+YI9y0JtVdyAitGD6wcItc2M7eSasPIM/ZtEUVoZEK6Q8jACo3EJ+cw2ZkhTHMhv/TFmA4ZsClvgdpgkFhzZCDUPBcxubjheUfVNQ9qmosZuBCkMeYDEA6CmWRnjdWY1hZ8/g3w3Ego1tFRFryCSC+cHieIkdEBu67JOLbfymka3fGOaMAMoECsFyoAHJVbSAnXVqyJIY0NUA+LOnHjUTtFVN7S8IX3DQ5CZF0hRRBkpKtVllc2wvtE72rkw8we1Ii5rbkQSAgAA') format('woff2'),
+  url('./iconfonticonfont.woff?t=1590635979224') format('woff'),
+  url('./iconfonticonfont.ttf?t=1590635979224') format('truetype'),
+  /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('./iconfonticonfont.svg?t=1590635979224#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 30px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconphone:before {
+  content: "\e61f";
+}
+
+.iconshopping-cart:before {
+  content: "\e6d5";
+}
+
+.iconuser:before {
+  content: "\e673";
+}
+

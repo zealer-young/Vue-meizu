@@ -7,8 +7,8 @@
         <div class="title">微信扫码<em @click="close"></em></div>
         <div class="qrcode"><img v-bind:src="img"></div>
         <div class="tip">
-          <p>您的<span class="theme-color">Star</span></p>
-          <p>是对我们最大的支持与鼓励</p>
+          <p><span class="theme-color">即将跳转至Github页面</span></p>
+          <p>您的Star是对我们最大的支持与鼓励</p>
         </div>
       </div>
     </div>

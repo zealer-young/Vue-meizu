@@ -11,11 +11,13 @@
         /></a>
         </swiper-slide>
         <swiper-slide
-          ><img
+          ><a href="/#/product/30" target="_blank">
+          <img
             src="../../public/imgs/banner/002.jpg"
             ref="img"
             :style="{ marginLeft: left }"
-        /></swiper-slide>
+        /></a>
+        </swiper-slide>
         <swiper-slide
           ><a href="/#/product/30" target="_blank">
           <img
