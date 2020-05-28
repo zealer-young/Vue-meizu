@@ -93,9 +93,9 @@ export default {
     register() {
       this.axios
         .post("/user/register", {
-          username: "admin1",
-          password: "admin1",
-          email: "admin1@163.com"
+          username: "young",
+          password: "young",
+          email: "young@163.com"
         })
         .then(() => {
           this.$message.success("注册成功");
@@ -105,7 +105,7 @@ export default {
       setTimeout(() => {
         this.$message.success({
           duration: 5000,
-          message: "该功能正在开发 test账号：admin1 ; test密码：admin1"
+          message: "该功能正在开发 test账号：young ; test密码：young"
         });
       }, 700);
     }

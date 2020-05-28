@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       showSlide: "", //控制动画效果
-      product: {}, //商品信息
+      // product: {}, //商品信息
       infoTitle:{},//魅族17 title
       swiperOption: {
         autoplay: true,
@@ -86,17 +86,17 @@ export default {
     };
   },
   mounted() {
-    this.getProductInfo();
+    // this.getProductInfo();
     this.getInfoTitle();
   },
   methods: {
-    getProductInfo() {
-      //获取路由的参数方法this.$route.parmas
-      let id = this.$route.params.id;
-      this.axios.get(`/products/${id}`).then(res => {
-        this.product = res;
-      });
-    },
+    // getProductInfo() {
+    //   //获取路由的参数方法this.$route.parmas
+    //   let id = this.$route.params.id;
+    //   this.axios.get(`/products/${id}`).then(res => {
+    //     this.product = res;
+    //   });
+    // },
     //商品标题
     getInfoTitle(){
       let id = this.$route.params.id;

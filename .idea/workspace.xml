@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d70e6751-ac78-4ebb-808a-da421c343f95" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/goodsDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/goodsDetails.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/swiper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/swiper.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/iconfont.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/iconfont/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/iconfont/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/iconfont/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/iconfont/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/iconfont/iconfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/orderList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +68,7 @@
       <workItem from="1585117584234" duration="209000" />
       <workItem from="1585490664683" duration="363000" />
       <workItem from="1590057701494" duration="8922000" />
+      <workItem from="1590633240393" duration="3415000" />
     </task>
     <servers />
   </component>
@@ -74,7 +80,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
