@@ -15,10 +15,10 @@
             <span class="checked">帐号登录</span>
           </h3>
           <div class="input">
-            <input type="text" placeholder=" test账号：admin1 " v-model="username" />
+            <input type="text" placeholder=" test账号：young " v-model="username" />
           </div>
           <div class="input">
-            <input type="password" placeholder=" test密码：admin1 " v-model="password" />
+            <input type="password" placeholder=" test密码：young " v-model="password" />
           </div>
           <div class="btn-box">
             <a href="javascript:;" class="btn" @click="login">登录</a>
